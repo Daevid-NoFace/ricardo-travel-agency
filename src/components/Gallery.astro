@@ -1,0 +1,112 @@
+---
+// Gallery section with grid layout
+const galleryItems = [
+  {
+    title: "Colorful Colonial Buildings in Havana",
+    description: "Vibrant pastel facades line the streets of Old Havana"
+  },
+  {
+    title: "Vintage American Cars on Malecón",
+    description: "Classic 1950s automobiles cruise the iconic seawall"
+  },
+  {
+    title: "Pristine Caribbean Beaches",
+    description: "Crystal-clear turquoise waters meet white sand"
+  },
+  {
+    title: "Tobacco Fields in Viñales",
+    description: "Lush green plantations beneath dramatic mogotes"
+  },
+  {
+    title: "Cuban Street Musicians",
+    description: "Live son and salsa fill the air in Trinidad"
+  },
+  {
+    title: "Trinidad Cobblestone Streets",
+    description: "Colonial charm preserved in every corner"
+  },
+  {
+    title: "Sunset at Havana Malecón",
+    description: "Golden hour over the Caribbean Sea"
+  },
+  {
+    title: "Traditional Cuban Cuisine",
+    description: "Authentic flavors and fresh ingredients"
+  },
+  {
+    title: "Cienfuegos French Architecture",
+    description: "Elegant neoclassical buildings by the bay"
+  },
+  {
+    title: "Varadero Beach Paradise",
+    description: "20km of pristine coastline"
+  },
+  {
+    title: "Cuban Salsa Dancing",
+    description: "Passionate rhythms and vibrant culture"
+  },
+  {
+    title: "Valle de Viñales Landscape",
+    description: "UNESCO World Heritage natural beauty"
+  }
+];
+---
+
+<section id="gallery" class="py-20 bg-white">
+  <div class="container mx-auto px-4">
+    <!-- Section Header -->
+    <div class="text-center mb-16 max-w-3xl mx-auto">
+      <span class="text-coral font-semibold text-sm uppercase tracking-wider mb-4 block">Visual Journey</span>
+      <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+        Cuba in <span class="text-caribbean-blue">Pictures</span>
+      </h2>
+      <p class="text-lg text-gray-700 leading-relaxed">
+        A glimpse into the vibrant colors, rich culture, and breathtaking landscapes that make Cuba unforgettable.
+      </p>
+    </div>
+
+    <!-- Gallery Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 max-w-7xl mx-auto">
+      {galleryItems.map((item, index) => (
+        <div class="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 aspect-square">
+          <!-- Image Placeholder with gradient -->
+          <div class={`absolute inset-0 bg-gradient-to-br ${
+            index % 6 === 0 ? 'from-caribbean-blue to-ocean-blue' :
+            index % 6 === 1 ? 'from-coral to-sunset-orange' :
+            index % 6 === 2 ? 'from-tropical-green to-ocean-blue' :
+            index % 6 === 3 ? 'from-sunset-orange to-coral' :
+            index % 6 === 4 ? 'from-ocean-blue to-tropical-green' :
+            'from-caribbean-blue to-tropical-green'
+          }`}></div>
+          
+          <!-- Overlay with hover effect -->
+          <div class="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-all duration-300"></div>
+          
+          <!-- Content -->
+          <div class="absolute inset-0 flex flex-col items-center justify-center p-6 text-center text-white transform group-hover:scale-105 transition-transform duration-300">
+            <h3 class="text-lg font-bold mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              {item.title}
+            </h3>
+            <p class="text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-75">
+              {item.description}
+            </p>
+          </div>
+
+          <!-- Zoom icon on hover -->
+          <div class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"/>
+            </svg>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Gallery Note -->
+    <div class="text-center mt-12">
+      <p class="text-gray-600 italic">
+        These are placeholder images. Your actual gallery will feature stunning photography of real Cuban experiences.
+      </p>
+    </div>
+  </div>
+</section>

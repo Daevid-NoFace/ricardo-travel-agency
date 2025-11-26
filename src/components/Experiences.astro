@@ -1,0 +1,130 @@
+---
+import ExperienceCard from './ExperienceCard.astro';
+
+// Cuban experiences data
+const experiences = [
+  {
+    title: "Classic Havana Tour",
+    description: "Explore the vibrant capital in vintage American cars. Discover Old Havana's colonial architecture, walk along the iconic Malecón, and experience the city's electric energy.",
+    highlights: [
+      "Ride in a classic 1950s convertible",
+      "UNESCO World Heritage Old Havana walking tour",
+      "Visit Plaza de la Catedral and Plaza Vieja",
+      "Sunset at the Malecón seawall"
+    ],
+    imagePlaceholder: "Colorful vintage cars on Havana streets"
+  },
+  {
+    title: "Viñales Valley Adventure",
+    description: "Journey to Cuba's tobacco heartland. Marvel at dramatic limestone mogotes, visit traditional tobacco farms, and explore stunning caves in this UNESCO World Heritage valley.",
+    highlights: [
+      "Visit working tobacco plantations",
+      "Horseback riding through mogote valleys",
+      "Cave exploration at Cueva del Indio",
+      "Traditional Cuban farm lunch"
+    ],
+    imagePlaceholder: "Lush green tobacco fields with mogotes"
+  },
+  {
+    title: "Trinidad Colonial Experience",
+    description: "Step back in time in Cuba's best-preserved colonial town. Wander cobblestone streets, visit sugar plantation ruins, and enjoy live music in charming plazas.",
+    highlights: [
+      "Walking tour of UNESCO colonial center",
+      "Visit to Valle de los Ingenios",
+      "Live music at Casa de la Música",
+      "Artisan craft workshops"
+    ],
+    imagePlaceholder: "Colorful colonial buildings in Trinidad"
+  },
+  {
+    title: "Varadero Beach Paradise",
+    description: "Relax on 20 kilometers of pristine white sand beaches. Enjoy crystal-clear turquoise waters, water sports, and the laid-back Caribbean atmosphere.",
+    highlights: [
+      "Access to best beach locations",
+      "Snorkeling and diving opportunities",
+      "Catamaran sunset cruise",
+      "Fresh seafood dining experiences"
+    ],
+    imagePlaceholder: "Pristine white sand beach with turquoise water"
+  },
+  {
+    title: "Cuban Culture Immersion",
+    description: "Dive deep into authentic Cuban culture. Learn salsa dancing, enjoy traditional cuisine, visit local art studios, and connect with Cuban families.",
+    highlights: [
+      "Salsa dancing lessons with local instructors",
+      "Cooking class: traditional Cuban dishes",
+      "Visit artist studios and galleries",
+      "Home-hosted dinner with Cuban family"
+    ],
+    imagePlaceholder: "Cuban dancers performing salsa"
+  },
+  {
+    title: "Cienfuegos & Bay of Pigs",
+    description: "Discover the 'Pearl of the South' and historic Bay of Pigs. Explore French-influenced architecture, pristine beaches, and important historical sites.",
+    highlights: [
+      "Cienfuegos city tour and Palacio de Valle",
+      "Bay of Pigs Museum visit",
+      "Snorkeling at Playa Girón",
+      "Scenic coastal drive"
+    ],
+    imagePlaceholder: "Elegant French colonial architecture"
+  },
+  {
+    title: "Nature & Wildlife Excursions",
+    description: "Explore Cuba's diverse ecosystems. From tropical rainforests to coastal wetlands, discover unique flora and fauna found nowhere else on Earth.",
+    highlights: [
+      "Birdwatching (Cuban trogon, tocororo)",
+      "Rainforest hiking in Sierra Maestra",
+      "Crocodile farm visits",
+      "Mangrove kayaking adventures"
+    ],
+    imagePlaceholder: "Lush tropical rainforest landscape"
+  },
+  {
+    title: "Santiago de Cuba Heritage",
+    description: "Experience Cuba's second city and cultural capital. Discover Afro-Cuban traditions, revolutionary history, and the birthplace of son music.",
+    highlights: [
+      "Castillo del Morro fortress tour",
+      "Casa de la Trova music venue",
+      "Cemetery of Santa Ifigenia",
+      "Afro-Cuban cultural experiences"
+    ],
+    imagePlaceholder: "Historic fortress overlooking the bay"
+  }
+];
+---
+
+<section id="experiences" class="py-20 bg-gradient-to-b from-sand/20 to-white">
+  <div class="container mx-auto px-4">
+    <!-- Section Header -->
+    <div class="text-center mb-16 max-w-3xl mx-auto">
+      <span class="text-coral font-semibold text-sm uppercase tracking-wider mb-4 block">Unforgettable Journeys</span>
+      <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+        Curated <span class="text-caribbean-blue">Cuban Experiences</span>
+      </h2>
+      <p class="text-lg text-gray-700 leading-relaxed">
+        From vibrant cities to pristine beaches, from cultural immersion to natural wonders—discover the many faces of Cuba through carefully crafted experiences.
+      </p>
+    </div>
+
+    <!-- Experience Cards Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+      {experiences.map((experience) => (
+        <ExperienceCard {...experience} />
+      ))}
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center mt-16">
+      <p class="text-lg text-gray-700 mb-6">
+        Ready to create your perfect Cuban adventure?
+      </p>
+      <a 
+        href="#contact" 
+        class="inline-block px-8 py-4 bg-coral text-white rounded-lg font-semibold text-lg hover:bg-sunset-orange transition-all duration-300 transform hover:scale-105 shadow-lg"
+      >
+        Get in Touch
+      </a>
+    </div>
+  </div>
+</section>

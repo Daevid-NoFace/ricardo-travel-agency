@@ -1,0 +1,80 @@
+---
+// About section with two-column layout
+---
+
+<section id="about" class="py-20 bg-white">
+  <div class="container mx-auto px-4">
+    <div class="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+      <!-- Image Column -->
+      <div class="order-2 md:order-1">
+        <div class="relative">
+          <!-- Placeholder for agent's photo -->
+          <div class="aspect-square rounded-2xl overflow-hidden shadow-2xl bg-[url(/home/david/CascadeProjects/windsurf-project/src/assets/papa.jpg)] bg-center bg-cover flex items-center justify-center">
+            <!-- <div class="text-white text-center p-8">
+              <p class="text-sm opacity-75">Agent Photo Placeholder</p>
+            </div> -->
+          </div>
+          <!-- Decorative Element -->
+          <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-coral rounded-full opacity-20 -z-10"></div>
+          <div class="absolute -top-6 -left-6 w-24 h-24 bg-sunset-orange rounded-full opacity-20 -z-10"></div>
+        </div>
+      </div>
+
+      <!-- Text Column -->
+      <div class="order-1 md:order-2">
+        <div class="mb-4">
+          <span class="text-coral font-semibold text-sm uppercase tracking-wider">About Your Guide</span>
+        </div>
+        
+        <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          Your Local Cuban <span class="text-caribbean-blue">Expert</span>
+        </h2>
+        
+        <p class="text-lg text-gray-700 mb-6 leading-relaxed">
+          ¡Hola! I'm Ricardo, your dedicated guide to experiencing the real Cuba. Born and raised in Havana, I've spent over 25 years helping travelers discover the authentic beauty, rich culture, and warm spirit of my beloved island.
+        </p>
+        
+        <p class="text-lg text-gray-700 mb-8 leading-relaxed">
+          From the colorful streets of Old Havana to the pristine beaches of Varadero, from the tobacco fields of Viñales to the colonial charm of Trinidad, I know every corner of Cuba like the back of my hand. My mission is to create personalized experiences that go beyond typical tourist routes.
+        </p>
+
+        <!-- Trust Indicators -->
+        <div class="grid grid-cols-2 gap-6 mb-8">
+          <div class="bg-sand/30 rounded-lg p-6 text-center transform hover:scale-105 transition-transform">
+            <div class="text-4xl font-bold text-caribbean-blue mb-2">25+</div>
+            <div class="text-gray-700 font-medium">Years Experience</div>
+          </div>
+          
+          <div class="bg-sand/30 rounded-lg p-6 text-center transform hover:scale-105 transition-transform">
+            <div class="text-4xl font-bold text-coral mb-2">500+</div>
+            <div class="text-gray-700 font-medium">Happy Travelers</div>
+          </div>
+        </div>
+
+        <!-- Key Points -->
+        <div class="space-y-4">
+          <div class="flex items-start gap-3">
+            <svg class="w-6 h-6 text-tropical-green flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+            </svg>
+            <p class="text-gray-700"><strong>Local Insider Knowledge:</strong> Access to hidden gems and authentic experiences</p>
+          </div>
+          
+          <div class="flex items-start gap-3">
+            <svg class="w-6 h-6 text-tropical-green flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+            </svg>
+            <p class="text-gray-700"><strong>Personalized Itineraries:</strong> Tailored experiences based on your interests</p>
+          </div>
+          
+          <div class="flex items-start gap-3">
+            <svg class="w-6 h-6 text-tropical-green flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+            </svg>
+            <p class="text-gray-700"><strong>24/7 Support:</strong> Always available to ensure your trip is perfect</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

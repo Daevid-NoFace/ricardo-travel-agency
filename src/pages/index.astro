@@ -1,11 +1,32 @@
 ---
 import "../styles/global.css";
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import About from '../components/About.astro';
+import Experiences from '../components/Experiences.astro';
+import Gallery from '../components/Gallery.astro';
+import Testimonials from '../components/Testimonials';
+import VideoSection from '../components/VideoSection.astro';
+import BlogPreview from '../components/BlogPreview.astro';
+import ContactSection from '../components/ContactSection';
+import Footer from '../components/Footer.astro';
 ---
 
-<Layout title="Travel Agency">
-	
+<Layout 
+  title="CubaVibes - Discover Authentic Cuban Experiences | Local Travel Guide"
+  description="Experience the real Cuba with a local expert. Personalized tours, cultural immersion, and unforgettable adventures in Havana, Viñales, Trinidad, and beyond."
+>
+  <Header />
+  <main>
+    <Hero />
+    <About />
+    <Experiences />
+    <Gallery />
+    <Testimonials client:load />
+    <VideoSection />
+    <BlogPreview />
+    <ContactSection client:load />
+  </main>
+  <Footer />
 </Layout>

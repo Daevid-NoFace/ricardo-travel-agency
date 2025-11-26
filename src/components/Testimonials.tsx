@@ -97,13 +97,13 @@ export default function Testimonials() {
         {/* Section Header */}
         <div className="text-center mb-16 max-w-3xl mx-auto">
           <span className="text-coral font-semibold text-sm uppercase tracking-wider mb-4 block">
-            What Travelers Say
+            Lo que dicen los viajeros
           </span>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Real Stories from <span className="text-caribbean-blue">Happy Travelers</span>
+            Historias reales de <span className="text-caribbean-blue">alegres viajeros</span>
           </h2>
           <p className="text-lg text-gray-700 leading-relaxed">
-            Don't just take our word for it—hear from travelers who've experienced the magic of Cuba with us.
+            No solo creemos en la magia de Cuba, sino que también creemos en la magia de tus historias. Escucha de los que han experimentado la magia de Cuba con nosotros.
           </p>
         </div>
 

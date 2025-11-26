@@ -33,21 +33,21 @@ export default function ContactSection() {
     const newErrors: FormErrors = {};
 
     if (!formData.name.trim()) {
-      newErrors.name = 'Name is required';
+      newErrors.name = 'El nombre es obligatorio';
     } else if (formData.name.trim().length < 2) {
-      newErrors.name = 'Name must be at least 2 characters';
+      newErrors.name = 'El nombre debe tener al menos 2 caracteres';
     }
 
     if (!formData.email.trim()) {
-      newErrors.email = 'Email is required';
+      newErrors.email = 'El correo es obligatorio';
     } else if (!validateEmail(formData.email)) {
-      newErrors.email = 'Please enter a valid email address';
+      newErrors.email = 'Ingresa un correo válido';
     }
 
     if (!formData.message.trim()) {
-      newErrors.message = 'Message is required';
+      newErrors.message = 'El mensaje es obligatorio';
     } else if (formData.message.trim().length < 10) {
-      newErrors.message = 'Message must be at least 10 characters';
+      newErrors.message = 'El mensaje debe tener al menos 10 caracteres';
     }
 
     setErrors(newErrors);
@@ -107,13 +107,13 @@ export default function ContactSection() {
         {/* Section Header */}
         <div className="text-center mb-16 max-w-3xl mx-auto">
           <span className="text-coral font-semibold text-sm uppercase tracking-wider mb-4 block">
-            Let's Connect
+            Conectemos
           </span>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Start Your Cuban <span className="text-caribbean-blue">Adventure</span>
+            Comienza tu <span className="text-caribbean-blue">aventura cubana</span>
           </h2>
           <p className="text-lg text-gray-700 leading-relaxed">
-            Ready to explore Cuba? Get in touch and let's create your perfect Cuban experience together.
+            ¿Listo para explorar Cuba? Ponte en contacto y diseñemos juntos una experiencia auténtica hecha a tu medida.
           </p>
         </div>
 
@@ -121,9 +121,9 @@ export default function ContactSection() {
         <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
           {/* Contact Information */}
           <div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">Get in Touch</h3>
+            <h3 className="text-2xl font-bold text-gray-900 mb-6">Ponte en contacto</h3>
             <p className="text-gray-700 mb-8 leading-relaxed">
-              Have questions about Cuba or want to plan your trip? I'm here to help! Reach out via email, WhatsApp, or use the contact form, and I'll get back to you as soon as possible.
+              ¿Tienes preguntas sobre Cuba o quieres planificar tu viaje? ¡Estoy aquí para ayudarte! Escríbeme por correo, WhatsApp o mediante el formulario y te responderé lo antes posible.
             </p>
 
             {/* Contact Methods */}
@@ -137,15 +137,15 @@ export default function ContactSection() {
                   <FaEnvelope className="text-caribbean-blue text-xl" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-900 mb-1">Email</h4>
+                  <h4 className="font-semibold text-gray-900 mb-1">Correo electrónico</h4>
                   <p className="text-caribbean-blue hover:underline">info@cubavibes.com</p>
-                  <p className="text-sm text-gray-600 mt-1">We'll respond within 24 hours</p>
+                  <p className="text-sm text-gray-600 mt-1">Respondemos en menos de 24 horas</p>
                 </div>
               </a>
 
               {/* WhatsApp */}
               <a 
-                href="https://wa.me/1234567890?text=Hello!%20I'm%20interested%20in%20learning%20more%20about%20Cuba%20travel%20experiences."
+                href="https://wa.me/1234567890?text=%C2%A1Hola!%20Quiero%20planear%20mi%20viaje%20a%20Cuba.%20%C2%BFPodemos%20conversar?"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-start gap-4 p-4 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow group"
@@ -156,7 +156,7 @@ export default function ContactSection() {
                 <div>
                   <h4 className="font-semibold text-gray-900 mb-1">WhatsApp</h4>
                   <p className="text-tropical-green hover:underline">+1 (234) 567-890</p>
-                  <p className="text-sm text-gray-600 mt-1">Quick responses, 7 days a week</p>
+                  <p className="text-sm text-gray-600 mt-1">Respuestas rápidas los 7 días de la semana</p>
                 </div>
               </a>
 
@@ -166,17 +166,17 @@ export default function ContactSection() {
                   <FaClock className="text-coral text-xl" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-900 mb-1">Business Hours</h4>
-                  <p className="text-gray-700">Monday - Sunday</p>
+                  <h4 className="font-semibold text-gray-900 mb-1">Horario de atención</h4>
+                  <p className="text-gray-700">Lunes a domingo</p>
                   <p className="text-gray-700">8:00 AM - 8:00 PM</p>
-                  <p className="text-sm text-gray-600 mt-1">Havana Time (GMT-5)</p>
+                  <p className="text-sm text-gray-600 mt-1">Hora de La Habana (GMT-5)</p>
                 </div>
               </div>
             </div>
 
             {/* Social Media */}
             <div>
-              <h4 className="font-semibold text-gray-900 mb-4">Follow Our Journey</h4>
+              <h4 className="font-semibold text-gray-900 mb-4">Síguenos en redes</h4>
               <div className="flex gap-4">
                 <a 
                   href="https://facebook.com" 
@@ -212,13 +212,13 @@ export default function ContactSection() {
           {/* Contact Form */}
           <div>
             <div className="bg-white rounded-2xl shadow-xl p-8">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Send a Message</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">Enviar un mensaje</h3>
               
               <form onSubmit={handleSubmit} className="space-y-6">
                 {/* Name Field */}
                 <div>
                   <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-2">
-                    Your Name *
+                    Tu nombre *
                   </label>
                   <input
                     type="text"
@@ -231,7 +231,7 @@ export default function ContactSection() {
                         ? 'border-red-500 focus:ring-red-500' 
                         : 'border-gray-300 focus:ring-caribbean-blue focus:border-caribbean-blue'
                     }`}
-                    placeholder="John Doe"
+                    placeholder="Juan Pérez"
                     disabled={isSubmitting}
                   />
                   {errors.name && (
@@ -242,7 +242,7 @@ export default function ContactSection() {
                 {/* Email Field */}
                 <div>
                   <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">
-                    Your Email *
+                    Tu correo electrónico *
                   </label>
                   <input
                     type="email"
@@ -255,7 +255,7 @@ export default function ContactSection() {
                         ? 'border-red-500 focus:ring-red-500' 
                         : 'border-gray-300 focus:ring-caribbean-blue focus:border-caribbean-blue'
                     }`}
-                    placeholder="john@example.com"
+                    placeholder="juan@ejemplo.com"
                     disabled={isSubmitting}
                   />
                   {errors.email && (
@@ -266,7 +266,7 @@ export default function ContactSection() {
                 {/* Message Field */}
                 <div>
                   <label htmlFor="message" className="block text-sm font-semibold text-gray-700 mb-2">
-                    Your Message *
+                    Tu mensaje *
                   </label>
                   <textarea
                     id="message"
@@ -279,7 +279,7 @@ export default function ContactSection() {
                         ? 'border-red-500 focus:ring-red-500' 
                         : 'border-gray-300 focus:ring-caribbean-blue focus:border-caribbean-blue'
                     }`}
-                    placeholder="Tell me about your dream Cuban adventure..."
+                    placeholder="Cuéntame sobre la experiencia cubana de tus sueños..."
                     disabled={isSubmitting}
                   />
                   {errors.message && (
@@ -293,14 +293,14 @@ export default function ContactSection() {
                   disabled={isSubmitting}
                   className="w-full px-8 py-4 bg-caribbean-blue text-white rounded-lg font-semibold text-lg hover:bg-ocean-blue transition-all duration-300 transform hover:scale-105 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
                 >
-                  {isSubmitting ? 'Sending...' : 'Send Message'}
+                  {isSubmitting ? 'Enviando...' : 'Enviar mensaje'}
                 </button>
 
                 {/* Success Message */}
                 {submitStatus === 'success' && (
                   <div className="p-4 bg-tropical-green/10 border border-tropical-green rounded-lg">
                     <p className="text-tropical-green font-semibold">
-                      ✓ Message sent successfully! We'll get back to you soon.
+                      ✓ ¡Mensaje enviado con éxito! Te responderé muy pronto.
                     </p>
                   </div>
                 )}
@@ -309,7 +309,7 @@ export default function ContactSection() {
                 {submitStatus === 'error' && (
                   <div className="p-4 bg-red-50 border border-red-500 rounded-lg">
                     <p className="text-red-600 font-semibold">
-                      ✗ Something went wrong. Please try again or contact us directly.
+                      ✗ Algo salió mal. Intenta de nuevo o contáctame directamente.
                     </p>
                   </div>
                 )}

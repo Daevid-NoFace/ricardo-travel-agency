@@ -1,13 +1,14 @@
 ---
 // Reusable Experience Card Component
 interface Props {
+  slug: string;
   title: string;
   description: string;
   highlights: string[];
   imagePlaceholder: string;
 }
 
-const { title, description, highlights, imagePlaceholder } = Astro.props;
+const { slug, title, description, highlights, imagePlaceholder } = Astro.props;
 ---
 
 <div class="group bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
@@ -44,10 +45,10 @@ const { title, description, highlights, imagePlaceholder } = Astro.props;
 
     <!-- Learn More Button -->
     <a 
-      href="#contact" 
+      href={`/experiencias/${slug}`}
       class="inline-block w-full text-center px-6 py-3 bg-caribbean-blue text-white rounded-lg font-semibold hover:bg-ocean-blue transition-colors duration-300"
     >
-      Learn More
+      Ver detalles
     </a>
   </div>
 </div>

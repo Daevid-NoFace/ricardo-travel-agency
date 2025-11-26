@@ -1,97 +1,6 @@
 ---
 import ExperienceCard from './ExperienceCard.astro';
-
-// Cuban experiences data
-const experiences = [
-  {
-    title: "Recorrido clásico por La Habana",
-    description: "Explora la vibrante capital en autos clásicos estadounidenses. Descubre la arquitectura colonial de La Habana Vieja, camina por el icónico Malecón y siente la energía eléctrica de la ciudad.",
-    highlights: [
-      "Paseo en un descapotable clásico de los años 50",
-      "Recorrido a pie por La Habana Vieja, Patrimonio de la UNESCO",
-      "Visita a la Plaza de la Catedral y Plaza Vieja",
-      "Atardecer en el Malecón"
-    ],
-    imagePlaceholder: "Autos antiguos de colores en las calles de La Habana"
-  },
-  {
-    title: "Aventura en el Valle de Viñales",
-    description: "Viaja al corazón tabacalero de Cuba. Admira los mogotes de piedra caliza, visita fincas tradicionales y explora cuevas impresionantes en este valle Patrimonio de la Humanidad.",
-    highlights: [
-      "Visita a plantaciones de tabaco en funcionamiento",
-      "Cabalgata entre los valles de mogotes",
-      "Exploración en la Cueva del Indio",
-      "Almuerzo tradicional en una finca cubana"
-    ],
-    imagePlaceholder: "Campos de tabaco verdes con mogotes"
-  },
-  {
-    title: "Experiencia colonial en Trinidad",
-    description: "Retrocede en el tiempo en la ciudad colonial mejor conservada de Cuba. Recorre calles empedradas, visita ruinas de ingenios azucareros y disfruta de música en plazas encantadoras.",
-    highlights: [
-      "Recorrido a pie por el centro colonial UNESCO",
-      "Visita al Valle de los Ingenios",
-      "Música en vivo en la Casa de la Música",
-      "Talleres de artesanos locales"
-    ],
-    imagePlaceholder: "Edificios coloniales coloridos en Trinidad"
-  },
-  {
-    title: "Paraíso de playa en Varadero",
-    description: "Relájate en 20 kilómetros de playas de arena blanca. Disfruta de aguas turquesas, deportes acuáticos y la atmósfera caribeña más relajada.",
-    highlights: [
-      "Acceso a las mejores zonas de playa",
-      "Oportunidades de snorkel y buceo",
-      "Paseo en catamarán al atardecer",
-      "Experiencias gastronómicas con mariscos frescos"
-    ],
-    imagePlaceholder: "Playa de arena blanca con agua turquesa"
-  },
-  {
-    title: "Inmersión en la cultura cubana",
-    description: "Sumérgete en la cultura cubana auténtica. Aprende a bailar salsa, disfruta de la cocina tradicional, visita estudios de arte y conecta con familias locales.",
-    highlights: [
-      "Clases de salsa con instructores locales",
-      "Clase de cocina de platos tradicionales",
-      "Visita a estudios y galerías de arte",
-      "Cena en casa de una familia cubana"
-    ],
-    imagePlaceholder: "Bailarines cubanos bailando salsa"
-  },
-  {
-    title: "Cienfuegos y Bahía de Cochinos",
-    description: "Descubre la 'Perla del Sur' y la histórica Bahía de Cochinos. Explora la arquitectura de influencia francesa, playas prístinas y sitios históricos clave.",
-    highlights: [
-      "Tour por Cienfuegos y el Palacio de Valle",
-      "Visita al museo de Playa Girón",
-      "Snorkel en Playa Girón",
-      "Recorrido panorámico por la costa"
-    ],
-    imagePlaceholder: "Arquitectura colonial francesa elegante"
-  },
-  {
-    title: "Excursiones de naturaleza y vida silvestre",
-    description: "Explora los diversos ecosistemas de Cuba. Desde selvas tropicales hasta humedales costeros, descubre flora y fauna únicas en el mundo.",
-    highlights: [
-      "Avistamiento de aves (trogón cubano, tocororo)",
-      "Senderismo en la Sierra Maestra",
-      "Visita a criaderos de cocodrilos",
-      "Aventuras en kayak por los manglares"
-    ],
-    imagePlaceholder: "Paisaje de selva tropical exuberante"
-  },
-  {
-    title: "Herencia de Santiago de Cuba",
-    description: "Vive la segunda ciudad de Cuba y capital cultural. Descubre tradiciones afrocubanas, historia revolucionaria y la cuna del son.",
-    highlights: [
-      "Recorrido por la fortaleza Castillo del Morro",
-      "Noche musical en la Casa de la Trova",
-      "Visita al Cementerio de Santa Ifigenia",
-      "Experiencias culturales afrocubanas"
-    ],
-    imagePlaceholder: "Fortaleza histórica con vista a la bahía"
-  }
-];
+import { experiences } from '../data/experiences';
 ---
 
 <section id="experiences" class="py-20 bg-gradient-to-b from-sand/20 to-white">
@@ -100,7 +9,7 @@ const experiences = [
     <div class="text-center mb-16 max-w-3xl mx-auto">
       <span class="text-coral font-semibold text-sm uppercase tracking-wider mb-4 block">Viajes inolvidables</span>
       <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-        Experiencias cubanas <span class="text-caribbean-blue">curadas</span>
+        Experiencias cubanas <span class="text-caribbean-blue">seleccionadas</span>
       </h2>
       <p class="text-lg text-gray-700 leading-relaxed">
         Desde ciudades vibrantes hasta playas prístinas, desde inmersión cultural hasta maravillas naturales: descubre las muchas caras de Cuba con itinerarios diseñados a medida.

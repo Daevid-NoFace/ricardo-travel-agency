@@ -45,5 +45,19 @@ const {
   </head>
   <body>
     <slot />
+    <script>
+      // Sync language between localStorage and cookies
+      function syncLanguage() {
+        const savedLang = localStorage.getItem('language') || 'es';
+        document.cookie = `language=${savedLang}; path=/; max-age=31536000`;
+      }
+      
+      syncLanguage();
+      
+      // Listen for language changes
+      window.addEventListener('languageChange', () => {
+        syncLanguage();
+      });
+    </script>
   </body>
 </html>

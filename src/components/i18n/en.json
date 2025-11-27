@@ -1,9 +1,58 @@
 {
-    "Light": "Light",
-    "Dark": "Dark",
-    "System": "System",
-    "TitleHero": "Technology",
-    "Company": "Company",
-    "Services": "Services",
-    "Contact": "Contact"
+    "nav": {
+        "about": "About Me",
+        "experiences": "Experiences",
+        "gallery": "Gallery",
+        "testimonials": "Testimonials",
+        "blog": "Blog",
+        "contact": "Contact",
+        "writeUs": "Write Us",
+        "whatsapp": "WhatsApp"
+    },
+    "hero": {
+        "title": "Discover the soul of",
+        "titleHighlight": "Cuba",
+        "subtitle": "Experience authentic Cuban culture, stunning landscapes, and unforgettable adventures with a local expert who knows every corner.",
+        "ctaWhatsapp": "Contact me on WhatsApp",
+        "ctaEmail": "Send Email",
+        "scrollDown": "Go to about section"
+    },
+    "about": {
+        "label": "About Your Guide",
+        "title": "Your",
+        "titleHighlight": "expert",
+        "titleEnd": "local Cuban",
+        "intro": "Hi! I'm Ricardo, your dedicated guide to experiencing the real Cuba. Born and raised in Havana, I've spent over 25 years helping travelers discover the authentic beauty, rich culture, and warm spirit of my island.",
+        "description": "From the colorful streets of Old Havana to the pristine beaches of Varadero, from the tobacco fields of Viñales to the colonial charm of Trinidad, I know every corner of Cuba like the back of my hand. My mission is to create personalized experiences that go beyond typical tourist routes.",
+        "yearsExperience": "Years of Experience",
+        "happyTravelers": "Happy Travelers",
+        "localKnowledge": "Local Knowledge:",
+        "localKnowledgeDesc": "Access to hidden gems and authentic experiences",
+        "customItineraries": "Custom Itineraries:",
+        "customItinerariesDesc": "Experiences tailored to your interests",
+        "support247": "24/7 Support:",
+        "support247Desc": "Always available to make your trip perfect"
+    },
+    "experiences": {
+        "label": "Unforgettable Journeys",
+        "title": "Curated Cuban",
+        "titleHighlight": "experiences",
+        "subtitle": "From vibrant cities to pristine beaches, from cultural immersion to natural wonders: discover the many faces of Cuba with custom-designed itineraries.",
+        "showMore": "Show more experiences",
+        "showLess": "Show less",
+        "ctaQuestion": "Ready to create your perfect Cuban adventure?",
+        "ctaButton": "Let's Talk"
+    },
+    "common": {
+        "duration": "Duration",
+        "difficulty": "Difficulty",
+        "price": "Price",
+        "included": "Included",
+        "itinerary": "Itinerary",
+        "highlights": "Highlights",
+        "easy": "Easy",
+        "moderate": "Moderate",
+        "hard": "Hard",
+        "fromPrice": "From"
+    }
 }

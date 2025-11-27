@@ -1,9 +1,58 @@
 {
-    "Light": "Clair",
-    "Dark": "Sombre",
-    "System": "Système",
-    "TitleHero": "Technologie",
-    "Company": "Entreprise",
-    "Services": "Services",
-    "Contact": "Contact"
+    "nav": {
+        "about": "Sobre Mim",
+        "experiences": "Experiências",
+        "gallery": "Galeria",
+        "testimonials": "Depoimentos",
+        "blog": "Blog",
+        "contact": "Contato",
+        "writeUs": "Escreva-nos",
+        "whatsapp": "WhatsApp"
+    },
+    "hero": {
+        "title": "Descubra a alma de",
+        "titleHighlight": "Cuba",
+        "subtitle": "Viva a cultura cubana autêntica, paisagens deslumbrantes e aventuras inesquecíveis com um especialista local que conhece cada canto.",
+        "ctaWhatsapp": "Entre em contato pelo WhatsApp",
+        "ctaEmail": "Enviar E-mail",
+        "scrollDown": "Ir para a seção sobre mim"
+    },
+    "about": {
+        "label": "Sobre Seu Guia",
+        "title": "Seu",
+        "titleHighlight": "especialista",
+        "titleEnd": "cubano local",
+        "intro": "Olá! Sou Ricardo, seu guia dedicado para experimentar a Cuba real. Nascido e criado em Havana, passei mais de 25 anos ajudando viajantes a descobrir a beleza autêntica, a rica cultura e o espírito caloroso da minha ilha.",
+        "description": "Das ruas coloridas da Havana Velha às praias virgens de Varadero, dos campos de tabaco de Viñales ao charme colonial de Trinidad, conheço cada canto de Cuba como a palma da minha mão. Minha missão é criar experiências personalizadas que vão além das rotas turísticas típicas.",
+        "yearsExperience": "Anos de Experiência",
+        "happyTravelers": "Viajantes Felizes",
+        "localKnowledge": "Conhecimento Local:",
+        "localKnowledgeDesc": "Acesso a joias escondidas e experiências autênticas",
+        "customItineraries": "Itinerários Personalizados:",
+        "customItinerariesDesc": "Experiências adaptadas aos seus interesses",
+        "support247": "Suporte 24/7:",
+        "support247Desc": "Sempre disponível para tornar sua viagem perfeita"
+    },
+    "experiences": {
+        "label": "Viagens Inesquecíveis",
+        "title": "Experiências cubanas",
+        "titleHighlight": "selecionadas",
+        "subtitle": "De cidades vibrantes a praias pristinas, de imersão cultural a maravilhas naturais: descubra as muitas faces de Cuba com itinerários personalizados.",
+        "showMore": "Ver mais experiências",
+        "showLess": "Ver menos",
+        "ctaQuestion": "Pronto para criar sua aventura perfeita em Cuba?",
+        "ctaButton": "Vamos Conversar"
+    },
+    "common": {
+        "duration": "Duração",
+        "difficulty": "Dificuldade",
+        "price": "Preço",
+        "included": "Incluído",
+        "itinerary": "Itinerário",
+        "highlights": "Destaques",
+        "easy": "Fácil",
+        "moderate": "Moderada",
+        "hard": "Difícil",
+        "fromPrice": "A partir de"
+    }
 }

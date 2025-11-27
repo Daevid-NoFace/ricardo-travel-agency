@@ -1,5 +1,9 @@
 ---
-// Header component
+import LanguageToggle from './react/LanguageToggle';
+import { getLangFromUrl } from './i18n/utils';
+
+const currentLang = getLangFromUrl(Astro.url);
+const currentPath = Astro.url.pathname;
 ---
 
 <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-sm shadow-md">
@@ -15,10 +19,12 @@
         <a href="#about" class="text-gray-700 hover:text-caribbean-blue transition-colors font-medium">Acerca de</a>
         <a href="#experiences" class="text-gray-700 hover:text-caribbean-blue transition-colors font-medium">Experiencias</a>
         <a href="#contact" class="text-gray-700 hover:text-caribbean-blue transition-colors font-medium">Contacto</a>
+        
       </div>
 
       <!-- Contact Buttons -->
       <div class="hidden lg:flex items-center space-x-3">
+        <LanguageToggle client:load currentLang={currentLang} currentPath={currentPath} />
         <a 
           href="mailto:info@cubavibes.com" 
           class="px-4 py-2 text-caribbean-blue border-2 border-caribbean-blue rounded-lg hover:bg-caribbean-blue hover:text-white transition-all font-medium"
@@ -42,6 +48,7 @@
 
       <!-- Mobile Menu Button -->
       <div class="md:hidden flex items-center gap-2">
+        <LanguageToggle client:load currentLang={currentLang} currentPath={currentPath} />
         <button 
         id="mobile-menu-button"
         class="md:hidden p-2 text-gray-700 hover:text-caribbean-blue transition-colors"

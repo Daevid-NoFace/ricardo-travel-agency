@@ -1,32 +1,5 @@
 ---
-import "../styles/global.css";
-import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
-import Hero from '../components/sections/Hero.astro';
-import About from '../components/sections/About.astro';
-import Experiences from '../components/sections/Experiences.astro';
-import Gallery from '../components/sections/Gallery.astro';
-import Testimonials from '../components/react/Testimonials';
-import VideoSection from '../components/sections/VideoSection.astro';
-import BlogPreview from '../components/sections/BlogPreview.astro';
-import ContactSection from '../components/react/ContactSection';
-import Footer from '../components/Footer.astro';
+import Home from "../components/template/Home.astro";
 ---
 
-<Layout 
-  title="Ricardo Vibes - Descubre experiencias auténticas en Cuba | Guía local"
-  description="Vive la Cuba real con un experto local. Tours personalizados, inmersión cultural y aventuras inolvidables en La Habana, Viñales, Trinidad y más."
->
-  <Header />
-  <main>
-    <Hero />
-    <About />
-    <Experiences />
-    <!-- <Gallery />
-    <Testimonials client:load />
-    <VideoSection />
-    <BlogPreview /> -->
-    <ContactSection client:load />
-  </main>
-  <Footer />
-</Layout>
+<Home />

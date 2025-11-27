@@ -5,7 +5,7 @@ import { getLangFromUrl, useTranslations } from '../i18n/utils';
 
 const currentLang = getLangFromUrl(Astro.url);
 const t = useTranslations(currentLang);
-const experiences = getExperiences(currentLang);
+const experiences = getExperiences(currentLang).slice(0, 5);
 ---
 
 <section id="experiences" class="py-20 bg-gradient-to-b from-sand/20 to-white">
@@ -21,28 +21,57 @@ const experiences = getExperiences(currentLang);
       </p>
     </div>
 
-    <!-- Experience Cards Grid -->
+    <!-- Experience Cards Carousel -->
     <div class="relative max-w-7xl mx-auto">
-      <div id="experiences-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 overflow-hidden transition-all duration-500" style="max-height: 1000px;">
-        {experiences.map((experience) => (
-          <ExperienceCard {...experience} />
-        ))}
+      
+      <!-- Botón anterior -->
+      <button 
+        id="carousel-prev"
+        class="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white/90 hover:bg-white rounded-full shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-110"
+        aria-label="Anterior"
+      >
+        <svg class="w-6 h-6 text-caribbean-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/>
+        </svg>
+      </button>
+      
+      <!-- Botón siguiente -->
+      <button 
+        id="carousel-next"
+        class="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white/90 hover:bg-white rounded-full shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-110"
+        aria-label="Siguiente"
+      >
+        <svg class="w-6 h-6 text-caribbean-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/>
+        </svg>
+      </button>
+      
+      <!-- Contenedor del carrusel -->
+      <div class="overflow-hidden px-4">
+        <div id="experiences-carousel" class="flex gap-8 transition-transform duration-500 ease-out">
+          {experiences.map((experience) => (
+            <div class="flex-shrink-0 w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.333rem)]">
+              <ExperienceCard {...experience} />
+            </div>
+          ))}
+          <!-- Duplicar experiencias para efecto infinito -->
+          {experiences.map((experience) => (
+            <div class="flex-shrink-0 w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.333rem)]">
+              <ExperienceCard {...experience} />
+            </div>
+          ))}
+        </div>
       </div>
       
-      <!-- Gradiente y botón de expansión -->
-      <div id="expand-overlay" class="absolute bottom-0 left-0 right-0 h-10 bg-gradient-to-t from-white via-white/90 to-transparent pointer-events-none transition-opacity duration-300">
-        <div class="absolute bottom-[-70px] left-1/2 -translate-x-1/2 pointer-events-auto">
+      <!-- Indicadores -->
+      <div class="flex justify-center gap-2 mt-8">
+        {experiences.map((_, index) => (
           <button 
-            id="toggle-experiences"
-            class="group flex items-center gap-2 px-8 py-4 bg-caribbean-blue text-white rounded-full font-semibold text-lg hover:bg-ocean-blue transition-all duration-300 transform hover:scale-105 shadow-xl"
-            aria-label={t('experiences.showMore')}
-          >
-            <span id="toggle-text">{t('experiences.showMore')}</span>
-            <svg id="toggle-arrow" class="w-6 h-6 transition-transform duration-300 group-hover:translate-y-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
-            </svg>
-          </button>
-        </div>
+            class="carousel-indicator w-2 h-2 rounded-full bg-gray-300 hover:bg-caribbean-blue transition-colors duration-300"
+            data-index={index}
+            aria-label={`Ir a experiencia ${index + 1}`}
+          ></button>
+        ))}
       </div>
     </div>
 
@@ -62,81 +91,174 @@ const experiences = getExperiences(currentLang);
 </section>
 
 <script>
-  // Toggle para expandir/colapsar experiencias
-  const grid = document.getElementById('experiences-grid');
-  const overlay = document.getElementById('expand-overlay');
-  const toggleBtn = document.getElementById('toggle-experiences');
-  const toggleText = document.getElementById('toggle-text');
-  const toggleArrow = document.getElementById('toggle-arrow');
+  // Carrusel infinito de experiencias
+  const carousel = document.getElementById('experiences-carousel');
+  const prevBtn = document.getElementById('carousel-prev');
+  const nextBtn = document.getElementById('carousel-next');
+  const indicators = document.querySelectorAll('.carousel-indicator');
   
-  let isExpanded = false;
+  if (!carousel) throw new Error('Carousel not found');
   
-  // Calcular altura inicial para mostrar solo 3 cards
-  const calculateCollapsedHeight = () => {
-    if (!grid) return;
-    const cards = grid.children;
-    if (cards.length === 0) return;
-    
-    // Obtener altura de una card + gap
-    const firstCard = cards[0] as HTMLElement;
-    const cardHeight = firstCard.offsetHeight;
-    const gap = 32; // 8 * 4px (gap-8 de Tailwind)
-    
-    // En móvil (1 columna): 3 cards
-    // En tablet (2 columnas): 2 filas = 4 cards
-    // En desktop (3 columnas): 1 fila = 3 cards
+  const cards = carousel.children;
+  const totalCards = cards.length / 2; // Dividido por 2 porque duplicamos las cards
+  let currentIndex = 0;
+  let isTransitioning = false;
+  let autoplayInterval: number;
+  
+  // Calcular cuántas cards mostrar según el ancho de pantalla
+  const getCardsPerView = () => {
     const width = window.innerWidth;
-    let rows = 3;
-    
-    if (width >= 1024) {
-      rows = 1; // 3 cards en 1 fila
-    } else if (width >= 768) {
-      rows = 2; // 4 cards en 2 filas
-    }
-    
-    const collapsedHeight = (cardHeight * rows) + (gap * (rows - 1));
-    grid.style.maxHeight = `${collapsedHeight}px`;
+    if (width >= 1024) return 3; // Desktop: 3 cards
+    if (width >= 768) return 2;  // Tablet: 2 cards
+    return 1;                     // Mobile: 1 card
   };
   
-  // Inicializar altura colapsada
-  calculateCollapsedHeight();
+  // Calcular el desplazamiento
+  const getCardWidth = () => {
+    const firstCard = cards[0] as HTMLElement;
+    return firstCard.offsetWidth + 32; // card width + gap
+  };
+  
+  // Actualizar posición del carrusel
+  const updateCarousel = (smooth = true) => {
+    if (!carousel) return;
+    
+    const cardWidth = getCardWidth();
+    const offset = -currentIndex * cardWidth;
+    
+    carousel.style.transition = smooth ? 'transform 0.5s ease-out' : 'none';
+    carousel.style.transform = `translateX(${offset}px)`;
+    
+    // Actualizar indicadores
+    indicators.forEach((indicator, index) => {
+      if (index === currentIndex % totalCards) {
+        indicator.classList.add('bg-caribbean-blue');
+        indicator.classList.remove('bg-gray-300');
+      } else {
+        indicator.classList.remove('bg-caribbean-blue');
+        indicator.classList.add('bg-gray-300');
+      }
+    });
+  };
+  
+  // Navegar al siguiente
+  const goToNext = () => {
+    if (isTransitioning) return;
+    isTransitioning = true;
+    
+    currentIndex++;
+    updateCarousel();
+    
+    // Si llegamos al final de las cards duplicadas, volver al inicio sin animación
+    setTimeout(() => {
+      if (currentIndex >= totalCards) {
+        currentIndex = 0;
+        updateCarousel(false);
+      }
+      isTransitioning = false;
+    }, 500);
+  };
+  
+  // Navegar al anterior
+  const goToPrev = () => {
+    if (isTransitioning) return;
+    isTransitioning = true;
+    
+    // Si estamos al inicio, saltar al final sin animación
+    if (currentIndex === 0) {
+      currentIndex = totalCards;
+      updateCarousel(false);
+      
+      setTimeout(() => {
+        currentIndex--;
+        updateCarousel();
+        setTimeout(() => {
+          isTransitioning = false;
+        }, 500);
+      }, 50);
+    } else {
+      currentIndex--;
+      updateCarousel();
+      setTimeout(() => {
+        isTransitioning = false;
+      }, 500);
+    }
+  };
+  
+  // Ir a un índice específico
+  const goToIndex = (index: number) => {
+    if (isTransitioning) return;
+    currentIndex = index;
+    updateCarousel();
+  };
+  
+  // Autoplay
+  const startAutoplay = () => {
+    autoplayInterval = setInterval(goToNext, 5000) as unknown as number;
+  };
+  
+  const stopAutoplay = () => {
+    clearInterval(autoplayInterval);
+  };
+  
+  // Event listeners
+  nextBtn?.addEventListener('click', () => {
+    stopAutoplay();
+    goToNext();
+    startAutoplay();
+  });
+  
+  prevBtn?.addEventListener('click', () => {
+    stopAutoplay();
+    goToPrev();
+    startAutoplay();
+  });
+  
+  indicators.forEach((indicator, index) => {
+    indicator.addEventListener('click', () => {
+      stopAutoplay();
+      goToIndex(index);
+      startAutoplay();
+    });
+  });
+  
+  // Pausar autoplay al hover
+  carousel?.addEventListener('mouseenter', stopAutoplay);
+  carousel?.addEventListener('mouseleave', startAutoplay);
+  
+  // Soporte táctil para swipe
+  let touchStartX = 0;
+  let touchEndX = 0;
+  
+  carousel?.addEventListener('touchstart', (e) => {
+    touchStartX = e.touches[0].clientX;
+    stopAutoplay();
+  });
+  
+  carousel?.addEventListener('touchmove', (e) => {
+    touchEndX = e.touches[0].clientX;
+  });
+  
+  carousel?.addEventListener('touchend', () => {
+    const swipeThreshold = 50;
+    const diff = touchStartX - touchEndX;
+    
+    if (Math.abs(diff) > swipeThreshold) {
+      if (diff > 0) {
+        goToNext();
+      } else {
+        goToPrev();
+      }
+    }
+    startAutoplay();
+  });
   
   // Recalcular en resize
   window.addEventListener('resize', () => {
-    if (!isExpanded) {
-      calculateCollapsedHeight();
-    }
+    updateCarousel(false);
   });
   
-  // Toggle al hacer clic
-  toggleBtn?.addEventListener('click', () => {
-    isExpanded = !isExpanded;
-    
-    if (isExpanded) {
-      // Expandir
-      grid!.style.maxHeight = `${grid!.scrollHeight}px`;
-      overlay!.style.opacity = '0';
-      toggleText!.textContent = 'Ver menos';
-      toggleArrow!.style.transform = 'rotate(180deg)';
-      
-      // Ocultar overlay después de la animación
-      setTimeout(() => {
-        overlay!.style.display = 'none';
-      }, 300);
-    } else {
-      // Colapsar
-      overlay!.style.display = 'block';
-      setTimeout(() => {
-        overlay!.style.opacity = '1';
-      }, 10);
-      calculateCollapsedHeight();
-      toggleText!.textContent = 'Ver más experiencias';
-      toggleArrow!.style.transform = 'rotate(0deg)';
-      
-      // Scroll suave hacia la sección
-      document.getElementById('experiences')?.scrollIntoView({ 
-        behavior: 'smooth', 
-        block: 'start' 
-      });
-    }
-  });
+  // Inicializar
+  updateCarousel(false);
+  startAutoplay();
+</script>

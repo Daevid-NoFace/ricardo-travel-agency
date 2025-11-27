@@ -33,6 +33,7 @@ interface MultiLangExperience {
 }
 
 const experiencesData: MultiLangExperience[] = [
+  // Slug 1
   {
     slug: "habana-trinidad-mar",
     title: {
@@ -75,9 +76,9 @@ const experiencesData: MultiLangExperience[] = [
       ]
     },
     imagePlaceholder: {
-      es: "@/pictures/habana-trinidad-mar/3-dias-habana.webp, @/pictures/habana-trinidad-mar/3-dias-habana-2.jpg, @/pictures/habana-trinidad-mar/3-dias-habana-3.jpg, @/pictures/habana-trinidad-mar/3-dias-habana-4.webp, @/pictures/habana-trinidad-mar/3-dias-habana-5.jpg, @/pictures/habana-trinidad-mar/3-dias-habana-6.jpg, @/pictures/habana-trinidad-mar/3-dias-habana-7.jpg",
-      en: "@/pictures/habana-trinidad-mar/3-dias-habana.webp, @/pictures/habana-trinidad-mar/3-dias-habana-2.jpg, @/pictures/habana-trinidad-mar/3-dias-habana-3.jpg, @/pictures/habana-trinidad-mar/3-dias-habana-4.webp, @/pictures/habana-trinidad-mar/3-dias-habana-5.jpg, @/pictures/habana-trinidad-mar/3-dias-habana-6.jpg, @/pictures/habana-trinidad-mar/3-dias-habana-7.jpg",
-      pt: "@/pictures/habana-trinidad-mar/3-dias-habana.webp, @/pictures/habana-trinidad-mar/3-dias-habana-2.jpg, @/pictures/habana-trinidad-mar/3-dias-habana-3.jpg, @/pictures/habana-trinidad-mar/3-dias-habana-4.webp, @/pictures/habana-trinidad-mar/3-dias-habana-5.jpg, @/pictures/habana-trinidad-mar/3-dias-habana-6.jpg, @/pictures/habana-trinidad-mar/3-dias-habana-7.jpg"
+      es: "@/pictures/habana-trinidad-mar/habana-trinidad-mar-1.jpg, @/pictures/habana-trinidad-mar/habana-trinidad-mar-2.jpg, @/pictures/habana-trinidad-mar/habana-trinidad-mar-3.jpg, @/pictures/habana-trinidad-mar/habana-trinidad-mar-4.jpg, @/pictures/habana-trinidad-mar/habana-trinidad-mar-5.jpg, @/pictures/habana-trinidad-mar/habana-trinidad-mar-6.jpg, @/pictures/habana-trinidad-mar/habana-trinidad-mar-7.jpg, @/pictures/habana-trinidad-mar/habana-trinidad-mar-8.jpg",
+      en: "@/pictures/habana-trinidad-mar/habana-trinidad-mar-1.jpg, @/pictures/habana-trinidad-mar/habana-trinidad-mar-2.jpg, @/pictures/habana-trinidad-mar/habana-trinidad-mar-3.jpg, @/pictures/habana-trinidad-mar/habana-trinidad-mar-4.jpg, @/pictures/habana-trinidad-mar/habana-trinidad-mar-5.jpg, @/pictures/habana-trinidad-mar/habana-trinidad-mar-6.jpg, @/pictures/habana-trinidad-mar/habana-trinidad-mar-7.jpg, @/pictures/habana-trinidad-mar/habana-trinidad-mar-8.jpg",
+      pt: "@/pictures/habana-trinidad-mar/habana-trinidad-mar-1.jpg, @/pictures/habana-trinidad-mar/habana-trinidad-mar-2.jpg, @/pictures/habana-trinidad-mar/habana-trinidad-mar-3.jpg, @/pictures/habana-trinidad-mar/habana-trinidad-mar-4.jpg, @/pictures/habana-trinidad-mar/habana-trinidad-mar-5.jpg, @/pictures/habana-trinidad-mar/habana-trinidad-mar-6.jpg, @/pictures/habana-trinidad-mar/habana-trinidad-mar-7.jpg, @/pictures/habana-trinidad-mar/habana-trinidad-mar-8.jpg"
     },
     duration: {
       es: "11 días",
@@ -316,7 +317,7 @@ const experiencesData: MultiLangExperience[] = [
             "On the road you'll have time to revisit the best moments,",
             "stop for final souvenirs if you wish,",
             "and enjoy one last glimpse of the Caribbean Sea.",
-            "It's not goodbye, just a 'see you soon'—Cuba will always save a bit of sand for you."
+            "It's not goodbye, just a 'see you soon'...Cuba will always save a bit of sand for you."
           ]
         }
       ],
@@ -419,57 +420,62 @@ const experiencesData: MultiLangExperience[] = [
       ]
     }
   },
+
+  // Slug 2
   {
-    slug: "aventura-valle-vinales",
+    slug: "habana-vinales-mar",
     title: {
-      es: "Aventura en el Valle de Viñales",
-      en: "Viñales Valley Adventure",
-      pt: "Aventura no Vale de Viñales"
+      es: "La Ruta Perfecta: Habana, Viñales y Mar por el Precio Justo",
+      en: "The Perfect Route: Havana, Viñales and Sea for the Just Price",
+      pt: "Tour Clássico por Havana, Viñales e Mar por o Preço Justo"
     },
     description: {
-      es: "Viaja al corazón tabacalero de Cuba. Admira los mogotes de piedra caliza, visita fincas tradicionales y explora cuevas impresionantes en este valle Patrimonio de la Humanidad.",
-      en: "Travel to Cuba's tobacco heartland. Admire limestone mogotes, visit traditional farms, and explore impressive caves in this UNESCO World Heritage valley.",
-      pt: "Viaje ao coração do tabaco de Cuba. Admire os mogotes de calcário, visite fazendas tradicionais e explore cavernas impressionantes neste vale Patrimônio Mundial."
+      es: "Vive una experiencia inolvidable en Cuba comenzando por un recorrido panorámico por La Habana en un descapotable clásico, sintiendo su energía única entre avenidas históricas y el icónico Malecón. Luego pon rumbo a Viñales, una joya paisajística declarada Patrimonio Mundial, donde la naturaleza cobra vida entre sus valles verdes y mogotes impresionantes. Allí podrás disfrutar de música en vivo y cócteles en sus encantadores bares, perfectos para relajarte tras un día de exploración. Continúa tu aventura con paseos entre mogotes, ya sea a pie o a caballo, conectando con la serenidad y belleza del valle. Y en cada momento, sumérgete en la cultura campesina cubana a través de encuentros locales espontáneos, donde las historias, la hospitalidad y las tradiciones te harán sentir parte del lugar.",
+      en: "Live an unforgettable experience in Cuba starting with a panoramic tour of Havana in a classic convertible, feeling its unique energy between historic avenues and the iconic Malecón. Then head to Viñales, a picturesque gem declared World Heritage, where nature takes life between its green valleys and impressive limestone mogotes. There, you can enjoy live music and cocktails in its enchanting bars, perfect for relaxing after a day of exploration. Continue your adventure with walks between mogotes, either on foot or horseback, connecting with the serenity and beauty of the valley. And at every moment, immerse yourself in Cuban rural culture through spontaneous local encounters, where stories, hospitality, and traditions will make you feel part of the place.",
+      pt: "Live an unforgettable experience in Cuba starting with a panoramic tour of Havana in a classic convertible, feeling its unique energy between historic avenues and the iconic Malecón. Then head to Viñales, a picturesque gem declared World Heritage, where nature takes life between its green valleys and impressive limestone mogotes. There, you can enjoy live music and cocktails in its enchanting bars, perfect for relaxing after a day of exploration. Continue your adventure with walks between mogotes, either on foot or horseback, connecting with the serenity and beauty of the valley. And at every moment, immerse yourself in Cuban rural culture through spontaneous local encounters, where stories, hospitality, and traditions will make you feel part of the place."
     },
     highlights: {
       es: [
-        "Visita a plantaciones de tabaco en funcionamiento",
-        "Cabalgata entre los valles de mogotes",
-        "Exploración en la Cueva del Indio",
-        "Almuerzo tradicional en una finca cubana"
+        "Explora La Habana en un descapotable clásico",
+        "Descubre Viñales, una joya paisajística Patrimonio Mundial",
+        "Disfruta de música en vivo y cócteles en sus preciosos bares",
+        "Relájate en paseos entre mogotes lo mismo a pie que a caballo",
+        "Sumérgete en la cultura campesina cubana con encuentros locales espontáneos"
       ],
       en: [
-        "Visit to working tobacco plantations",
-        "Horseback riding through mogote valleys",
-        "Exploration of the Indian Cave",
-        "Traditional lunch at a Cuban farm"
+        "Panoramic tour of Havana in a classic convertible",
+        "Discover Viñales, a scenic jewel and World Heritage Site",
+        "Enjoy live music and cocktails in its beautiful bars",
+        "Relax with walks between mogotes on foot or horseback",
+        "Immerse yourself in Cuban rural culture through spontaneous local encounters"
       ],
       pt: [
-        "Visita a plantações de tabaco em funcionamento",
-        "Cavalgada pelos vales de mogotes",
-        "Exploração da Caverna do Índio",
-        "Almoço tradicional em uma fazenda cubana"
+        "Panorâmica de La Habana em um descapotável clássico",
+        "Descubra Viñales, uma joia paisagística e Património Mundial da UNESCO.",
+        "Disfruta de música em vivo e cócteles em seus belos bares",
+        "Relaxe com passeios entre mogotes, seja a pé ou cavalgando",
+        "Sumérgete na cultura campesina cubana com encontros locais espontâneos"
       ]
     },
     imagePlaceholder: {
-      es: "Campos de tabaco verdes con mogotes",
-      en: "Green tobacco fields with limestone mogotes",
-      pt: "Campos de tabaco verdes com mogotes de calcário"
+      es: "@/pictures/havana-vinales-mar/3-dias-habana.webp, @/pictures/havana-vinales-mar/3-dias-habana-2.jpg, @/pictures/havana-vinales-mar/3-dias-habana-3.jpg, @/pictures/havana-vinales-mar/3-dias-habana-4.webp, @/pictures/havana-vinales-mar/3-dias-habana-5.jpg, @/pictures/havana-vinales-mar/3-dias-habana-6.jpg, @/pictures/havana-vinales-mar/3-dias-habana-7.jpg",
+      en: "@/pictures/havana-vinales-mar/3-dias-habana.webp, @/pictures/havana-vinales-mar/3-dias-habana-2.jpg, @/pictures/havana-vinales-mar/3-dias-habana-3.jpg, @/pictures/havana-vinales-mar/3-dias-habana-4.webp, @/pictures/havana-vinales-mar/3-dias-habana-5.jpg, @/pictures/havana-vinales-mar/3-dias-habana-6.jpg, @/pictures/havana-vinales-mar/3-dias-habana-7.jpg",
+      pt: "@/pictures/havana-vinales-mar/3-dias-habana.webp, @/pictures/havana-vinales-mar/3-dias-habana-2.jpg, @/pictures/havana-vinales-mar/3-dias-habana-3.jpg, @/pictures/havana-vinales-mar/3-dias-habana-4.webp, @/pictures/havana-vinales-mar/3-dias-habana-5.jpg, @/pictures/havana-vinales-mar/3-dias-habana-6.jpg, @/pictures/havana-vinales-mar/3-dias-habana-7.jpg"
     },
     duration: {
-      es: "1-2 días",
-      en: "1-2 days",
-      pt: "1-2 dias"
+      es: "11 días",
+      en: "11 days",
+      pt: "11 dias"
     },
     difficulty: {
-      es: "Moderada",
-      en: "Moderate",
-      pt: "Moderada"
+      es: "Facil",
+      en: "Easy",
+      pt: "Facil"
     },
     price: {
-      es: "Desde $150 por persona",
-      en: "From $150 per person",
-      pt: "A partir de $150 por pessoa"
+      es: "Desde 990€ por persona",
+      en: "From 990€ per person",
+      pt: "A partir de 990€ por pessoa"
     },
     included: {
       es: [
@@ -497,19 +503,107 @@ const experiencesData: MultiLangExperience[] = [
     itinerary: {
       es: [
         {
-          day: "Día 1 - Mañana",
-          title: "Viaje a Viñales",
-          description: "Salida temprano desde La Habana hacia el Valle de Viñales (3 horas). Disfruta del paisaje cambiante mientras nos adentramos en la región tabacalera."
+          day: "Día 1",
+          title: "¡Bienvenidos a casa, sean habaneros por unos días!",
+          description: [
+            "El primer día en Cuba comienza con el abrazo cálido de la brisa caribeña al aterrizar. ",
+            "Nuestro chofer les espera sonriente en el aeropuerto, listo para llevarlos cómodamente a su alojamiento en un vehículo privado. ",
+            "Mientras recorren estas primeras calles habaneras, llenas de colores y música que se cuela por las ventanas, ",
+            "compartiremos esos secretos locales que transforman un viaje en una experiencia: dónde tomar el mejor café al ",
+            "amanecer, cómo reconocer un paladar auténtico y en qué esquina escucharán los primeros acordes de son. ",
+            "La Habana ya late para ustedes... ¿Listos para dejarse seducir? Comienza la aventura cubana con un mojito en la mano. ",
+            "¡Saboreen esta aventura!"
+          ]
         },
         {
-          day: "Día 1 - Mediodía",
-          title: "Finca de tabaco",
-          description: "Visita una plantación familiar donde aprenderás todo el proceso del tabaco, desde la siembra hasta el enrollado de puros. Almuerzo campestre con productos orgánicos."
+          day: "Día 2",
+          title: "La Habana se revela - Historia, Vintage y Sabor",
+          description: [
+            "Un descapotable clásico y guía privado les mostrarán el alma de la ciudad: plazas coloniales, balcones de Hemingway y talleres secretos de tabaco. ",
+            "Después, elijan: ",
+            "- Almuerzo en Paladar de La Habana Vieja tipo La Esquina de Cuba.",
+            "- Explorar libremente rincones que les roben el corazón.",
+            "Tarde abierta para perderse en el Malecón al atardecer o seguir el ritmo de la ciudad.",
+            "Hoy no son turistas, son habaneros por un día."
+          ]
         },
         {
-          day: "Día 1 - Tarde",
-          title: "Exploración del valle",
-          description: "Cabalgata o caminata entre los mogotes, visita a la Cueva del Indio con paseo en bote subterráneo, y mirador panorámico del valle."
+          day: "Día 3",
+          title: "En Taxi Colectivo hacia Viñales, donde la Naturaleza se vuelve una Reina",
+          description: [
+            "Hoy cambiamos de ritmo: un auténtico taxi compartido con otros viajeros los llevará por carreteras rurales, entre ",
+            "paisajes de palmas y pueblos coloridos, hasta la joya natural del Valle de Viñales (Patrimonio Mundial). En el trayecto (2 ",
+            "horas), vivirán esa Cuba espontánea: paradas improvisadas, conversaciones con lugareños y el aire dulce de la provincia. ",
+            "Al llegar, los mogotes serán quienes te sorprenderán, las casitas de techos rojos tan bien organizadas en la calle principal ",
+            "te moverán las manos en ademan de bienvenida y el verdor por doquier serán tu esperanza de reencontrarte contigo ",
+            "mismo y mudar tu forma de pensar para siempre. El resto del día es para explorar libremente: un paseo a caballo es muy ",
+            "recomendado, pregúntame cómo hacerlo y te digo. Viñales no se visita... se siente con el corazón lleno de verde."
+          ]
+        },
+        {
+          day: "Día 4 y 5",
+          title: "Días Libres en Viñales: Donde cada encuentro es una experiencia transformadora de tus horizontes",
+          description: [
+            "Dos días para explorar a su aire esta joya Patrimonio Mundial por su Valle fantástico: para los que gustan mucho de la ",
+            "playa y ansían conocer un Cayo cubano pues sugiero se vayan para Cayo Jutias. Esplendida playa al norte de Viñales. ",
+            "Otros adoraran caminar por el valle y ver a campesinos en sus propias fincas. Otros podrán tomar el Bus tour y darse un ",
+            "paseo por todos los puntos icónicos de Viñales como La Cueva del Indio; Mural de la Prehistoria; Mirador de los Jazmines ",
+            "entre otros. Pero cuando caiga el sol, la villa campesina de día se torna fiestera de noche: música en vivo, bailes ",
+            "espontáneos y el famoso son cubano hoy por hoy mezclado con reparto (especie de reguetón) fluyen hasta altas horas.",
+            "De día, campesina y natural; de noche, fiesta bajo las estrellas. Viñales es así: dual y fascinante."
+          ]
+        },
+        {
+          day: "Día 6",
+          title: "Adiós Viñales, una parada, la última en La Habana y un salto a Varadero al siguiente día – El Mar Elige el Final de su Historia",
+          description: [
+            "Volvamos a la capital. No se puede negar que allí es donde más se mueve “la cosa” decimos los cubanos. Se sale después ",
+            "del desayuno para La Habana y una vez allí (11am) esta queda a tu merced. Buena oportunidad para patearla tu solo. ",
+            "Sin rutas fijas ni horarios, dejen que La Habana los sorprenda: piérdanse entre libros antiguos en Plaza de Armas, ",
+            "saboreen un café improvisado en un balcón colonial, o sigan la música callejera que los lleve a rincones secretos. El ",
+            "Malecón al atardecer será su mejor recompensa.",
+            "Los tesoros más auténticos no están en las guías, sino en las esquinas que elijan explorar con curiosidad y tiempo."
+          ]
+        },
+        {
+          day: "Día 7",
+          title: "Un saltico a Varadero para poder regresar a mi casa con el color bronceado natural.",
+          description: [
+            "Salimos para Varadero en taxi colectivo y en apenas 2 horas estamos allí. De camino podrán pasar por debajo del ",
+            "famoso túnel de La Habana y tomando la llamada Vía Blanca, siempre con el mar de compañero inseparable a la ",
+            "izquierda, podrán tomarse una Piña Colada por el camino y echarle un ojo al impresionante Puente de Bacunayagua. ",
+            "Luego vendrá Matanzas, la Venecia de Cuba y pasándola ya casi están en Varadero.",
+            "En Cuba, los caminos saben a aventura y los finales a Caribe."
+          ]
+        },
+        {
+          day: "Día 8 al 10",
+          title: "Ustedes, el Mar y Nada Más – El Caribe en su Estado Más Puro",
+          description: [
+            "Estos días son para entregarse al ritmo del Caribe: ",
+            "- Mañanas de chapuzones en aguas turquesas.",
+            "- Tardes de cócteles junto a la piscina infinita.",
+            "- Atardeceres con los pies en la arena blanca.",
+            "- Noches de cenas románticas bajo las estrellas.",
+            "En su resort todo incluido, disfrutarán de:",
+            "-  Spa con vistas al mar (de pago extra).",
+            "- Actividades acuáticas (opcionales).",
+            "- Espectáculos nocturnos con sabor cubano.",
+            "El verdadero lujo es tener tiempo para saborear cada ola, cada risa, cada instante bajo este sol..."
+          ]
+        },
+        {
+          day: "Día 11",
+          title: "Hasta pronto, Caribe – Rumbo a casa con el corazón lleno de Cuba",
+          description: [
+            "El último día comienza con mar, arena y sol, y en hora a coordinar un traslado privado directo al aeropuerto de La Habana:",
+            "- Desde Varadero (2 horas de viaje)",
+            "Mientras recorren la carretera, tendrán tiempo para: ",
+            "- Repasar los mejores momentos del viaje.",
+            "- Detenerse a comprar últimos souvenirs (si lo desean).",
+            "- Disfrutar una última visita al mar Caribe.",
+            "No es un adiós, solo un 'hasta pronto'... Cuba siempre guardará un pedacito de arena para ustedes."
+          ]
         }
       ],
       en: [

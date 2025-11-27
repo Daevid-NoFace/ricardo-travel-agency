@@ -33,6 +33,50 @@ const heroId = `hero-${slug}`;
 const descriptionText = Array.isArray(experience.description) 
   ? experience.description.join(' ') 
   : experience.description;
+
+type DescriptionSegment = 
+  | { type: 'text'; content: string }
+  | { type: 'list'; items: string[] };
+
+const getDescriptionSegments = (description: string | string[]): DescriptionSegment[] => {
+  if (!Array.isArray(description)) {
+    return [{ type: 'text', content: description }];
+  }
+
+  const segments: DescriptionSegment[] = [];
+  let currentText = '';
+
+  const flushText = () => {
+    if (currentText.trim()) {
+      segments.push({ type: 'text', content: currentText.trim() });
+      currentText = '';
+    }
+  };
+
+  description.forEach((line) => {
+    const trimmed = line.trim();
+    if (trimmed.startsWith('-')) {
+      flushText();
+      const cleaned = trimmed.replace(/^-+\s*/, '');
+      const lastSegment = segments[segments.length - 1];
+      if (lastSegment && lastSegment.type === 'list') {
+        lastSegment.items.push(cleaned);
+      } else {
+        segments.push({ type: 'list', items: [cleaned] });
+      }
+    } else {
+      currentText += (currentText ? ' ' : '') + line.trim();
+    }
+  });
+
+  flushText();
+  return segments;
+};
+
+const itineraryWithSegments = experience.itinerary.map((item) => ({
+  ...item,
+  segments: getDescriptionSegments(item.description)
+}));
 ---
 
 <Layout 
@@ -183,21 +227,25 @@ const descriptionText = Array.isArray(experience.description)
                 {t('experienceDetail.detailedItinerary')}
               </h2>
               <div class="space-y-6">
-                {experience.itinerary.map((item, index) => (
+                {itineraryWithSegments.map((item, index) => (
                   <div class="relative pl-8 pb-6 border-l-2 border-caribbean-blue/30 last:border-l-0 last:pb-0">
                     <div class="absolute -left-3 top-0 w-6 h-6 rounded-full bg-caribbean-blue flex items-center justify-center text-white text-sm font-bold">
                       {index + 1}
                     </div>
                     <div class="bg-white border border-sand/40 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
-                      <p class="text-sm font-semibold text-coral uppercase tracking-wide mb-2">
-                        {item.day}
-                      </p>
-                      <h3 class="text-xl font-bold text-gray-900 mb-3">
-                        {item.title}
-                      </h3>
-                      <p class="text-gray-700 leading-relaxed">
-                        {item.description}
-                      </p>
+                      <div class="space-y-3 text-gray-700 leading-relaxed">
+                        {item.segments.map((segment) => (
+                          segment.type === 'list' ? (
+                            <ul class="list-disc pl-5 space-y-1">
+                              {segment.items.map((listItem) => (
+                                <li>{listItem}</li>
+                              ))}
+                            </ul>
+                          ) : (
+                            <p>{segment.content}</p>
+                          )
+                        ))}
+                      </div>
                     </div>
                   </div>
                 ))}

@@ -34,35 +34,38 @@ interface MultiLangExperience {
 
 const experiencesData: MultiLangExperience[] = [
   {
-    slug: "recorrido-clasico-habana",
+    slug: "habana-trinidad-mar",
     title: {
-      es: "Recorrido clásico por La Habana",
-      en: "Classic Havana Tour",
-      pt: "Tour Clássico por Havana"
+      es: "La Ruta Perfecta: Habana, Trinidad y Mar por el Precio Justo",
+      en: "The Perfect Route: Havana, Trinidad and Sea for the Just Price",
+      pt: "Tour Clássico por Havana, Trinidad e Mar por o Preço Justo"
     },
     description: {
-      es: "Explora la vibrante capital en autos clásicos estadounidenses. Descubre la arquitectura colonial de La Habana Vieja, camina por el icónico Malecón y siente la energía eléctrica de la ciudad.",
-      en: "Explore the vibrant capital in classic American cars. Discover the colonial architecture of Old Havana, walk along the iconic Malecón and feel the electric energy of the city.",
-      pt: "Explore a vibrante capital em carros clássicos americanos. Descubra a arquitetura colonial da Havana Velha, caminhe pelo icônico Malecón e sinta a energia elétrica da cidade."
+      es: "Embárcate en una experiencia única por Cuba, comenzando con un recorrido por La Habana en un descapotable clásico, donde el viento caribeño y la arquitectura histórica te acompañan en cada giro. Continúa tu aventura hacia Trinidad, una joya colonial con calles adoquinadas, que te transportará a otra época con su encanto intacto. Allí podrás disfrutar de música en vivo y cócteles en la Plaza Mayor, un entorno mágico donde la vida nocturna cobra un ritmo propio. Luego, desconéctate en playas de arena blanca y aguas cristalinas, perfectas para descansar y dejarte llevar por la tranquilidad del mar. Y en cada paso del camino, sumérgete en la cultura cubana con encuentros locales espontáneos, llenos de sonrisas, historias y autenticidad que hacen de este viaje una experiencia irrepetible.",
+      en: "Embark on a unique Cuban adventure, starting with a tour of Havana in a classic convertible, where the Caribbean breeze and historic architecture accompany you at every turn. Continue your journey to Trinidad, a colonial gem with cobblestone streets that will transport you to another era with its unspoiled charm. There, you can enjoy live music and cocktails in the Plaza Mayor, a magical setting where the nightlife comes alive. Then, unwind on white-sand beaches and crystal-clear waters, perfect for relaxing and letting yourself be carried away by the tranquility of the sea. And at every step of the way, immerse yourself in Cuban culture with spontaneous local encounters, full of smiles, stories, and authenticity that make this trip an unforgettable experience.",
+      pt: "Embarque numa aventura cubana única, começando com um passeio por Havana num descapotável clássico, onde a brisa caribenha e a arquitetura histórica o acompanham a cada esquina. Continue a sua viagem até Trinidad, uma joia colonial com ruas de paralelepípedos que o transportarão para outra época com o seu charme preservado. Aí, poderá desfrutar de música ao vivo e cocktails na Plaza Mayor, um cenário mágico onde a vida noturna ganha vida. De seguida, relaxe em praias de areia branca e águas cristalinas, perfeitas para relaxar e deixar-se levar pela tranquilidade do mar. E a cada passo, mergulhe na cultura cubana com encontros espontâneos com os habitantes locais, repletos de sorrisos, histórias e autenticidade que fazem desta viagem uma experiência inesquecível."
     },
     highlights: {
       es: [
-        "Paseo en un descapotable clásico de los años 50",
-        "Recorrido a pie por La Habana Vieja, Patrimonio de la UNESCO",
-        "Visita a la Plaza de la Catedral y Plaza Vieja",
-        "Atardecer en el Malecón"
+        "Explora La Habana en un descapotable clásico",
+        "Descubre Trinidad, una joya colonial con calles adoquinadas",
+        "Disfruta de música en vivo y cócteles en la Plaza Mayor",
+        "Relájate en playas de arena blanca y aguas cristalinas",
+        "Sumérgete en la cultura cubana con encuentros locales espontáneos"
       ],
       en: [
-        "Ride in a classic 1950s convertible",
-        "Walking tour of Old Havana, UNESCO World Heritage Site",
-        "Visit to Cathedral Square and Old Square",
-        "Sunset at the Malecón"
+        "Explore Havana in a classic convertible",
+        "Discover Trinidad, a colonial gem with cobblestone streets",
+        "Enjoy live music and cocktails in the Plaza Mayor",
+        "Relax on white beaches and crystal-clear waters",
+        "Immerse yourself in Cuban culture with spontaneous local encounters"
       ],
       pt: [
-        "Passeio em um conversível clássico dos anos 50",
-        "Tour a pé pela Havana Velha, Patrimônio Mundial da UNESCO",
-        "Visita à Praça da Catedral e Praça Velha",
-        "Pôr do sol no Malecón"
+        "Explore Havana num clássico descapotável",
+        "Descubra Trinidad, uma joia colonial com ruas de paralelepípedos",
+        "Disfrute de música ao vivo e cócteis na Praça da Catedral",
+        "Relaxe em praias de areia branca e água cristalina",
+        "Immerse-se na cultura cubana com encontros locais espontâneos"
       ]
     },
     imagePlaceholder: {

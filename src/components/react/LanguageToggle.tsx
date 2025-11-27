@@ -27,6 +27,9 @@ export default function LanguageToggle({ currentLang, currentPath }: LanguageTog
 
   // Generate the URL for language switching
   const getLanguageUrl = (langCode: string) => {
+    // Obtener el hash actual (ej: #experiences, #contact)
+    const currentHash = typeof window !== 'undefined' ? window.location.hash : '';
+    
     const pathParts = currentPath.split('/').filter(Boolean);
     
     // Remove current language from path if it exists
@@ -56,13 +59,19 @@ export default function LanguageToggle({ currentLang, currentPath }: LanguageTog
       }
     }
 
+    // Construir la URL base
+    let newUrl = '';
+    
     // For default language (es), don't add language prefix
     if (langCode === 'es') {
-      return '/' + pathParts.join('/');
+      newUrl = '/' + pathParts.join('/');
+    } else {
+      // For other languages, add language prefix
+      newUrl = `/${langCode}/${pathParts.join('/')}`;
     }
-
-    // For other languages, add language prefix
-    return `/${langCode}/${pathParts.join('/')}`;
+    
+    // Agregar el hash al final para mantener la posición
+    return newUrl + currentHash;
   };
 
   return (
@@ -99,7 +108,20 @@ export default function LanguageToggle({ currentLang, currentPath }: LanguageTog
               className={`flex items-center gap-3 px-4 py-2 hover:bg-gray-50 transition-colors ${
                 lang.code === currentLang ? 'bg-blue-50 text-blue-600' : 'text-gray-700'
               }`}
-              onClick={() => setIsOpen(false)}
+              onClick={() => {
+                setIsOpen(false);
+                
+                // Guardar la posición de scroll actual
+                if (typeof window !== 'undefined') {
+                  sessionStorage.setItem('scrollPosition', window.scrollY.toString());
+                  
+                  // Si hay un hash, guardarlo también
+                  const hash = window.location.hash;
+                  if (hash) {
+                    sessionStorage.setItem('scrollHash', hash);
+                  }
+                }
+              }}
             >
               <div className="w-6 h-6 flex items-center justify-center">
                 <img 

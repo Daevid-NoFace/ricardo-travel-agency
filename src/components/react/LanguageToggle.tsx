@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { LANGUAGES } from '../i18n/ui';
+import { LANGUAGES, routes } from '../i18n/ui';
 
 interface LanguageToggleProps {
   currentLang: string;
@@ -32,6 +32,28 @@ export default function LanguageToggle({ currentLang, currentPath }: LanguageTog
     // Remove current language from path if it exists
     if (pathParts[0] && pathParts[0] in LANGUAGES) {
       pathParts.shift();
+    }
+
+    // Traducir rutas según el idioma
+    const currentRoutes = routes[currentLang as keyof typeof routes];
+    const targetRoutes = routes[langCode as keyof typeof routes];
+    
+    // Si la primera parte es una ruta traducible, traducirla
+    if (pathParts.length > 0) {
+      // Verificar si es una ruta de experiencias
+      if (pathParts[0] === currentRoutes.experiencesPath) {
+        pathParts[0] = targetRoutes.experiencesPath;
+      }
+      // Agregar más traducciones de rutas aquí si es necesario
+      else if (pathParts[0] === currentRoutes.about) {
+        pathParts[0] = targetRoutes.about;
+      }
+      else if (pathParts[0] === currentRoutes.gallery) {
+        pathParts[0] = targetRoutes.gallery;
+      }
+      else if (pathParts[0] === currentRoutes.contact) {
+        pathParts[0] = targetRoutes.contact;
+      }
     }
 
     // For default language (es), don't add language prefix

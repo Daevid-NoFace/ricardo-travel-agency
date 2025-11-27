@@ -45,5 +45,57 @@ const {
   </head>
   <body>
     <slot />
+    
+    <script is:inline>
+      // Restaurar posición de scroll después de cambiar idioma
+      document.addEventListener('DOMContentLoaded', () => {
+        const scrollPosition = sessionStorage.getItem('scrollPosition');
+        const scrollHash = sessionStorage.getItem('scrollHash');
+        
+        if (scrollHash) {
+          // Si hay un hash guardado, hacer scroll a ese elemento
+          sessionStorage.removeItem('scrollHash');
+          setTimeout(() => {
+            const element = document.getElementById(scrollHash.replace('#', ''));
+            if (element) {
+              element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+          }, 100);
+        } else if (scrollPosition) {
+          // Si hay una posición guardada, restaurarla
+          sessionStorage.removeItem('scrollPosition');
+          setTimeout(() => {
+            window.scrollTo({
+              top: parseInt(scrollPosition),
+              behavior: 'smooth'
+            });
+          }, 100);
+        }
+      });
+      
+      // También manejar con astro:page-load para View Transitions
+      document.addEventListener('astro:page-load', () => {
+        const scrollPosition = sessionStorage.getItem('scrollPosition');
+        const scrollHash = sessionStorage.getItem('scrollHash');
+        
+        if (scrollHash) {
+          sessionStorage.removeItem('scrollHash');
+          setTimeout(() => {
+            const element = document.getElementById(scrollHash.replace('#', ''));
+            if (element) {
+              element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+          }, 100);
+        } else if (scrollPosition) {
+          sessionStorage.removeItem('scrollPosition');
+          setTimeout(() => {
+            window.scrollTo({
+              top: parseInt(scrollPosition),
+              behavior: 'smooth'
+            });
+          }, 100);
+        }
+      });
+    </script>
   </body>
 </html>

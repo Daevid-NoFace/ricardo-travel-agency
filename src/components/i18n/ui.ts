@@ -4,6 +4,11 @@ export const LANGUAGES: Record<
 	string,
 	{ code: string; name: string; flag: typeof SpainFlag }
 > = {
+	es: {
+		code: 'es',
+		name: 'Español',
+		flag: SpainFlag,
+	},
 	pt: {
 		code: 'pt',
 		name: 'Português',
@@ -13,11 +18,6 @@ export const LANGUAGES: Record<
 		code: 'en',
 		name: 'English',
 		flag: UnitedStatesFlag,
-	},
-	es: {
-		code: 'es',
-		name: 'Español',
-		flag: SpainFlag,
 	},
 };
 

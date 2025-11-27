@@ -14,49 +14,49 @@ const testimonials: Testimonial[] = [
   {
     id: 1,
     name: "Sarah Johnson",
-    country: "United States",
+    country: "Estados Unidos",
     rating: 5,
-    review: "An absolutely incredible experience! Our guide's knowledge of Cuban history and culture made every moment special. The personalized itinerary was perfect for our family, and we discovered places we never would have found on our own. Highly recommend!",
+    review: "¡Una experiencia absolutamente increíble! El conocimiento de nuestro guía sobre la historia y cultura cubana hizo que cada momento fuera especial. El itinerario personalizado fue perfecto para nuestra familia, y descubrimos lugares que nunca habríamos encontrado por nuestra cuenta. ¡Muy recomendado!",
     image: "SJ"
   },
   {
     id: 2,
     name: "Marco Rossi",
-    country: "Italy",
+    country: "Italia",
     rating: 5,
-    review: "Cuba exceeded all my expectations, thanks to this amazing local guide. From the vibrant streets of Havana to the peaceful tobacco fields of Viñales, every day was an adventure. The authentic experiences and local connections made this trip unforgettable.",
+    review: "Cuba superó todas mis expectativas, gracias a este increíble guía local. Desde las vibrantes calles de La Habana hasta los pacíficos campos de tabaco de Viñales, cada día fue una aventura. Las experiencias auténticas y las conexiones locales hicieron este viaje inolvidable.",
     image: "MR"
   },
   {
     id: 3,
     name: "Emma Thompson",
-    country: "United Kingdom",
+    country: "Reino Unido",
     rating: 5,
-    review: "I've traveled extensively, but Cuba with this guide was truly special. The attention to detail, the insider access to local spots, and the genuine warmth made me feel like I was traveling with a friend rather than a tour operator. Simply outstanding!",
+    review: "He viajado extensamente, pero Cuba con este guía fue verdaderamente especial. La atención al detalle, el acceso privilegiado a lugares locales y la calidez genuina me hicieron sentir como si estuviera viajando con un amigo en lugar de un operador turístico. ¡Simplemente excepcional!",
     image: "ET"
   },
   {
     id: 4,
     name: "Hans Mueller",
-    country: "Germany",
+    country: "Alemania",
     rating: 5,
-    review: "Professional, knowledgeable, and incredibly friendly. Our guide helped us navigate Cuba with ease and showed us the real heart of the island. The cultural experiences and historical insights were fascinating. We're already planning our return trip!",
+    review: "Profesional, conocedor e increíblemente amigable. Nuestro guía nos ayudó a navegar Cuba con facilidad y nos mostró el verdadero corazón de la isla. Las experiencias culturales y las perspectivas históricas fueron fascinantes. ¡Ya estamos planeando nuestro próximo viaje!",
     image: "HM"
   },
   {
     id: 5,
     name: "Sophie Dubois",
-    country: "France",
+    country: "Francia",
     rating: 5,
-    review: "Magnifique! The perfect blend of adventure, culture, and relaxation. Our guide's passion for Cuba was contagious, and their local expertise opened doors to authentic experiences we'll treasure forever. The best travel experience we've ever had!",
+    review: "¡Magnífique! La combinación perfecta de aventura, cultura y relajación. La pasión de nuestro guía por Cuba fue contagiosa, y su experiencia local abrió puertas a experiencias auténticas que atesoraremos para siempre. ¡La mejor experiencia de viaje que hemos tenido!",
     image: "SD"
   },
   {
     id: 6,
-    name: "Carlos Mendez",
-    country: "Spain",
+    name: "Carlos Méndez",
+    country: "España",
     rating: 5,
-    review: "An extraordinary journey through Cuba! The personalized service, local insights, and carefully curated experiences made this trip exceptional. From salsa lessons to beach days, everything was perfectly organized. ¡Absolutamente recomendado!",
+    review: "¡Un viaje extraordinario por Cuba! El servicio personalizado, las perspectivas locales y las experiencias cuidadosamente seleccionadas hicieron que este viaje fuera excepcional. Desde clases de salsa hasta días de playa, todo estuvo perfectamente organizado. ¡Absolutamente recomendado!",
     image: "CM"
   }
 ];

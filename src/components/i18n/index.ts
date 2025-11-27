@@ -8,25 +8,18 @@ export const translations = {
   Português: 'pt',
 };
 
-export const getI18n = ({currentLocale}: {currentLocale: string}) => {
-  switch (currentLocale) {
-    case 'es':
-    case translations.Español:
-        return spanish;
-    case 'en':
-    case translations.English:
-        return english;
-    case 'pt':
-    case translations.Português:
-        return portuguese;
-    default:
-        return spanish;
-  }
+const LANG = {
+	PORTUGUESE: 'pt',
+	ENGLISH: 'en',
+	SPANISH: 'es',
 };
 
-export const getCurrentLanguage = (): string => {
-  if (typeof window !== 'undefined') {
-    return localStorage.getItem('language') || 'es';
-  }
-  return 'es';
+export const getI18N = ({
+	currentLocale = 'es',
+}: {
+	currentLocale: string | undefined;
+}) => {
+	if (currentLocale === LANG.PORTUGUESE) return {...spanish, ...portuguese};
+	if (currentLocale === LANG.ENGLISH) return {...spanish, ...english};
+	return spanish;
 };

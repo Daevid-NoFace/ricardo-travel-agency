@@ -1,22 +1,18 @@
 ---
 import ExperienceCard from './ExperienceCard.astro';
 import { experiences } from '../../data/experiences';
-import { getI18n } from '../i18n';
-
-// Default to Spanish for SSG
-const t = getI18n({ currentLocale: 'es' });
 ---
 
 <section id="experiences" class="py-20 bg-gradient-to-b from-sand/20 to-white">
   <div class="container mx-auto px-4">
     <!-- Section Header -->
     <div class="text-center mb-16 max-w-3xl mx-auto">
-      <span class="text-coral font-semibold text-sm uppercase tracking-wider mb-4 block" data-i18n="experiences.label">{t.experiences.label}</span>
+      <span class="text-coral font-semibold text-sm uppercase tracking-wider mb-4 block">Viajes inolvidables</span>
       <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-        <span data-i18n="experiences.title">{t.experiences.title}</span> <span class="text-caribbean-blue" data-i18n="experiences.titleHighlight">{t.experiences.titleHighlight}</span>
+        Experiencias cubanas <span class="text-caribbean-blue">seleccionadas</span>
       </h2>
-      <p class="text-lg text-gray-700 leading-relaxed" data-i18n="experiences.subtitle">
-        {t.experiences.subtitle}
+      <p class="text-lg text-gray-700 leading-relaxed">
+        Desde ciudades vibrantes hasta playas prístinas, desde inmersión cultural hasta maravillas naturales: descubre las muchas caras de Cuba con itinerarios diseñados a medida.
       </p>
     </div>
 
@@ -36,7 +32,7 @@ const t = getI18n({ currentLocale: 'es' });
             class="group flex items-center gap-2 px-8 py-4 bg-caribbean-blue text-white rounded-full font-semibold text-lg hover:bg-ocean-blue transition-all duration-300 transform hover:scale-105 shadow-xl"
             aria-label="Ver más experiencias"
           >
-            <span id="toggle-text">{t.experiences.showMore}</span>
+            <span id="toggle-text">Ver más experiencias</span>
             <svg id="toggle-arrow" class="w-6 h-6 transition-transform duration-300 group-hover:translate-y-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
             </svg>
@@ -47,31 +43,20 @@ const t = getI18n({ currentLocale: 'es' });
 
     <!-- CTA -->
     <div class="text-center mt-24">
-      <p class="text-lg text-gray-700 mb-6" data-i18n="experiences.ctaQuestion">
-        {t.experiences.ctaQuestion}
+      <p class="text-lg text-gray-700 mb-6">
+        ¿Listo para crear tu aventura perfecta en Cuba?
       </p>
       <a 
         href="#contact" 
         class="inline-block px-8 py-4 bg-coral text-white rounded-lg font-semibold text-lg hover:bg-sunset-orange transition-all duration-300 transform hover:scale-105 shadow-lg"
       >
-        <span data-i18n="experiences.ctaButton">{t.experiences.ctaButton}</span>
+        <span>Hablemos</span>
       </a>
     </div>
   </div>
 </section>
 
 <script>
-  // Get translations based on current language
-  const getTranslations = () => {
-    const lang = localStorage.getItem('language') || 'es';
-    const translations = {
-      es: { showMore: 'Ver más experiencias', showLess: 'Ver menos' },
-      en: { showMore: 'Show more experiences', showLess: 'Show less' },
-      pt: { showMore: 'Ver mais experiências', showLess: 'Ver menos' }
-    };
-    return translations[lang as keyof typeof translations] || translations.es;
-  };
-
   // Toggle para expandir/colapsar experiencias
   const grid = document.getElementById('experiences-grid');
   const overlay = document.getElementById('expand-overlay');
@@ -80,7 +65,6 @@ const t = getI18n({ currentLocale: 'es' });
   const toggleArrow = document.getElementById('toggle-arrow');
   
   let isExpanded = false;
-  const t = getTranslations();
   
   // Calcular altura inicial para mostrar solo 3 cards
   const calculateCollapsedHeight = () => {
@@ -119,14 +103,6 @@ const t = getI18n({ currentLocale: 'es' });
     }
   });
   
-  // Update text on language change
-  window.addEventListener('languageChange', () => {
-    const newT = getTranslations();
-    if (toggleText) {
-      toggleText.textContent = isExpanded ? newT.showLess : newT.showMore;
-    }
-  });
-
   // Toggle al hacer clic
   toggleBtn?.addEventListener('click', () => {
     isExpanded = !isExpanded;
@@ -135,7 +111,7 @@ const t = getI18n({ currentLocale: 'es' });
       // Expandir
       grid!.style.maxHeight = `${grid!.scrollHeight}px`;
       overlay!.style.opacity = '0';
-      toggleText!.textContent = t.showLess;
+      toggleText!.textContent = 'Ver menos';
       toggleArrow!.style.transform = 'rotate(180deg)';
       
       // Ocultar overlay después de la animación
@@ -149,7 +125,7 @@ const t = getI18n({ currentLocale: 'es' });
         overlay!.style.opacity = '1';
       }, 10);
       calculateCollapsedHeight();
-      toggleText!.textContent = t.showMore;
+      toggleText!.textContent = 'Ver más experiencias';
       toggleArrow!.style.transform = 'rotate(0deg)';
       
       // Scroll suave hacia la sección
@@ -159,29 +135,3 @@ const t = getI18n({ currentLocale: 'es' });
       });
     }
   });
-
-  // Update all data-i18n elements in experiences section
-  import { getI18n } from '../i18n';
-  
-  function updateExperiencesText() {
-    const lang = localStorage.getItem('language') || 'es';
-    const translations = getI18n({ currentLocale: lang });
-    
-    document.querySelectorAll('#experiences [data-i18n]').forEach((el) => {
-      const key = el.getAttribute('data-i18n');
-      if (key) {
-        const keys = key.split('.');
-        let value: any = translations;
-        for (const k of keys) {
-          value = value?.[k];
-        }
-        if (value && el.textContent !== value) {
-          el.textContent = value;
-        }
-      }
-    });
-  }
-
-  updateExperiencesText();
-  window.addEventListener('languageChange', updateExperiencesText);
-</script>

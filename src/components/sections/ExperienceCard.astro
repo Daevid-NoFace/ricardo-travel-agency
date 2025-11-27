@@ -36,21 +36,40 @@ const experienceUrl = `${langPrefix}/${experiencesPath}/${slug}`;
       {title}
     </h3>
     
-    <p class="text-gray-700 mb-4 leading-relaxed">
-      {description}
-    </p>
+    <!-- Description -->
+    <div class="relative mb-4">
+      <!-- Indicador de scroll superior - gradiente fade -->
+      <div class="absolute top-0 left-0 right-0 h-8 bg-gradient-to-b from-white to-transparent pointer-events-none scroll-indicator-top opacity-0 z-10"></div>
+      
+      <div class="h-32 overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-caribbean-blue/30 scrollbar-track-gray-100 scroll-container">
+        <p class="text-gray-700 leading-relaxed text-sm">
+          {description}
+        </p>
+      </div>
+      
+      <!-- Indicador de scroll inferior - gradiente fade -->
+      <div class="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-white to-transparent pointer-events-none scroll-indicator-bottom"></div>
+    </div>
 
     <!-- Highlights -->
-    <ul class="space-y-2 mb-6 flex-1">
-      {highlights.map((highlight) => (
-        <li class="flex items-start gap-2 text-gray-600">
-          <svg class="w-5 h-5 text-tropical-green flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-          </svg>
-          <span class="text-sm">{highlight}</span>
-        </li>
-      ))}
-    </ul>
+    <div class="relative mb-6">
+      <!-- Indicador de scroll superior - gradiente fade -->
+      <div class="absolute top-0 left-0 right-0 h-8 bg-gradient-to-b from-white to-transparent pointer-events-none scroll-indicator-top opacity-0 z-10"></div>
+      
+      <ul class="h-32 overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-caribbean-blue/30 scrollbar-track-gray-100 scroll-container space-y-2">
+        {highlights.map((highlight) => (
+          <li class="flex items-start gap-2 text-gray-600">
+            <svg class="w-5 h-5 text-tropical-green flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+            </svg>
+            <span class="text-sm">{highlight}</span>
+          </li>
+        ))}
+      </ul>
+      
+      <!-- Indicador de scroll inferior - gradiente fade -->
+      <div class="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-white to-transparent pointer-events-none scroll-indicator-bottom"></div>
+    </div>
 
     <!-- Learn More Button -->
     <a 
@@ -61,3 +80,51 @@ const experienceUrl = `${langPrefix}/${experiencesPath}/${slug}`;
     </a>
   </div>
 </div>
+
+<script>
+  // Manejar los indicadores de scroll en las tarjetas de experiencias
+  function handleScrollIndicators() {
+    const scrollContainers = document.querySelectorAll('.scroll-container');
+    
+    scrollContainers.forEach((container) => {
+      const indicatorTop = container.parentElement?.querySelector('.scroll-indicator-top');
+      const indicatorBottom = container.parentElement?.querySelector('.scroll-indicator-bottom');
+      if (!indicatorTop || !indicatorBottom) return;
+      
+      // Función para verificar la posición del scroll
+      const checkScroll = () => {
+        const hasScroll = container.scrollHeight > container.clientHeight;
+        const isAtBottom = container.scrollHeight - container.scrollTop <= container.clientHeight + 5;
+        
+        // Indicador superior: mostrar SOLO cuando estés al final
+        if (hasScroll && isAtBottom) {
+          indicatorTop.classList.remove('opacity-0');
+        } else {
+          indicatorTop.classList.add('opacity-0');
+        }
+        
+        // Indicador inferior: mostrar cuando NO estés al final y haya scroll
+        if (hasScroll && !isAtBottom) {
+          indicatorBottom.classList.remove('opacity-0');
+        } else {
+          indicatorBottom.classList.add('opacity-0');
+        }
+      };
+      
+      // Verificar al cargar
+      checkScroll();
+      
+      // Verificar al hacer scroll
+      container.addEventListener('scroll', checkScroll);
+      
+      // Verificar al cambiar el tamaño de la ventana
+      window.addEventListener('resize', checkScroll);
+    });
+  }
+  
+  // Inicializar en carga de página
+  document.addEventListener('DOMContentLoaded', handleScrollIndicators);
+  
+  // Reinicializar después de navegación de Astro
+  document.addEventListener('astro:page-load', handleScrollIndicators);
+</script>

@@ -47,3 +47,32 @@ body {
     opacity: 1;
   }
 }
+
+/* Scrollbar personalizado para las tarjetas de experiencias */
+.scrollbar-thin {
+  scrollbar-width: thin;
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: rgb(243 244 246);
+  border-radius: 3px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: rgba(0, 180, 216, 0.3);
+  border-radius: 3px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 180, 216, 0.5);
+}
+
+/* Indicadores de scroll con transición suave */
+.scroll-indicator-top,
+.scroll-indicator-bottom {
+  transition: opacity 0.3s ease-in-out;
+}

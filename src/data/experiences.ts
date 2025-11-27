@@ -69,9 +69,9 @@ const experiencesData: MultiLangExperience[] = [
       ]
     },
     imagePlaceholder: {
-      es: "Autos antiguos de colores en las calles de La Habana",
-      en: "Colorful vintage cars on Havana streets",
-      pt: "Carros antigos coloridos nas ruas de Havana"
+      es: "@/pictures/habana-trinidad-mar/3-dias-habana.webp, @/pictures/habana-trinidad-mar/3-dias-habana-2.jpg, @/pictures/habana-trinidad-mar/3-dias-habana-3.jpg, @/pictures/habana-trinidad-mar/3-dias-habana-4.webp, @/pictures/habana-trinidad-mar/3-dias-habana-5.jpg, @/pictures/habana-trinidad-mar/3-dias-habana-6.jpg, @/pictures/habana-trinidad-mar/3-dias-habana-7.jpg",
+      en: "@/pictures/habana-trinidad-mar/3-dias-habana.webp, @/pictures/habana-trinidad-mar/3-dias-habana-2.jpg, @/pictures/habana-trinidad-mar/3-dias-habana-3.jpg, @/pictures/habana-trinidad-mar/3-dias-habana-4.webp, @/pictures/habana-trinidad-mar/3-dias-habana-5.jpg, @/pictures/habana-trinidad-mar/3-dias-habana-6.jpg, @/pictures/habana-trinidad-mar/3-dias-habana-7.jpg",
+      pt: "@/pictures/habana-trinidad-mar/3-dias-habana.webp, @/pictures/habana-trinidad-mar/3-dias-habana-2.jpg, @/pictures/habana-trinidad-mar/3-dias-habana-3.jpg, @/pictures/habana-trinidad-mar/3-dias-habana-4.webp, @/pictures/habana-trinidad-mar/3-dias-habana-5.jpg, @/pictures/habana-trinidad-mar/3-dias-habana-6.jpg, @/pictures/habana-trinidad-mar/3-dias-habana-7.jpg"
     },
     duration: {
       es: "1 día completo",

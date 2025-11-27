@@ -23,6 +23,11 @@ const experience = getExperience(slug, currentLang);
 if (!experience) {
   return Astro.redirect('/404');
 }
+
+// Convertir imagePlaceholder en array de imágenes
+const images = experience.imagePlaceholder.split(',').map(img => img.trim());
+const hasMultipleImages = images.length > 1;
+const heroId = `hero-${slug}`;
 ---
 
 <Layout 
@@ -32,15 +37,45 @@ if (!experience) {
   <Header />
   
   <main class="bg-white">
-    <!-- Hero Section -->
-    <section class="relative h-[60vh] min-h-[400px] bg-gradient-to-br from-caribbean-blue to-ocean-blue">
-      <div class="absolute inset-0 flex items-center justify-center text-white/80 p-6 text-center">
-        <p class="text-xl font-medium">{experience.imagePlaceholder}</p>
-      </div>
-      <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+    <!-- Hero Section with Image Carousel -->
+    <section class="relative h-[60vh] min-h-[400px] bg-gradient-to-br from-caribbean-blue to-ocean-blue overflow-hidden">
+      <!-- Image Carousel -->
+      {images[0].startsWith('@/') || images[0].startsWith('/') ? (
+        <div class="absolute inset-0">
+          {images.map((img, index) => (
+            <img 
+              src={img.replace('@/', '/')} 
+              alt={`${experience.title} - ${index + 1}`}
+              class={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 hero-slide ${index === 0 ? 'opacity-100' : 'opacity-0'}`}
+              data-hero={heroId}
+              data-index={index}
+            />
+          ))}
+          
+          {/* Indicadores de imagen */}
+          {hasMultipleImages && (
+            <div class="absolute bottom-24 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+              {images.map((_, index) => (
+                <div 
+                  class={`w-2 h-2 rounded-full transition-all duration-300 hero-indicator ${index === 0 ? 'bg-white w-8' : 'bg-white/50'}`}
+                  data-hero={heroId}
+                  data-index={index}
+                />
+              ))}
+            </div>
+          )}
+        </div>
+      ) : (
+        <div class="absolute inset-0 flex items-center justify-center text-white/80 p-6 text-center">
+          <p class="text-xl font-medium">{experience.imagePlaceholder}</p>
+        </div>
+      )}
+      
+      <!-- Dark Overlay -->
+      <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-black/20"></div>
       
       <!-- Title Overlay -->
-      <div class="absolute bottom-0 left-0 right-0 p-8 md:p-12">
+      <div class="absolute bottom-0 left-0 right-0 p-8 md:p-12 z-10">
         <div class="container mx-auto max-w-6xl">
           <a href="/#experiences" class="inline-flex items-center gap-2 text-white/90 hover:text-white mb-4 transition-colors">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -48,10 +83,10 @@ if (!experience) {
             </svg>
             {t('experienceDetail.backToExperiences')}
           </a>
-          <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 drop-shadow-lg">
             {experience.title}
           </h1>
-          <p class="text-xl text-white/90 max-w-3xl">
+          <p class="text-xl text-white/90 max-w-3xl drop-shadow-md">
             {experience.description}
           </p>
         </div>
@@ -260,3 +295,48 @@ if (!experience) {
 
   <Footer />
 </Layout>
+
+<script>
+  // Carrusel automático de imágenes en el hero
+  function initHeroCarousel() {
+    const slides = document.querySelectorAll('.hero-slide');
+    const indicators = document.querySelectorAll('.hero-indicator');
+    
+    if (slides.length <= 1) return; // No hacer nada si solo hay una imagen
+    
+    let currentIndex = 0;
+    
+    const showSlide = (index: number) => {
+      // Ocultar todas las imágenes
+      slides.forEach((slide) => {
+        slide.classList.remove('opacity-100');
+        slide.classList.add('opacity-0');
+      });
+      
+      // Mostrar la imagen actual
+      slides[index].classList.remove('opacity-0');
+      slides[index].classList.add('opacity-100');
+      
+      // Actualizar indicadores
+      indicators.forEach((indicator, i) => {
+        if (i === index) {
+          indicator.classList.add('bg-white', 'w-8');
+          indicator.classList.remove('bg-white/50');
+        } else {
+          indicator.classList.remove('bg-white', 'w-8');
+          indicator.classList.add('bg-white/50');
+        }
+      });
+    };
+    
+    // Cambiar imagen cada 3 segundos
+    setInterval(() => {
+      currentIndex = (currentIndex + 1) % slides.length;
+      showSlide(currentIndex);
+    }, 3000);
+  }
+  
+  // Inicializar carrusel del hero
+  document.addEventListener('DOMContentLoaded', initHeroCarousel);
+  document.addEventListener('astro:page-load', initHeroCarousel);
+</script>

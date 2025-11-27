@@ -18,14 +18,46 @@ import { routes, defaultLang, showDefaultLang } from '../i18n/ui';
 const experiencesPath = routes[currentLang]?.experiencesPath || routes[defaultLang].experiencesPath;
 const langPrefix = (!showDefaultLang && currentLang === defaultLang) ? '' : `/${currentLang}`;
 const experienceUrl = `${langPrefix}/${experiencesPath}/${slug}`;
+
+// Convertir imagePlaceholder en array de imágenes (separadas por coma si hay múltiples)
+const images = imagePlaceholder.split(',').map(img => img.trim());
+const hasMultipleImages = images.length > 1;
+const cardId = `card-${slug}`;
 ---
 
 <div class="group bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 flex flex-col h-full">
-  <!-- Image Placeholder -->
+  <!-- Image Carousel -->
   <div class="relative h-64 overflow-hidden bg-gradient-to-br from-caribbean-blue to-ocean-blue">
-    <div class="absolute inset-0 flex items-center justify-center text-white/80 p-6 text-center">
-      <p class="text-sm font-medium">{imagePlaceholder}</p>
-    </div>
+    {images[0].startsWith('@/') || images[0].startsWith('/') ? (
+      <div class="relative w-full h-full">
+        {images.map((img, index) => (
+          <img 
+            src={img.replace('@/', '/')} 
+            alt={`${title} - ${index + 1}`}
+            class={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 image-slide ${index === 0 ? 'opacity-100' : 'opacity-0'}`}
+            data-card={cardId}
+            data-index={index}
+          />
+        ))}
+        
+        {/* Indicadores de imagen */}
+        {hasMultipleImages && (
+          <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+            {images.map((_, index) => (
+              <div 
+                class={`w-2 h-2 rounded-full transition-all duration-300 image-indicator ${index === 0 ? 'bg-white w-6' : 'bg-white/50'}`}
+                data-card={cardId}
+                data-index={index}
+              />
+            ))}
+          </div>
+        )}
+      </div>
+    ) : (
+      <div class="absolute inset-0 flex items-center justify-center text-white/80 p-6 text-center">
+        <p class="text-sm font-medium">{imagePlaceholder}</p>
+      </div>
+    )}
     <!-- Overlay on hover -->
     <div class="absolute inset-0 bg-coral/0 group-hover:bg-coral/20 transition-all duration-300"></div>
   </div>
@@ -127,4 +159,57 @@ const experienceUrl = `${langPrefix}/${experiencesPath}/${slug}`;
   
   // Reinicializar después de navegación de Astro
   document.addEventListener('astro:page-load', handleScrollIndicators);
+  
+  // Carrusel automático de imágenes en las tarjetas
+  function initImageCarousels() {
+    // Obtener todas las tarjetas con múltiples imágenes
+    const cards = new Set<string>();
+    document.querySelectorAll('.image-slide').forEach((slide) => {
+      const cardId = slide.getAttribute('data-card');
+      if (cardId) cards.add(cardId);
+    });
+    
+    // Crear un intervalo para cada tarjeta
+    cards.forEach((cardId) => {
+      const slides = document.querySelectorAll(`.image-slide[data-card="${cardId}"]`);
+      const indicators = document.querySelectorAll(`.image-indicator[data-card="${cardId}"]`);
+      
+      if (slides.length <= 1) return; // No hacer nada si solo hay una imagen
+      
+      let currentIndex = 0;
+      
+      const showSlide = (index: number) => {
+        // Ocultar todas las imágenes
+        slides.forEach((slide) => {
+          slide.classList.remove('opacity-100');
+          slide.classList.add('opacity-0');
+        });
+        
+        // Mostrar la imagen actual
+        slides[index].classList.remove('opacity-0');
+        slides[index].classList.add('opacity-100');
+        
+        // Actualizar indicadores
+        indicators.forEach((indicator, i) => {
+          if (i === index) {
+            indicator.classList.add('bg-white', 'w-6');
+            indicator.classList.remove('bg-white/50');
+          } else {
+            indicator.classList.remove('bg-white', 'w-6');
+            indicator.classList.add('bg-white/50');
+          }
+        });
+      };
+      
+      // Cambiar imagen cada 3 segundos
+      setInterval(() => {
+        currentIndex = (currentIndex + 1) % slides.length;
+        showSlide(currentIndex);
+      }, 3000);
+    });
+  }
+  
+  // Inicializar carruseles de imágenes
+  document.addEventListener('DOMContentLoaded', initImageCarousels);
+  document.addEventListener('astro:page-load', initImageCarousels);
 </script>

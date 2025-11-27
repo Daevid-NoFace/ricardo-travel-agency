@@ -195,7 +195,7 @@ const experiences = getExperiences(currentLang).slice(0, 5);
   
   // Autoplay
   const startAutoplay = () => {
-    autoplayInterval = setInterval(goToNext, 5000) as unknown as number;
+    autoplayInterval = setInterval(goToNext, 10000) as unknown as number;
   };
   
   const stopAutoplay = () => {

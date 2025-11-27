@@ -225,40 +225,196 @@ const experiencesData: MultiLangExperience[] = [
       ],
       en: [
         {
-          day: "Morning",
-          title: "Old Havana",
+          day: "Day 1",
+          title: "Welcome home—be habaneros for a few days!",
           description: [
-            "We start with a walking tour through the historic center, visiting Plaza de Armas, Cathedral Square, and Old Square. Discover the colonial architecture and fascinating history of every corner."
+            "Your first day in Cuba begins with the warm embrace of the Caribbean breeze as you land.",
+            "Our smiling driver awaits you at the airport, ready to take you comfortably to your lodging in a private vehicle.",
+            "As you ride through Havana's colorful streets, filled with music drifting through the windows, we share the local secrets that turn a trip into an experience:",
+            "where to sip the best sunrise coffee, how to recognize an authentic paladar, and which corner will gift you the first chords of son.",
+            "Havana is already beating for you... ready to be seduced?",
+            "Let the Cuban adventure begin with a mojito in hand. Savor every moment!"
           ]
         },
         {
-          day: "Midday",
-          title: "Traditional Lunch",
+          day: "Day 2",
+          title: "Havana reveals itself – History, vintage flair, and flavor",
           description: [
-            "Enjoy authentic Cuban cuisine at a local paladar, with traditional dishes like ropa vieja, moros y cristianos, and tostones."
+            "A classic convertible and private guide show you the soul of the city: colonial squares, Hemingway's balconies, and secret tobacco workshops.",
+            "Then choose: lunch at a Havana Vieja paladar like La Esquina de Cuba.",
+            "Explore freely the corners that steal your heart.",
+            "Leave the afternoon open to get lost on the Malecón at sunset or follow the city's rhythm wherever it leads you.",
+            "Today you're not tourists—you become habaneros for a day."
           ]
         },
         {
-          day: "Afternoon",
-          title: "Classic Car Ride",
-          description: "Hop into a 1950s convertible and cruise along the Malecón, Vedado, and Miramar. End with a spectacular sunset view over the Caribbean Sea."
+          day: "Day 3",
+          title: "Free day: Havana is conquered on foot (and with an open heart)",
+          description: [
+            "Today the city is yours. With no fixed routes or schedules, let Havana surprise you: lose yourselves among antique books in Plaza de Armas,",
+            "sip an improvised coffee on a colonial balcony, or follow street music that leads to secret spots.",
+            "The Malecón at sunset will be your best reward.",
+            "The most authentic treasures aren't in guidebooks—they're on the corners you explore with curiosity and time."
+          ]
+        },
+        {
+          day: "Day 4",
+          title: "Collective taxi to Trinidad, where time naps under the Caribbean sun",
+          description: [
+            "Today we change pace: an authentic colectivo taxi takes you along rural roads, past palm landscapes and colorful towns, until reaching the colonial jewel of Trinidad (UNESCO).",
+            "During the 4–5 hour ride, you'll experience spontaneous Cuba: improvised stops, chats with locals, and the sweet provincial breeze.",
+            "Upon arrival, cobblestone streets, pastel facades, and quiet plazas welcome you.",
+            "The rest of the day is yours—maybe climb the bell-tower lookout or sip a canchánchara (the local cocktail) in a courtyard full of music.",
+            "Trinidad isn't visited... it's felt with your eyes closed."
+          ]
+        },
+        {
+          day: "Days 5 & 6",
+          title: "Free days in Trinidad: every alley holds a story (and a sugarcane mojito)",
+          description: [
+            "Two days to explore this colonial gem at your own pace: climb the bell tower at sunset, shop for crafts in Casa de los Conspiradores, or swim at Playa Ancón (15 minutes away).",
+            "When the sun goes down, Plaza Mayor transforms: live music, spontaneous dancing, and the famous canchánchara flow late into the night.",
+            "By day it's an open-air museum; by night, a party under the stars. Trinidad is dual and fascinating."
+          ]
+        },
+        {
+          day: "Day 7",
+          title: "Goodbye Trinidad, hello Varadero/Cayo Santa María – The sea chooses your ending",
+          description: [
+            "The final overland stretch is a Cuban experience in itself: travel by colectivo taxi (4–5 hours) through colonial towns frozen in time,",
+            "valleys of tropical crops and rustic tobacco houses, and spontaneous stops to stretch your legs or taste fresh fruit.",
+            "Choose your grand finale:",
+            "- Varadero: 20 km of white sand and vibrant ambiance (2 hrs to Havana airport).",
+            "- Cayo Santa María: seclusion and crystal waters (5 hrs to Havana airport).",
+            "Upon arrival it's time to enjoy the all-inclusive resort with sunset cocktails, seaside massages, and dinners with your feet in the sand.",
+            "In Cuba, roads taste like adventure and endings like the Caribbean."
+          ]
+        },
+        {
+          day: "Days 8–10",
+          title: "You, the sea, and nothing else – The Caribbean in its purest state",
+          description: [
+            "These days are for surrendering to the Caribbean rhythm:",
+            "- Mornings plunging into turquoise waters.",
+            "- Afternoons with cocktails beside the infinity pool.",
+            "- Sunsets with your feet in white sand.",
+            "- Nights of romantic dinners under the stars.",
+            "At your all-inclusive resort you'll enjoy:",
+            "Spa sessions with ocean views.",
+            "Optional water activities.",
+            "Evening shows infused with Cuban flavor.",
+            "True luxury is having time to savor every wave, laugh, and sun-kissed instant."
+          ]
+        },
+        {
+          day: "Day 11",
+          title: "Hasta pronto, Caribbean – Heading home with hearts full of Cuba",
+          description: [
+            "The last day begins with sea, sand, and sun before coordinating a private transfer straight to Havana airport:",
+            "- From Varadero (2-hour drive).",
+            "- From Cayo Santa María (5-hour drive).",
+            "On the road you'll have time to revisit the best moments,",
+            "stop for final souvenirs if you wish,",
+            "and enjoy one last glimpse of the Caribbean Sea.",
+            "It's not goodbye, just a 'see you soon'—Cuba will always save a bit of sand for you."
+          ]
         }
       ],
       pt: [
         {
-          day: "Manhã",
-          title: "Havana Velha",
-          description: "Começamos com um tour a pé pelo centro histórico, visitando a Plaza de Armas, Praça da Catedral e Praça Velha. Descubra a arquitetura colonial e a história fascinante de cada canto."
+          day: "Dia 1",
+          title: "Bem-vindos a casa, sejam habaneros por alguns dias!",
+          description: [
+            "O primeiro dia em Cuba começa com o abraço quente da brisa caribenha assim que aterrissam.",
+            "Nosso motorista sorridente espera vocês no aeroporto, pronto para levá-los com conforto ao alojamento em veículo privado.",
+            "Enquanto percorrem as primeiras ruas de Havana, cheias de cores e música entrando pelas janelas, compartilhamos segredos locais que transformam a viagem em experiência:",
+            "onde tomar o melhor café ao amanhecer, como reconhecer um paladar autêntico e em qual esquina ouvirão os primeiros acordes de son.",
+            "Havana já pulsa por vocês... prontos para se deixarem seduzir?",
+            "Começa a aventura cubana com um mojito na mão. Aproveitem cada instante!"
+          ]
         },
         {
-          day: "Meio-dia",
-          title: "Almoço Tradicional",
-          description: "Desfrute da autêntica culinária cubana em um paladar local, com pratos tradicionais como ropa vieja, moros y cristianos e tostones."
+          day: "Dia 2",
+          title: "Havana se revela – História, vintage e sabor",
+          description: [
+            "Um conversível clássico e um guia privado mostram a alma da cidade: praças coloniais, varandas de Hemingway e oficinas secretas de tabaco.",
+            "Depois, escolham: almoço em um paladar de Havana Velha, como La Esquina de Cuba.",
+            "Explorem livremente os cantinhos que roubarem o coração de vocês.",
+            "Tarde aberta para se perder pelo Malecón ao entardecer ou seguir o ritmo da cidade.",
+            "Hoje vocês não são turistas—são habaneros por um dia."
+          ]
         },
         {
-          day: "Tarde",
-          title: "Passeio de Carro Clássico",
-          description: "Suba em um conversível dos anos 50 e percorra o Malecón, Vedado e Miramar. Termine com uma vista espetacular do pôr do sol sobre o Mar do Caribe."
+          day: "Dia 3",
+          title: "Dia livre: Havana se conquista a pé (e de coração aberto)",
+          description: [
+            "Hoje a cidade é de vocês. Sem rotas fixas nem horários, deixem Havana surpreendê-los: percam-se entre livros antigos na Plaza de Armas,",
+            "saboreiem um café improvisado em uma varanda colonial ou sigam a música de rua que leva a recantos secretos.",
+            "O Malecón ao pôr do sol será a melhor recompensa.",
+            "Os tesouros mais autênticos não estão nos guias, e sim nas esquinas exploradas com curiosidade e tempo."
+          ]
+        },
+        {
+          day: "Dia 4",
+          title: "Taxi coletivo rumo a Trinidad, onde o tempo adormece sob o sol caribenho",
+          description: [
+            "Hoje mudamos o ritmo: um autêntico táxi coletivo leva vocês por estradas rurais, entre paisagens de palmeiras e povoados coloridos, até a joia colonial de Trinidad (UNESCO).",
+            "Durante as 4–5 horas de viagem, viverão a Cuba espontânea: paradas improvisadas, conversas com moradores e o doce ar do interior.",
+            "Ao chegar, ruas de paralelepípedos, fachadas em tons pastéis e praças silenciosas dão as boas-vindas.",
+            "O resto do dia é livre: subam ao mirante do campanário ou provem uma canchánchara (coquetel local) em um pátio cheio de música.",
+            "Trinidad não se visita... sente-se de olhos fechados."
+          ]
+        },
+        {
+          day: "Dias 5 e 6",
+          title: "Dias livres em Trinidad: cada viela guarda uma história (e um mojito de cana)",
+          description: [
+            "Dois dias para explorar essa joia colonial no próprio ritmo: subam ao campanário ao entardecer, comprem artesanatos na Casa dos Conspiradores ou mergulhem na Playa Ancón (15 min).",
+            "Quando o sol se põe, a Plaza Mayor se transforma: música ao vivo, dança espontânea e a famosa canchánchara até altas horas.",
+            "De dia é um museu a céu aberto; de noite, uma festa sob as estrelas. Trinidad é dual e fascinante."
+          ]
+        },
+        {
+          day: "Dia 7",
+          title: "Adeus Trinidad, olá Varadero/Cayo Santa María – O mar escolhe o final",
+          description: [
+            "O último trecho terrestre é uma experiência cubana em si: viagem em táxi coletivo (4–5 horas) por povoados coloniais onde o tempo parou,",
+            "vales de cultivos tropicais e casas rústicas de tabaco, com paradas espontâneas para esticar as pernas ou provar frutas frescas.",
+            "Escolham o gran finale:",
+            "- Varadero: 20 km de areia branca e vibração animada (2h até o aeroporto de Havana).",
+            "- Cayo Santa María: isolamento e águas cristalinas (5h até o aeroporto de Havana).",
+            "Ao chegar, é hora de aproveitar o resort all inclusive com coquetéis ao pôr do sol, massagens à beira-mar e jantares com os pés na areia.",
+            "Em Cuba, os caminhos têm sabor de aventura e os finais, de Caribe."
+          ]
+        },
+        {
+          day: "Dias 8 a 10",
+          title: "Vocês, o mar e nada mais – O Caribe em estado puro",
+          description: [
+            "Esses dias são para se entregar ao ritmo caribenho:",
+            "- Manhãs de mergulhos em águas turquesa.",
+            "- Tardes com coquetéis ao lado da piscina infinita.",
+            "- Fins de tarde com os pés na areia branca.",
+            "- Noites de jantares românticos sob as estrelas.",
+            "No resort all inclusive, desfrutem de:",
+            "Spa com vista para o mar.",
+            "Atividades aquáticas opcionais.",
+            "Shows noturnos com sabor cubano.",
+            "O verdadeiro luxo é ter tempo para saborear cada onda, cada riso e cada instante banhado de sol."
+          ]
+        },
+        {
+          day: "Dia 11",
+          title: "Até breve, Caribe – De volta para casa com o coração cheio de Cuba",
+          description: [
+            "O último dia começa com mar, areia e sol antes de coordenar um traslado privado direto ao aeroporto de Havana:",
+            "- Desde Varadero (2 horas de viagem).",
+            "- Desde Cayo Santa María (5 horas de viagem).",
+            "Na estrada haverá tempo para relembrar os melhores momentos,",
+            "fazer paradas para os últimos souvenirs (se quiserem)",
+            "e aproveitar uma última visão do Mar do Caribe.",
+            "Não é um adeus, é um 'até logo'... Cuba sempre guardará um pedacinho de areia para vocês."
+          ]
         }
       ]
     }

@@ -28,7 +28,7 @@ const hasMultipleImages = images.length > 1;
 const cardId = `card-${slug}`;
 ---
 
-<div class="group bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 flex flex-col h-full">
+<div id={cardId} data-card-id={cardId} class="group bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 flex flex-col h-full">
   <!-- Image Carousel -->
   <div class="relative h-64 overflow-hidden bg-gradient-to-br from-caribbean-blue to-ocean-blue">
     {images[0].startsWith('@/') || images[0].startsWith('/') ? (
@@ -162,35 +162,35 @@ const cardId = `card-${slug}`;
   document.addEventListener('astro:page-load', handleScrollIndicators);
   
   // Carrusel automático de imágenes en las tarjetas
+  let imageCarouselIntervals: number[] = [];
+  
+  function cleanupImageCarousels() {
+    imageCarouselIntervals.forEach((intervalId) => clearInterval(intervalId));
+    imageCarouselIntervals = [];
+  }
+  
   function initImageCarousels() {
-    // Obtener todas las tarjetas con múltiples imágenes
-    const cards = new Set<string>();
-    document.querySelectorAll('.image-slide').forEach((slide) => {
-      const cardId = slide.getAttribute('data-card');
-      if (cardId) cards.add(cardId);
-    });
+    cleanupImageCarousels();
+    const cardElements = document.querySelectorAll('[data-card-id]');
     
-    // Crear un intervalo para cada tarjeta
-    cards.forEach((cardId) => {
-      const slides = document.querySelectorAll(`.image-slide[data-card="${cardId}"]`);
-      const indicators = document.querySelectorAll(`.image-indicator[data-card="${cardId}"]`);
-      
-      if (slides.length <= 1) return; // No hacer nada si solo hay una imagen
+    cardElements.forEach((card) => {
+      const slides = card.querySelectorAll<HTMLImageElement>('.image-slide');
+      const indicators = card.querySelectorAll<HTMLElement>('.image-indicator');
+      if (slides.length <= 1) return;
       
       let currentIndex = 0;
       
       const showSlide = (index: number) => {
-        // Ocultar todas las imágenes
-        slides.forEach((slide) => {
-          slide.classList.remove('opacity-100');
-          slide.classList.add('opacity-0');
+        slides.forEach((slide, i) => {
+          if (i === index) {
+            slide.classList.remove('opacity-0');
+            slide.classList.add('opacity-100');
+          } else {
+            slide.classList.remove('opacity-100');
+            slide.classList.add('opacity-0');
+          }
         });
         
-        // Mostrar la imagen actual
-        slides[index].classList.remove('opacity-0');
-        slides[index].classList.add('opacity-100');
-        
-        // Actualizar indicadores
         indicators.forEach((indicator, i) => {
           if (i === index) {
             indicator.classList.add('bg-white', 'w-6');
@@ -202,15 +202,16 @@ const cardId = `card-${slug}`;
         });
       };
       
-      // Cambiar imagen cada 3 segundos
-      setInterval(() => {
+      const intervalId = window.setInterval(() => {
         currentIndex = (currentIndex + 1) % slides.length;
         showSlide(currentIndex);
       }, 3000);
+      imageCarouselIntervals.push(intervalId);
     });
   }
   
   // Inicializar carruseles de imágenes
   document.addEventListener('DOMContentLoaded', initImageCarousels);
   document.addEventListener('astro:page-load', initImageCarousels);
+  document.addEventListener('astro:before-preparation', cleanupImageCarousels);
 </script>

@@ -8,6 +8,11 @@ export default defineConfig({
   integrations: [react()],
   vite: {
     plugins: [tailwindcss()],
+    resolve: {
+      alias: {
+        '@': '/src'
+      }
+    }
   },
   i18n: {
     locales: ["es", "en", "pt"],

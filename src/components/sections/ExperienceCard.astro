@@ -12,6 +12,12 @@ interface Props {
 const { slug, title, description, highlights, imagePlaceholder } = Astro.props;
 const currentLang = getLangFromUrl(Astro.url);
 const t = useTranslations(currentLang);
+
+// Construir la URL correcta según el idioma
+import { routes, defaultLang, showDefaultLang } from '../i18n/ui';
+const experiencesPath = routes[currentLang]?.experiencesPath || routes[defaultLang].experiencesPath;
+const langPrefix = (!showDefaultLang && currentLang === defaultLang) ? '' : `/${currentLang}`;
+const experienceUrl = `${langPrefix}/${experiencesPath}/${slug}`;
 ---
 
 <div class="group bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 flex flex-col h-full">
@@ -48,7 +54,7 @@ const t = useTranslations(currentLang);
 
     <!-- Learn More Button -->
     <a 
-      href={`/experiencias/${slug}`}
+      href={experienceUrl}
       class="inline-block w-full text-center px-6 py-3 bg-caribbean-blue text-white rounded-lg font-semibold hover:bg-ocean-blue transition-colors duration-300 mt-auto"
     >
       {t('experienceCard.viewDetails')}

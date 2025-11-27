@@ -1,10 +1,11 @@
 ---
 import ExperienceCard from './ExperienceCard.astro';
-import { experiences } from '../../data/experiences';
+import { getExperiences } from '../../data/experiences';
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
 
 const currentLang = getLangFromUrl(Astro.url);
 const t = useTranslations(currentLang);
+const experiences = getExperiences(currentLang);
 ---
 
 <section id="experiences" class="py-20 bg-gradient-to-b from-sand/20 to-white">

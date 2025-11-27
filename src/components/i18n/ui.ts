@@ -465,29 +465,32 @@ export const ui = {
 	},
 } as const;
 
-export const routes = {
-	es: {
-		about: 'acerca-de',
-		experiences: 'experiencias',
-		gallery: 'galeria',
-		opinions: 'opiniones',
-		blog: 'blog',
-		contact: 'contacto',
-	},
-	en: {
-		about: 'about',
-		experiences: 'experiences',
-		gallery: 'gallery',
-		opinions: 'opinions',
-		blog: 'blog',
-		contact: 'contact',
-	},
-	pt: {
-		about: 'sobre-mim',
-		experiences: 'experiencias',
-		gallery: 'galeria',
-		opinions: 'opinioes',
-		blog: 'blog',
-		contact: 'contacto',
-	},
-};
+	export const routes = {
+		es: {
+			about: 'acerca-de',
+			experiences: 'experiencias',
+			experiencesPath: 'experiencias', // Ruta base para experiencias individuales
+			gallery: 'galeria',
+			opinions: 'opiniones',
+			blog: 'blog',
+			contact: 'contacto',
+		},
+		en: {
+			about: 'about',
+			experiences: 'experiences',
+			experiencesPath: 'experiences', // Ruta base para experiencias individuales
+			gallery: 'gallery',
+			opinions: 'opinions',
+			blog: 'blog',
+			contact: 'contact',
+		},
+		pt: {
+			about: 'sobre-mim',
+			experiences: 'experiencias',
+			experiencesPath: 'experiencias', // Ruta base para experiencias individuales
+			gallery: 'galeria',
+			opinions: 'opinioes',
+			blog: 'blog',
+			contact: 'contacto',
+		},
+	};

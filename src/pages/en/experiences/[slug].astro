@@ -1,19 +1,28 @@
 ---
-import "../../styles/global.css";
+import "@/styles/global.css";
 import Layout from '@/layouts/Layout.astro';
 import Header from '@/components/Header.astro';
 import Footer from '@/components/Footer.astro';
 import DownloadPDFButton from '@/components/react/DownloadPDFButton';
-import { experiences } from '@/data/experiences';
+import { getExperiences, getExperience } from '@/data/experiences';
+import { getLangFromUrl, useTranslations } from '@/components/i18n/utils';
 
 export function getStaticPaths() {
+  const experiences = getExperiences('en');
   return experiences.map((experience) => ({
     params: { slug: experience.slug },
-    props: { experience },
+    props: { slug: experience.slug },
   }));
 }
 
-const { experience } = Astro.props;
+const { slug } = Astro.props;
+const currentLang = getLangFromUrl(Astro.url);
+const t = useTranslations(currentLang);
+const experience = getExperience(slug, currentLang);
+
+if (!experience) {
+  return Astro.redirect('/404');
+}
 ---
 
 <Layout 
@@ -33,11 +42,11 @@ const { experience } = Astro.props;
       <!-- Title Overlay -->
       <div class="absolute bottom-0 left-0 right-0 p-8 md:p-12">
         <div class="container mx-auto max-w-6xl">
-          <a href="/#experiences" class="inline-flex items-center gap-2 text-white/90 hover:text-white mb-4 transition-colors">
+          <a href="/en#experiences" class="inline-flex items-center gap-2 text-white/90 hover:text-white mb-4 transition-colors">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
             </svg>
-            Volver a experiencias
+            {t('experienceDetail.backToExperiences')}
           </a>
           <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
             {experience.title}
@@ -60,7 +69,7 @@ const { experience } = Astro.props;
               </svg>
             </div>
             <div>
-              <p class="text-sm text-gray-600 font-medium">Duración</p>
+              <p class="text-sm text-gray-600 font-medium">{t('common.duration')}</p>
               <p class="text-lg font-semibold text-gray-900">{experience.duration}</p>
             </div>
           </div>
@@ -72,7 +81,7 @@ const { experience } = Astro.props;
               </svg>
             </div>
             <div>
-              <p class="text-sm text-gray-600 font-medium">Dificultad</p>
+              <p class="text-sm text-gray-600 font-medium">{t('common.difficulty')}</p>
               <p class="text-lg font-semibold text-gray-900">{experience.difficulty}</p>
             </div>
           </div>
@@ -84,7 +93,7 @@ const { experience } = Astro.props;
               </svg>
             </div>
             <div>
-              <p class="text-sm text-gray-600 font-medium">Precio</p>
+              <p class="text-sm text-gray-600 font-medium">{t('common.price')}</p>
               <p class="text-lg font-semibold text-gray-900">{experience.price}</p>
             </div>
           </div>
@@ -106,7 +115,7 @@ const { experience } = Astro.props;
                     <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
                   </svg>
                 </span>
-                Lo más destacado
+                {t('experienceDetail.highlights')}
               </h2>
               <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {experience.highlights.map((highlight) => (
@@ -128,7 +137,7 @@ const { experience } = Astro.props;
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
                   </svg>
                 </span>
-                Itinerario detallado
+                {t('experienceDetail.detailedItinerary')}
               </h2>
               <div class="space-y-6">
                 {experience.itinerary.map((item, index) => (
@@ -162,7 +171,7 @@ const { experience } = Astro.props;
                   <svg class="w-6 h-6 text-caribbean-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
                   </svg>
-                  Incluido
+                  {t('experienceDetail.included')}
                 </h3>
                 <ul class="space-y-3">
                   {experience.included.map((item) => (
@@ -179,16 +188,16 @@ const { experience } = Astro.props;
               <!-- CTA Card -->
               <div class="bg-gradient-to-br from-coral to-sunset-orange rounded-xl p-6 shadow-lg text-white">
                 <h3 class="text-2xl font-bold mb-3">
-                  ¿Listo para esta aventura?
+                  {t('experienceDetail.readyForAdventure')}
                 </h3>
                 <p class="mb-6 text-white/90">
-                  Contáctame para personalizar esta experiencia según tus preferencias y crear recuerdos inolvidables.
+                  {t('experienceDetail.readyForAdventureDesc')}
                 </p>
                 <a 
-                  href="/#contact" 
+                  href="/en#contact" 
                   class="block w-full text-center px-6 py-4 bg-white text-coral rounded-lg font-bold text-lg hover:bg-sand/90 transition-all duration-300 transform hover:scale-105 shadow-lg"
                 >
-                  Reservar ahora
+                  {t('experienceDetail.bookNow')}
                 </a>
               </div>
 
@@ -203,24 +212,24 @@ const { experience } = Astro.props;
                   <svg class="w-5 h-5 text-ocean-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
                   </svg>
-                  Información importante
+                  {t('experienceDetail.importantInfo')}
                 </h3>
                 <ul class="space-y-2 text-sm text-gray-700">
                   <li class="flex items-start gap-2">
                     <span class="text-caribbean-blue">•</span>
-                    <span>Grupos pequeños para experiencia personalizada</span>
+                    <span>{t('experienceDetail.smallGroups')}</span>
                   </li>
                   <li class="flex items-start gap-2">
                     <span class="text-caribbean-blue">•</span>
-                    <span>Itinerario flexible según tus intereses</span>
+                    <span>{t('experienceDetail.flexibleItinerary')}</span>
                   </li>
                   <li class="flex items-start gap-2">
                     <span class="text-caribbean-blue">•</span>
-                    <span>Guías locales expertos y apasionados</span>
+                    <span>{t('experienceDetail.expertGuides')}</span>
                   </li>
                   <li class="flex items-start gap-2">
                     <span class="text-caribbean-blue">•</span>
-                    <span>Cancelación flexible disponible</span>
+                    <span>{t('experienceDetail.flexibleCancellation')}</span>
                   </li>
                 </ul>
               </div>
@@ -234,16 +243,16 @@ const { experience } = Astro.props;
     <section class="py-16 bg-gradient-to-b from-sand/20 to-white">
       <div class="container mx-auto px-4 max-w-6xl text-center">
         <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-          Explora más experiencias
+          {t('experienceDetail.exploreMore')}
         </h2>
         <p class="text-lg text-gray-700 mb-8 max-w-2xl mx-auto">
-          Descubre otras aventuras únicas que Cuba tiene para ofrecer
+          {t('experienceDetail.exploreMoreDesc')}
         </p>
         <a 
-          href="/#experiences" 
+          href="/en#experiences" 
           class="inline-block px-8 py-4 bg-caribbean-blue text-white rounded-lg font-semibold text-lg hover:bg-ocean-blue transition-all duration-300 transform hover:scale-105 shadow-lg"
         >
-          Ver todas las experiencias
+          {t('experienceDetail.viewAllExperiences')}
         </a>
       </div>
     </section>

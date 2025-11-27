@@ -15,305 +15,1045 @@ export interface Experience {
   }[];
 }
 
-export const experiences: Experience[] = [
+interface MultiLangExperience {
+  slug: string;
+  title: Record<string, string>;
+  description: Record<string, string>;
+  highlights: Record<string, string[]>;
+  imagePlaceholder: Record<string, string>;
+  duration: Record<string, string>;
+  difficulty: Record<string, string>;
+  price: Record<string, string>;
+  included: Record<string, string[]>;
+  itinerary: Record<string, Array<{
+    day: string;
+    title: string;
+    description: string;
+  }>>;
+}
+
+const experiencesData: MultiLangExperience[] = [
   {
     slug: "recorrido-clasico-habana",
-    title: "Recorrido clásico por La Habana",
-    description: "Explora la vibrante capital en autos clásicos estadounidenses. Descubre la arquitectura colonial de La Habana Vieja, camina por el icónico Malecón y siente la energía eléctrica de la ciudad.",
-    highlights: [
-      "Paseo en un descapotable clásico de los años 50",
-      "Recorrido a pie por La Habana Vieja, Patrimonio de la UNESCO",
-      "Visita a la Plaza de la Catedral y Plaza Vieja",
-      "Atardecer en el Malecón"
-    ],
-    imagePlaceholder: "Autos antiguos de colores en las calles de La Habana",
-    duration: "1 día completo",
-    difficulty: "Fácil",
-    price: "Desde $120 por persona",
-    included: [
-      "Transporte en auto clásico",
-      "Guía local experto",
-      "Almuerzo en restaurante local",
-      "Entradas a sitios históricos"
-    ],
-    itinerary: [
-      {
-        day: "Mañana",
-        title: "La Habana Vieja",
-        description: "Comenzamos con un recorrido a pie por el centro histórico, visitando la Plaza de Armas, Plaza de la Catedral y Plaza Vieja. Descubre la arquitectura colonial y la historia fascinante de cada rincón."
-      },
-      {
-        day: "Mediodía",
-        title: "Almuerzo tradicional",
-        description: "Disfruta de la auténtica cocina cubana en un paladar local, con platos tradicionales como ropa vieja, moros y cristianos, y tostones."
-      },
-      {
-        day: "Tarde",
-        title: "Paseo en auto clásico",
-        description: "Sube a un descapotable de los años 50 y recorre el Malecón, Vedado y Miramar. Termina con una vista espectacular del atardecer sobre el mar Caribe."
-      }
-    ]
+    title: {
+      es: "Recorrido clásico por La Habana",
+      en: "Classic Havana Tour",
+      pt: "Tour Clássico por Havana"
+    },
+    description: {
+      es: "Explora la vibrante capital en autos clásicos estadounidenses. Descubre la arquitectura colonial de La Habana Vieja, camina por el icónico Malecón y siente la energía eléctrica de la ciudad.",
+      en: "Explore the vibrant capital in classic American cars. Discover the colonial architecture of Old Havana, walk along the iconic Malecón and feel the electric energy of the city.",
+      pt: "Explore a vibrante capital em carros clássicos americanos. Descubra a arquitetura colonial da Havana Velha, caminhe pelo icônico Malecón e sinta a energia elétrica da cidade."
+    },
+    highlights: {
+      es: [
+        "Paseo en un descapotable clásico de los años 50",
+        "Recorrido a pie por La Habana Vieja, Patrimonio de la UNESCO",
+        "Visita a la Plaza de la Catedral y Plaza Vieja",
+        "Atardecer en el Malecón"
+      ],
+      en: [
+        "Ride in a classic 1950s convertible",
+        "Walking tour of Old Havana, UNESCO World Heritage Site",
+        "Visit to Cathedral Square and Old Square",
+        "Sunset at the Malecón"
+      ],
+      pt: [
+        "Passeio em um conversível clássico dos anos 50",
+        "Tour a pé pela Havana Velha, Patrimônio Mundial da UNESCO",
+        "Visita à Praça da Catedral e Praça Velha",
+        "Pôr do sol no Malecón"
+      ]
+    },
+    imagePlaceholder: {
+      es: "Autos antiguos de colores en las calles de La Habana",
+      en: "Colorful vintage cars on Havana streets",
+      pt: "Carros antigos coloridos nas ruas de Havana"
+    },
+    duration: {
+      es: "1 día completo",
+      en: "1 full day",
+      pt: "1 dia completo"
+    },
+    difficulty: {
+      es: "Fácil",
+      en: "Easy",
+      pt: "Fácil"
+    },
+    price: {
+      es: "Desde $120 por persona",
+      en: "From $120 per person",
+      pt: "A partir de $120 por pessoa"
+    },
+    included: {
+      es: [
+        "Transporte en auto clásico",
+        "Guía local experto",
+        "Almuerzo en restaurante local",
+        "Entradas a sitios históricos"
+      ],
+      en: [
+        "Classic car transportation",
+        "Expert local guide",
+        "Lunch at local restaurant",
+        "Entrance fees to historical sites"
+      ],
+      pt: [
+        "Transporte em carro clássico",
+        "Guia local especializado",
+        "Almoço em restaurante local",
+        "Entradas para locais históricos"
+      ]
+    },
+    itinerary: {
+      es: [
+        {
+          day: "Mañana",
+          title: "La Habana Vieja",
+          description: "Comenzamos con un recorrido a pie por el centro histórico, visitando la Plaza de Armas, Plaza de la Catedral y Plaza Vieja. Descubre la arquitectura colonial y la historia fascinante de cada rincón."
+        },
+        {
+          day: "Mediodía",
+          title: "Almuerzo tradicional",
+          description: "Disfruta de la auténtica cocina cubana en un paladar local, con platos tradicionales como ropa vieja, moros y cristianos, y tostones."
+        },
+        {
+          day: "Tarde",
+          title: "Paseo en auto clásico",
+          description: "Sube a un descapotable de los años 50 y recorre el Malecón, Vedado y Miramar. Termina con una vista espectacular del atardecer sobre el mar Caribe."
+        }
+      ],
+      en: [
+        {
+          day: "Morning",
+          title: "Old Havana",
+          description: "We start with a walking tour through the historic center, visiting Plaza de Armas, Cathedral Square, and Old Square. Discover the colonial architecture and fascinating history of every corner."
+        },
+        {
+          day: "Midday",
+          title: "Traditional Lunch",
+          description: "Enjoy authentic Cuban cuisine at a local paladar, with traditional dishes like ropa vieja, moros y cristianos, and tostones."
+        },
+        {
+          day: "Afternoon",
+          title: "Classic Car Ride",
+          description: "Hop into a 1950s convertible and cruise along the Malecón, Vedado, and Miramar. End with a spectacular sunset view over the Caribbean Sea."
+        }
+      ],
+      pt: [
+        {
+          day: "Manhã",
+          title: "Havana Velha",
+          description: "Começamos com um tour a pé pelo centro histórico, visitando a Plaza de Armas, Praça da Catedral e Praça Velha. Descubra a arquitetura colonial e a história fascinante de cada canto."
+        },
+        {
+          day: "Meio-dia",
+          title: "Almoço Tradicional",
+          description: "Desfrute da autêntica culinária cubana em um paladar local, com pratos tradicionais como ropa vieja, moros y cristianos e tostones."
+        },
+        {
+          day: "Tarde",
+          title: "Passeio de Carro Clássico",
+          description: "Suba em um conversível dos anos 50 e percorra o Malecón, Vedado e Miramar. Termine com uma vista espetacular do pôr do sol sobre o Mar do Caribe."
+        }
+      ]
+    }
   },
   {
     slug: "aventura-valle-vinales",
-    title: "Aventura en el Valle de Viñales",
-    description: "Viaja al corazón tabacalero de Cuba. Admira los mogotes de piedra caliza, visita fincas tradicionales y explora cuevas impresionantes en este valle Patrimonio de la Humanidad.",
-    highlights: [
-      "Visita a plantaciones de tabaco en funcionamiento",
-      "Cabalgata entre los valles de mogotes",
-      "Exploración en la Cueva del Indio",
-      "Almuerzo tradicional en una finca cubana"
-    ],
-    imagePlaceholder: "Campos de tabaco verdes con mogotes",
-    duration: "1-2 días",
-    difficulty: "Moderada",
-    price: "Desde $150 por persona",
-    included: [
-      "Transporte desde La Habana",
-      "Guía especializado",
-      "Cabalgata o caminata",
-      "Almuerzo en finca",
-      "Entrada a la Cueva del Indio"
-    ],
-    itinerary: [
-      {
-        day: "Día 1 - Mañana",
-        title: "Viaje a Viñales",
-        description: "Salida temprano desde La Habana hacia el Valle de Viñales (3 horas). Disfruta del paisaje cambiante mientras nos adentramos en la región tabacalera."
-      },
-      {
-        day: "Día 1 - Mediodía",
-        title: "Finca de tabaco",
-        description: "Visita una plantación familiar donde aprenderás todo el proceso del tabaco, desde la siembra hasta el enrollado de puros. Almuerzo campestre con productos orgánicos."
-      },
-      {
-        day: "Día 1 - Tarde",
-        title: "Exploración del valle",
-        description: "Cabalgata o caminata entre los mogotes, visita a la Cueva del Indio con paseo en bote subterráneo, y mirador panorámico del valle."
-      }
-    ]
+    title: {
+      es: "Aventura en el Valle de Viñales",
+      en: "Viñales Valley Adventure",
+      pt: "Aventura no Vale de Viñales"
+    },
+    description: {
+      es: "Viaja al corazón tabacalero de Cuba. Admira los mogotes de piedra caliza, visita fincas tradicionales y explora cuevas impresionantes en este valle Patrimonio de la Humanidad.",
+      en: "Travel to Cuba's tobacco heartland. Admire limestone mogotes, visit traditional farms, and explore impressive caves in this UNESCO World Heritage valley.",
+      pt: "Viaje ao coração do tabaco de Cuba. Admire os mogotes de calcário, visite fazendas tradicionais e explore cavernas impressionantes neste vale Patrimônio Mundial."
+    },
+    highlights: {
+      es: [
+        "Visita a plantaciones de tabaco en funcionamiento",
+        "Cabalgata entre los valles de mogotes",
+        "Exploración en la Cueva del Indio",
+        "Almuerzo tradicional en una finca cubana"
+      ],
+      en: [
+        "Visit to working tobacco plantations",
+        "Horseback riding through mogote valleys",
+        "Exploration of the Indian Cave",
+        "Traditional lunch at a Cuban farm"
+      ],
+      pt: [
+        "Visita a plantações de tabaco em funcionamento",
+        "Cavalgada pelos vales de mogotes",
+        "Exploração da Caverna do Índio",
+        "Almoço tradicional em uma fazenda cubana"
+      ]
+    },
+    imagePlaceholder: {
+      es: "Campos de tabaco verdes con mogotes",
+      en: "Green tobacco fields with limestone mogotes",
+      pt: "Campos de tabaco verdes com mogotes de calcário"
+    },
+    duration: {
+      es: "1-2 días",
+      en: "1-2 days",
+      pt: "1-2 dias"
+    },
+    difficulty: {
+      es: "Moderada",
+      en: "Moderate",
+      pt: "Moderada"
+    },
+    price: {
+      es: "Desde $150 por persona",
+      en: "From $150 per person",
+      pt: "A partir de $150 por pessoa"
+    },
+    included: {
+      es: [
+        "Transporte desde La Habana",
+        "Guía especializado",
+        "Cabalgata o caminata",
+        "Almuerzo en finca",
+        "Entrada a la Cueva del Indio"
+      ],
+      en: [
+        "Transportation from Havana",
+        "Specialized guide",
+        "Horseback riding or hiking",
+        "Farm lunch",
+        "Entrance to Indian Cave"
+      ],
+      pt: [
+        "Transporte de Havana",
+        "Guia especializado",
+        "Cavalgada ou caminhada",
+        "Almoço na fazenda",
+        "Entrada para a Caverna do Índio"
+      ]
+    },
+    itinerary: {
+      es: [
+        {
+          day: "Día 1 - Mañana",
+          title: "Viaje a Viñales",
+          description: "Salida temprano desde La Habana hacia el Valle de Viñales (3 horas). Disfruta del paisaje cambiante mientras nos adentramos en la región tabacalera."
+        },
+        {
+          day: "Día 1 - Mediodía",
+          title: "Finca de tabaco",
+          description: "Visita una plantación familiar donde aprenderás todo el proceso del tabaco, desde la siembra hasta el enrollado de puros. Almuerzo campestre con productos orgánicos."
+        },
+        {
+          day: "Día 1 - Tarde",
+          title: "Exploración del valle",
+          description: "Cabalgata o caminata entre los mogotes, visita a la Cueva del Indio con paseo en bote subterráneo, y mirador panorámico del valle."
+        }
+      ],
+      en: [
+        {
+          day: "Day 1 - Morning",
+          title: "Journey to Viñales",
+          description: "Early departure from Havana to Viñales Valley (3 hours). Enjoy the changing landscape as we enter the tobacco region."
+        },
+        {
+          day: "Day 1 - Midday",
+          title: "Tobacco Farm",
+          description: "Visit a family plantation where you'll learn the entire tobacco process, from planting to cigar rolling. Countryside lunch with organic products."
+        },
+        {
+          day: "Day 1 - Afternoon",
+          title: "Valley Exploration",
+          description: "Horseback riding or hiking among the mogotes, visit to the Indian Cave with underground boat ride, and panoramic valley viewpoint."
+        }
+      ],
+      pt: [
+        {
+          day: "Dia 1 - Manhã",
+          title: "Viagem a Viñales",
+          description: "Saída cedo de Havana para o Vale de Viñales (3 horas). Desfrute da paisagem em mudança enquanto entramos na região do tabaco."
+        },
+        {
+          day: "Dia 1 - Meio-dia",
+          title: "Fazenda de Tabaco",
+          description: "Visite uma plantação familiar onde você aprenderá todo o processo do tabaco, desde o plantio até o enrolamento de charutos. Almoço campestre com produtos orgânicos."
+        },
+        {
+          day: "Dia 1 - Tarde",
+          title: "Exploração do Vale",
+          description: "Cavalgada ou caminhada entre os mogotes, visita à Caverna do Índio com passeio de barco subterrâneo e mirante panorâmico do vale."
+        }
+      ]
+    }
   },
   {
     slug: "experiencia-colonial-trinidad",
-    title: "Experiencia colonial en Trinidad",
-    description: "Retrocede en el tiempo en la ciudad colonial mejor conservada de Cuba. Recorre calles empedradas, visita ruinas de ingenios azucareros y disfruta de música en plazas encantadoras.",
-    highlights: [
-      "Recorrido a pie por el centro colonial UNESCO",
-      "Visita al Valle de los Ingenios",
-      "Música en vivo en la Casa de la Música",
-      "Talleres de artesanos locales"
-    ],
-    imagePlaceholder: "Edificios coloniales coloridos en Trinidad",
-    duration: "2 días",
-    difficulty: "Fácil",
-    price: "Desde $180 por persona",
-    included: [
-      "Transporte y alojamiento",
-      "Guía histórico local",
-      "Entradas a museos",
-      "Cena con música en vivo"
-    ],
-    itinerary: [
-      {
-        day: "Día 1 - Mañana",
-        title: "Centro histórico",
-        description: "Recorrido por las calles empedradas de Trinidad, visitando la Plaza Mayor, iglesias coloniales y museos. Aprende sobre la época del azúcar y la arquitectura colonial."
-      },
-      {
-        day: "Día 1 - Tarde",
-        title: "Valle de los Ingenios",
-        description: "Excursión al valle donde se encuentran las ruinas de antiguos ingenios azucareros. Sube a la Torre Manaca Iznaga para vistas panorámicas."
-      },
-      {
-        day: "Día 2",
-        title: "Cultura y artesanía",
-        description: "Visita talleres de alfarería y tejido, playa Ancón para relajarte, y termina con música en vivo en la famosa Casa de la Música."
-      }
-    ]
+    title: {
+      es: "Experiencia colonial en Trinidad",
+      en: "Colonial Experience in Trinidad",
+      pt: "Experiência Colonial em Trinidad"
+    },
+    description: {
+      es: "Retrocede en el tiempo en la ciudad colonial mejor conservada de Cuba. Recorre calles empedradas, visita ruinas de ingenios azucareros y disfruta de música en plazas encantadoras.",
+      en: "Step back in time in Cuba's best-preserved colonial city. Walk cobblestone streets, visit sugar mill ruins, and enjoy music in charming squares.",
+      pt: "Volte no tempo na cidade colonial mais bem preservada de Cuba. Percorra ruas de paralelepípedos, visite ruínas de engenhos de açúcar e desfrute de música em praças encantadoras."
+    },
+    highlights: {
+      es: [
+        "Recorrido a pie por el centro colonial UNESCO",
+        "Visita al Valle de los Ingenios",
+        "Música en vivo en la Casa de la Música",
+        "Talleres de artesanos locales"
+      ],
+      en: [
+        "Walking tour of UNESCO colonial center",
+        "Visit to Valle de los Ingenios",
+        "Live music at Casa de la Música",
+        "Local artisan workshops"
+      ],
+      pt: [
+        "Tour a pé pelo centro colonial da UNESCO",
+        "Visita ao Vale dos Engenhos",
+        "Música ao vivo na Casa de la Música",
+        "Oficinas de artesãos locais"
+      ]
+    },
+    imagePlaceholder: {
+      es: "Edificios coloniales coloridos en Trinidad",
+      en: "Colorful colonial buildings in Trinidad",
+      pt: "Edifícios coloniais coloridos em Trinidad"
+    },
+    duration: {
+      es: "2 días",
+      en: "2 days",
+      pt: "2 dias"
+    },
+    difficulty: {
+      es: "Fácil",
+      en: "Easy",
+      pt: "Fácil"
+    },
+    price: {
+      es: "Desde $180 por persona",
+      en: "From $180 per person",
+      pt: "A partir de $180 por pessoa"
+    },
+    included: {
+      es: [
+        "Transporte y alojamiento",
+        "Guía histórico local",
+        "Entradas a museos",
+        "Cena con música en vivo"
+      ],
+      en: [
+        "Transportation and accommodation",
+        "Local history guide",
+        "Museum entrance fees",
+        "Dinner with live music"
+      ],
+      pt: [
+        "Transporte e acomodação",
+        "Guia histórico local",
+        "Entradas para museus",
+        "Jantar com música ao vivo"
+      ]
+    },
+    itinerary: {
+      es: [
+        {
+          day: "Día 1 - Mañana",
+          title: "Centro histórico",
+          description: "Recorrido por las calles empedradas de Trinidad, visitando la Plaza Mayor, iglesias coloniales y museos. Aprende sobre la época del azúcar y la arquitectura colonial."
+        },
+        {
+          day: "Día 1 - Tarde",
+          title: "Valle de los Ingenios",
+          description: "Excursión al valle donde se encuentran las ruinas de antiguos ingenios azucareros. Sube a la Torre Manaca Iznaga para vistas panorámicas."
+        },
+        {
+          day: "Día 2",
+          title: "Cultura y artesanía",
+          description: "Visita talleres de alfarería y tejido, playa Ancón para relajarte, y termina con música en vivo en la famosa Casa de la Música."
+        }
+      ],
+      en: [
+        {
+          day: "Day 1 - Morning",
+          title: "Historic Center",
+          description: "Tour through Trinidad's cobblestone streets, visiting Plaza Mayor, colonial churches, and museums. Learn about the sugar era and colonial architecture."
+        },
+        {
+          day: "Day 1 - Afternoon",
+          title: "Valle de los Ingenios",
+          description: "Excursion to the valley where ruins of old sugar mills stand. Climb the Manaca Iznaga Tower for panoramic views."
+        },
+        {
+          day: "Day 2",
+          title: "Culture and Crafts",
+          description: "Visit pottery and weaving workshops, relax at Ancón beach, and end with live music at the famous Casa de la Música."
+        }
+      ],
+      pt: [
+        {
+          day: "Dia 1 - Manhã",
+          title: "Centro Histórico",
+          description: "Tour pelas ruas de paralelepípedos de Trinidad, visitando a Plaza Mayor, igrejas coloniais e museus. Aprenda sobre a era do açúcar e a arquitetura colonial."
+        },
+        {
+          day: "Dia 1 - Tarde",
+          title: "Vale dos Engenhos",
+          description: "Excursão ao vale onde ficam as ruínas de antigos engenhos de açúcar. Suba na Torre Manaca Iznaga para vistas panorâmicas."
+        },
+        {
+          day: "Dia 2",
+          title: "Cultura e Artesanato",
+          description: "Visite oficinas de cerâmica e tecelagem, relaxe na praia Ancón e termine com música ao vivo na famosa Casa de la Música."
+        }
+      ]
+    }
   },
   {
     slug: "paraiso-playa-varadero",
-    title: "Paraíso de playa en Varadero",
-    description: "Relájate en 20 kilómetros de playas de arena blanca. Disfruta de aguas turquesas, deportes acuáticos y la atmósfera caribeña más relajada.",
-    highlights: [
-      "Acceso a las mejores zonas de playa",
-      "Oportunidades de snorkel y buceo",
-      "Paseo en catamarán al atardecer",
-      "Experiencias gastronómicas con mariscos frescos"
-    ],
-    imagePlaceholder: "Playa de arena blanca con agua turquesa",
-    duration: "3-5 días",
-    difficulty: "Fácil",
-    price: "Desde $200 por persona/día",
-    included: [
-      "Alojamiento frente al mar",
-      "Deportes acuáticos",
-      "Excursión en catamarán",
-      "Comidas en restaurantes de playa"
-    ],
-    itinerary: [
-      {
-        day: "Días 1-2",
-        title: "Relax en la playa",
-        description: "Disfruta de las aguas cristalinas de Varadero. Practica snorkel, kayak, o simplemente relájate bajo el sol caribeño con un mojito en mano."
-      },
-      {
-        day: "Día 3",
-        title: "Aventura en catamarán",
-        description: "Excursión de día completo en catamarán visitando cayos vírgenes, snorkel en arrecifes de coral, y almuerzo a bordo con langosta fresca."
-      },
-      {
-        day: "Días 4-5",
-        title: "Actividades opcionales",
-        description: "Buceo certificado, parasailing, visita a la cueva de Saturno, o excursiones a La Habana y Matanzas."
-      }
-    ]
+    title: {
+      es: "Paraíso de playa en Varadero",
+      en: "Beach Paradise in Varadero",
+      pt: "Paraíso de Praia em Varadero"
+    },
+    description: {
+      es: "Relájate en 20 kilómetros de playas de arena blanca. Disfruta de aguas turquesas, deportes acuáticos y la atmósfera caribeña más relajada.",
+      en: "Relax on 20 kilometers of white sand beaches. Enjoy turquoise waters, water sports, and the most laid-back Caribbean atmosphere.",
+      pt: "Relaxe em 20 quilômetros de praias de areia branca. Desfrute de águas turquesas, esportes aquáticos e a atmosfera caribenha mais relaxante."
+    },
+    highlights: {
+      es: [
+        "Acceso a las mejores zonas de playa",
+        "Oportunidades de snorkel y buceo",
+        "Paseo en catamarán al atardecer",
+        "Experiencias gastronómicas con mariscos frescos"
+      ],
+      en: [
+        "Access to the best beach areas",
+        "Snorkeling and diving opportunities",
+        "Sunset catamaran cruise",
+        "Culinary experiences with fresh seafood"
+      ],
+      pt: [
+        "Acesso às melhores áreas de praia",
+        "Oportunidades de snorkel e mergulho",
+        "Passeio de catamarã ao pôr do sol",
+        "Experiências gastronômicas com frutos do mar frescos"
+      ]
+    },
+    imagePlaceholder: {
+      es: "Playa de arena blanca con agua turquesa",
+      en: "White sand beach with turquoise water",
+      pt: "Praia de areia branca com água turquesa"
+    },
+    duration: {
+      es: "3-5 días",
+      en: "3-5 days",
+      pt: "3-5 dias"
+    },
+    difficulty: {
+      es: "Fácil",
+      en: "Easy",
+      pt: "Fácil"
+    },
+    price: {
+      es: "Desde $200 por persona/día",
+      en: "From $200 per person/day",
+      pt: "A partir de $200 por pessoa/dia"
+    },
+    included: {
+      es: [
+        "Alojamiento frente al mar",
+        "Deportes acuáticos",
+        "Excursión en catamarán",
+        "Comidas en restaurantes de playa"
+      ],
+      en: [
+        "Beachfront accommodation",
+        "Water sports",
+        "Catamaran excursion",
+        "Meals at beach restaurants"
+      ],
+      pt: [
+        "Acomodação à beira-mar",
+        "Esportes aquáticos",
+        "Excursão de catamarã",
+        "Refeições em restaurantes de praia"
+      ]
+    },
+    itinerary: {
+      es: [
+        {
+          day: "Días 1-2",
+          title: "Relax en la playa",
+          description: "Disfruta de las aguas cristalinas de Varadero. Practica snorkel, kayak, o simplemente relájate bajo el sol caribeño con un mojito en mano."
+        },
+        {
+          day: "Día 3",
+          title: "Aventura en catamarán",
+          description: "Excursión de día completo en catamarán visitando cayos vírgenes, snorkel en arrecifes de coral, y almuerzo a bordo con langosta fresca."
+        },
+        {
+          day: "Días 4-5",
+          title: "Actividades opcionales",
+          description: "Buceo certificado, parasailing, visita a la cueva de Saturno, o excursiones a La Habana y Matanzas."
+        }
+      ],
+      en: [
+        {
+          day: "Days 1-2",
+          title: "Beach Relaxation",
+          description: "Enjoy Varadero's crystal-clear waters. Practice snorkeling, kayaking, or simply relax under the Caribbean sun with a mojito in hand."
+        },
+        {
+          day: "Day 3",
+          title: "Catamaran Adventure",
+          description: "Full-day catamaran excursion visiting pristine cays, snorkeling in coral reefs, and lunch on board with fresh lobster."
+        },
+        {
+          day: "Days 4-5",
+          title: "Optional Activities",
+          description: "Certified diving, parasailing, visit to Saturno cave, or excursions to Havana and Matanzas."
+        }
+      ],
+      pt: [
+        {
+          day: "Dias 1-2",
+          title: "Relaxamento na Praia",
+          description: "Desfrute das águas cristalinas de Varadero. Pratique snorkel, caiaque ou simplesmente relaxe sob o sol caribenho com um mojito na mão."
+        },
+        {
+          day: "Dia 3",
+          title: "Aventura de Catamarã",
+          description: "Excursão de dia inteiro de catamarã visitando ilhas virgens, snorkel em recifes de coral e almoço a bordo com lagosta fresca."
+        },
+        {
+          day: "Dias 4-5",
+          title: "Atividades Opcionais",
+          description: "Mergulho certificado, parasailing, visita à caverna de Saturno ou excursões a Havana e Matanzas."
+        }
+      ]
+    }
   },
   {
     slug: "inmersion-cultura-cubana",
-    title: "Inmersión en la cultura cubana",
-    description: "Sumérgete en la cultura cubana auténtica. Aprende a bailar salsa, disfruta de la cocina tradicional, visita estudios de arte y conecta con familias locales.",
-    highlights: [
-      "Clases de salsa con instructores locales",
-      "Clase de cocina de platos tradicionales",
-      "Visita a estudios y galerías de arte",
-      "Cena en casa de una familia cubana"
-    ],
-    imagePlaceholder: "Bailarines cubanos bailando salsa",
-    duration: "3-4 días",
-    difficulty: "Fácil",
-    price: "Desde $160 por persona/día",
-    included: [
-      "Clases de baile y cocina",
-      "Visitas a estudios de artistas",
-      "Experiencia en casa local",
-      "Entradas a espectáculos"
-    ],
-    itinerary: [
-      {
-        day: "Día 1",
-        title: "Ritmos cubanos",
-        description: "Clases de salsa y son con bailarines profesionales. Por la noche, visita a una casa de la música para practicar lo aprendido con música en vivo."
-      },
-      {
-        day: "Día 2",
-        title: "Sabores de Cuba",
-        description: "Clase de cocina donde aprenderás a preparar platos tradicionales como congri, picadillo y flan de coco. Almuerzo con lo que preparaste."
-      },
-      {
-        day: "Día 3",
-        title: "Arte y comunidad",
-        description: "Recorrido por estudios de artistas locales, galerías de arte en Fusterlandia, y cena en casa de una familia cubana para conocer su vida cotidiana."
-      }
-    ]
+    title: {
+      es: "Inmersión en la cultura cubana",
+      en: "Cuban Culture Immersion",
+      pt: "Imersão na Cultura Cubana"
+    },
+    description: {
+      es: "Sumérgete en la cultura cubana auténtica. Aprende a bailar salsa, disfruta de la cocina tradicional, visita estudios de arte y conecta con familias locales.",
+      en: "Immerse yourself in authentic Cuban culture. Learn to dance salsa, enjoy traditional cuisine, visit art studios, and connect with local families.",
+      pt: "Mergulhe na autêntica cultura cubana. Aprenda a dançar salsa, desfrute da culinária tradicional, visite estúdios de arte e conecte-se com famílias locais."
+    },
+    highlights: {
+      es: [
+        "Clases de salsa con instructores locales",
+        "Clase de cocina de platos tradicionales",
+        "Visita a estudios y galerías de arte",
+        "Cena en casa de una familia cubana"
+      ],
+      en: [
+        "Salsa classes with local instructors",
+        "Traditional cooking class",
+        "Visit to art studios and galleries",
+        "Dinner at a Cuban family's home"
+      ],
+      pt: [
+        "Aulas de salsa com instrutores locais",
+        "Aula de culinária de pratos tradicionais",
+        "Visita a estúdios e galerias de arte",
+        "Jantar na casa de uma família cubana"
+      ]
+    },
+    imagePlaceholder: {
+      es: "Bailarines cubanos bailando salsa",
+      en: "Cuban dancers dancing salsa",
+      pt: "Dançarinos cubanos dançando salsa"
+    },
+    duration: {
+      es: "3-4 días",
+      en: "3-4 days",
+      pt: "3-4 dias"
+    },
+    difficulty: {
+      es: "Fácil",
+      en: "Easy",
+      pt: "Fácil"
+    },
+    price: {
+      es: "Desde $160 por persona/día",
+      en: "From $160 per person/day",
+      pt: "A partir de $160 por pessoa/dia"
+    },
+    included: {
+      es: [
+        "Clases de baile y cocina",
+        "Visitas a estudios de artistas",
+        "Experiencia en casa local",
+        "Entradas a espectáculos"
+      ],
+      en: [
+        "Dance and cooking classes",
+        "Visits to artist studios",
+        "Local home experience",
+        "Show tickets"
+      ],
+      pt: [
+        "Aulas de dança e culinária",
+        "Visitas a estúdios de artistas",
+        "Experiência em casa local",
+        "Ingressos para shows"
+      ]
+    },
+    itinerary: {
+      es: [
+        {
+          day: "Día 1",
+          title: "Ritmos cubanos",
+          description: "Clases de salsa y son con bailarines profesionales. Por la noche, visita a una casa de la música para practicar lo aprendido con música en vivo."
+        },
+        {
+          day: "Día 2",
+          title: "Sabores de Cuba",
+          description: "Clase de cocina donde aprenderás a preparar platos tradicionales como congri, picadillo y flan de coco. Almuerzo con lo que preparaste."
+        },
+        {
+          day: "Día 3",
+          title: "Arte y comunidad",
+          description: "Recorrido por estudios de artistas locales, galerías de arte en Fusterlandia, y cena en casa de una familia cubana para conocer su vida cotidiana."
+        }
+      ],
+      en: [
+        {
+          day: "Day 1",
+          title: "Cuban Rhythms",
+          description: "Salsa and son classes with professional dancers. In the evening, visit a music house to practice what you learned with live music."
+        },
+        {
+          day: "Day 2",
+          title: "Flavors of Cuba",
+          description: "Cooking class where you'll learn to prepare traditional dishes like congri, picadillo, and coconut flan. Lunch with what you prepared."
+        },
+        {
+          day: "Day 3",
+          title: "Art and Community",
+          description: "Tour of local artist studios, art galleries in Fusterlandia, and dinner at a Cuban family's home to learn about their daily life."
+        }
+      ],
+      pt: [
+        {
+          day: "Dia 1",
+          title: "Ritmos Cubanos",
+          description: "Aulas de salsa e son com dançarinos profissionais. À noite, visite uma casa de música para praticar o que aprendeu com música ao vivo."
+        },
+        {
+          day: "Dia 2",
+          title: "Sabores de Cuba",
+          description: "Aula de culinária onde você aprenderá a preparar pratos tradicionais como congri, picadillo e pudim de coco. Almoço com o que você preparou."
+        },
+        {
+          day: "Dia 3",
+          title: "Arte e Comunidade",
+          description: "Tour pelos estúdios de artistas locais, galerias de arte em Fusterlandia e jantar na casa de uma família cubana para conhecer sua vida cotidiana."
+        }
+      ]
+    }
   },
   {
     slug: "cienfuegos-bahia-cochinos",
-    title: "Cienfuegos y Bahía de Cochinos",
-    description: "Descubre la 'Perla del Sur' y la histórica Bahía de Cochinos. Explora la arquitectura de influencia francesa, playas prístinas y sitios históricos clave.",
-    highlights: [
-      "Tour por Cienfuegos y el Palacio de Valle",
-      "Visita al museo de Playa Girón",
-      "Snorkel en Playa Girón",
-      "Recorrido panorámico por la costa"
-    ],
-    imagePlaceholder: "Arquitectura colonial francesa elegante",
-    duration: "2 días",
-    difficulty: "Fácil",
-    price: "Desde $170 por persona",
-    included: [
-      "Transporte y alojamiento",
-      "Guía histórico",
-      "Entradas a museos",
-      "Equipo de snorkel"
-    ],
-    itinerary: [
-      {
-        day: "Día 1",
-        title: "Cienfuegos colonial",
-        description: "Recorrido por el Parque José Martí, Teatro Terry, Palacio de Valle y el Malecón. Arquitectura neoclásica francesa única en Cuba."
-      },
-      {
-        day: "Día 2",
-        title: "Bahía de Cochinos",
-        description: "Visita al museo de la invasión en Playa Girón, snorkel en aguas cristalinas, y exploración de la Cueva de los Peces."
-      }
-    ]
+    title: {
+      es: "Cienfuegos y Bahía de Cochinos",
+      en: "Cienfuegos and Bay of Pigs",
+      pt: "Cienfuegos e Baía dos Porcos"
+    },
+    description: {
+      es: "Descubre la 'Perla del Sur' y la histórica Bahía de Cochinos. Explora la arquitectura de influencia francesa, playas prístinas y sitios históricos clave.",
+      en: "Discover the 'Pearl of the South' and the historic Bay of Pigs. Explore French-influenced architecture, pristine beaches, and key historical sites.",
+      pt: "Descubra a 'Pérola do Sul' e a histórica Baía dos Porcos. Explore a arquitetura de influência francesa, praias pristinas e locais históricos importantes."
+    },
+    highlights: {
+      es: [
+        "Tour por Cienfuegos y el Palacio de Valle",
+        "Visita al museo de Playa Girón",
+        "Snorkel en Playa Girón",
+        "Recorrido panorámico por la costa"
+      ],
+      en: [
+        "Tour of Cienfuegos and Valle Palace",
+        "Visit to Playa Girón museum",
+        "Snorkeling at Playa Girón",
+        "Scenic coastal drive"
+      ],
+      pt: [
+        "Tour por Cienfuegos e Palácio de Valle",
+        "Visita ao museu de Playa Girón",
+        "Snorkel em Playa Girón",
+        "Passeio panorâmico pela costa"
+      ]
+    },
+    imagePlaceholder: {
+      es: "Arquitectura colonial francesa elegante",
+      en: "Elegant French colonial architecture",
+      pt: "Arquitetura colonial francesa elegante"
+    },
+    duration: {
+      es: "2 días",
+      en: "2 days",
+      pt: "2 dias"
+    },
+    difficulty: {
+      es: "Fácil",
+      en: "Easy",
+      pt: "Fácil"
+    },
+    price: {
+      es: "Desde $170 por persona",
+      en: "From $170 per person",
+      pt: "A partir de $170 por pessoa"
+    },
+    included: {
+      es: [
+        "Transporte y alojamiento",
+        "Guía histórico",
+        "Entradas a museos",
+        "Equipo de snorkel"
+      ],
+      en: [
+        "Transportation and accommodation",
+        "History guide",
+        "Museum entrance fees",
+        "Snorkeling equipment"
+      ],
+      pt: [
+        "Transporte e acomodação",
+        "Guia histórico",
+        "Entradas para museus",
+        "Equipamento de snorkel"
+      ]
+    },
+    itinerary: {
+      es: [
+        {
+          day: "Día 1",
+          title: "Cienfuegos colonial",
+          description: "Recorrido por el Parque José Martí, Teatro Terry, Palacio de Valle y el Malecón. Arquitectura neoclásica francesa única en Cuba."
+        },
+        {
+          day: "Día 2",
+          title: "Bahía de Cochinos",
+          description: "Visita al museo de la invasión en Playa Girón, snorkel en aguas cristalinas, y exploración de la Cueva de los Peces."
+        }
+      ],
+      en: [
+        {
+          day: "Day 1",
+          title: "Colonial Cienfuegos",
+          description: "Tour of José Martí Park, Terry Theater, Valle Palace, and the Malecón. Unique French neoclassical architecture in Cuba."
+        },
+        {
+          day: "Day 2",
+          title: "Bay of Pigs",
+          description: "Visit to the invasion museum at Playa Girón, snorkeling in crystal-clear waters, and exploration of the Fish Cave."
+        }
+      ],
+      pt: [
+        {
+          day: "Dia 1",
+          title: "Cienfuegos Colonial",
+          description: "Tour pelo Parque José Martí, Teatro Terry, Palácio de Valle e o Malecón. Arquitetura neoclássica francesa única em Cuba."
+        },
+        {
+          day: "Dia 2",
+          title: "Baía dos Porcos",
+          description: "Visita ao museu da invasão em Playa Girón, snorkel em águas cristalinas e exploração da Caverna dos Peixes."
+        }
+      ]
+    }
   },
   {
     slug: "naturaleza-vida-silvestre",
-    title: "Excursiones de naturaleza y vida silvestre",
-    description: "Explora los diversos ecosistemas de Cuba. Desde selvas tropicales hasta humedales costeros, descubre flora y fauna únicas en el mundo.",
-    highlights: [
-      "Avistamiento de aves (trogón cubano, tocororo)",
-      "Senderismo en la Sierra Maestra",
-      "Visita a criaderos de cocodrilos",
-      "Aventuras en kayak por los manglares"
-    ],
-    imagePlaceholder: "Paisaje de selva tropical exuberante",
-    duration: "3-5 días",
-    difficulty: "Moderada a Difícil",
-    price: "Desde $190 por persona/día",
-    included: [
-      "Guía naturalista certificado",
-      "Equipo de senderismo",
-      "Transporte 4x4",
-      "Alojamiento en eco-lodges"
-    ],
-    itinerary: [
-      {
-        day: "Días 1-2",
-        title: "Observación de aves",
-        description: "Excursiones temprano en la mañana para avistar el tocororo (ave nacional), zunzuncito (colibrí más pequeño del mundo), y otras especies endémicas."
-      },
-      {
-        day: "Día 3",
-        title: "Sierra Maestra",
-        description: "Senderismo en las montañas más altas de Cuba, visitando cascadas escondidas y bosques nubosos. Opción de subir al Pico Turquino."
-      },
-      {
-        day: "Días 4-5",
-        title: "Ecosistemas costeros",
-        description: "Kayak por manglares, visita a criaderos de cocodrilos, y exploración de ciénagas con biodiversidad única."
-      }
-    ]
+    title: {
+      es: "Excursiones de naturaleza y vida silvestre",
+      en: "Nature and Wildlife Excursions",
+      pt: "Excursões de Natureza e Vida Selvagem"
+    },
+    description: {
+      es: "Explora los diversos ecosistemas de Cuba. Desde selvas tropicales hasta humedales costeros, descubre flora y fauna únicas en el mundo.",
+      en: "Explore Cuba's diverse ecosystems. From tropical forests to coastal wetlands, discover unique flora and fauna.",
+      pt: "Explore os diversos ecossistemas de Cuba. De florestas tropicais a pântanos costeiros, descubra flora e fauna únicas."
+    },
+    highlights: {
+      es: [
+        "Avistamiento de aves (trogón cubano, tocororo)",
+        "Senderismo en la Sierra Maestra",
+        "Visita a criaderos de cocodrilos",
+        "Aventuras en kayak por los manglares"
+      ],
+      en: [
+        "Bird watching (Cuban trogon, tocororo)",
+        "Hiking in Sierra Maestra",
+        "Visit to crocodile farms",
+        "Kayak adventures through mangroves"
+      ],
+      pt: [
+        "Observação de aves (trogon cubano, tocororo)",
+        "Caminhadas na Sierra Maestra",
+        "Visita a criadouros de crocodilos",
+        "Aventuras de caiaque pelos manguezais"
+      ]
+    },
+    imagePlaceholder: {
+      es: "Paisaje de selva tropical exuberante",
+      en: "Lush tropical forest landscape",
+      pt: "Paisagem de floresta tropical exuberante"
+    },
+    duration: {
+      es: "3-5 días",
+      en: "3-5 days",
+      pt: "3-5 dias"
+    },
+    difficulty: {
+      es: "Moderada a Difícil",
+      en: "Moderate to Difficult",
+      pt: "Moderada a Difícil"
+    },
+    price: {
+      es: "Desde $190 por persona/día",
+      en: "From $190 per person/day",
+      pt: "A partir de $190 por pessoa/dia"
+    },
+    included: {
+      es: [
+        "Guía naturalista certificado",
+        "Equipo de senderismo",
+        "Transporte 4x4",
+        "Alojamiento en eco-lodges"
+      ],
+      en: [
+        "Certified naturalist guide",
+        "Hiking equipment",
+        "4x4 transportation",
+        "Eco-lodge accommodation"
+      ],
+      pt: [
+        "Guia naturalista certificado",
+        "Equipamento de caminhada",
+        "Transporte 4x4",
+        "Acomodação em eco-lodges"
+      ]
+    },
+    itinerary: {
+      es: [
+        {
+          day: "Días 1-2",
+          title: "Observación de aves",
+          description: "Excursiones temprano en la mañana para avistar el tocororo (ave nacional), zunzuncito (colibrí más pequeño del mundo), y otras especies endémicas."
+        },
+        {
+          day: "Día 3",
+          title: "Sierra Maestra",
+          description: "Senderismo en las montañas más altas de Cuba, visitando cascadas escondidas y bosques nubosos. Opción de subir al Pico Turquino."
+        },
+        {
+          day: "Días 4-5",
+          title: "Ecosistemas costeros",
+          description: "Kayak por manglares, visita a criaderos de cocodrilos, y exploración de ciénagas con biodiversidad única."
+        }
+      ],
+      en: [
+        {
+          day: "Days 1-2",
+          title: "Bird Watching",
+          description: "Early morning excursions to spot the tocororo (national bird), zunzuncito (world's smallest hummingbird), and other endemic species."
+        },
+        {
+          day: "Day 3",
+          title: "Sierra Maestra",
+          description: "Hiking in Cuba's highest mountains, visiting hidden waterfalls and cloud forests. Option to climb Pico Turquino."
+        },
+        {
+          day: "Days 4-5",
+          title: "Coastal Ecosystems",
+          description: "Kayaking through mangroves, visit to crocodile farms, and exploration of swamps with unique biodiversity."
+        }
+      ],
+      pt: [
+        {
+          day: "Dias 1-2",
+          title: "Observação de Aves",
+          description: "Excursões matinais para avistar o tocororo (ave nacional), zunzuncito (menor beija-flor do mundo) e outras espécies endêmicas."
+        },
+        {
+          day: "Dia 3",
+          title: "Sierra Maestra",
+          description: "Caminhadas nas montanhas mais altas de Cuba, visitando cachoeiras escondidas e florestas nubladas. Opção de subir o Pico Turquino."
+        },
+        {
+          day: "Dias 4-5",
+          title: "Ecossistemas Costeiros",
+          description: "Caiaque pelos manguezais, visita a criadouros de crocodilos e exploração de pântanos com biodiversidade única."
+        }
+      ]
+    }
   },
   {
     slug: "herencia-santiago-cuba",
-    title: "Herencia de Santiago de Cuba",
-    description: "Vive la segunda ciudad de Cuba y capital cultural. Descubre tradiciones afrocubanas, historia revolucionaria y la cuna del son.",
-    highlights: [
-      "Recorrido por la fortaleza Castillo del Morro",
-      "Noche musical en la Casa de la Trova",
-      "Visita al Cementerio de Santa Ifigenia",
-      "Experiencias culturales afrocubanas"
-    ],
-    imagePlaceholder: "Fortaleza histórica con vista a la bahía",
-    duration: "2-3 días",
-    difficulty: "Fácil",
-    price: "Desde $165 por persona/día",
-    included: [
-      "Alojamiento en casa particular",
-      "Guía cultural local",
-      "Entradas a sitios históricos",
-      "Espectáculos musicales"
-    ],
-    itinerary: [
-      {
-        day: "Día 1",
-        title: "Historia y fortalezas",
-        description: "Visita al Castillo del Morro (Patrimonio UNESCO), Parque Céspedes, Catedral, y museo de la lucha clandestina. Atardecer desde la fortaleza."
-      },
-      {
-        day: "Día 2",
-        title: "Música y cultura",
-        description: "Recorrido por la Casa de la Trova (cuna del son cubano), visita al Cementerio de Santa Ifigenia donde descansan héroes nacionales, y espectáculo de folklore afrocubano."
-      },
-      {
-        day: "Día 3",
-        title: "Alrededores",
-        description: "Excursión a la Gran Piedra, plantaciones de café históricas, y playas vírgenes de la costa sur."
-      }
-    ]
+    title: {
+      es: "Herencia de Santiago de Cuba",
+      en: "Santiago de Cuba Heritage",
+      pt: "Herança de Santiago de Cuba"
+    },
+    description: {
+      es: "Vive la segunda ciudad de Cuba y capital cultural. Descubre tradiciones afrocubanas, historia revolucionaria y la cuna del son.",
+      en: "Experience Cuba's second city and cultural capital. Discover Afro-Cuban traditions, revolutionary history, and the birthplace of son music.",
+      pt: "Viva a segunda cidade de Cuba e capital cultural. Descubra tradições afro-cubanas, história revolucionária e o berço do son."
+    },
+    highlights: {
+      es: [
+        "Recorrido por la fortaleza Castillo del Morro",
+        "Noche musical en la Casa de la Trova",
+        "Visita al Cementerio de Santa Ifigenia",
+        "Experiencias culturales afrocubanas"
+      ],
+      en: [
+        "Tour of Castillo del Morro fortress",
+        "Musical night at Casa de la Trova",
+        "Visit to Santa Ifigenia Cemetery",
+        "Afro-Cuban cultural experiences"
+      ],
+      pt: [
+        "Tour pela fortaleza Castillo del Morro",
+        "Noite musical na Casa de la Trova",
+        "Visita ao Cemitério de Santa Ifigenia",
+        "Experiências culturais afro-cubanas"
+      ]
+    },
+    imagePlaceholder: {
+      es: "Fortaleza histórica con vista a la bahía",
+      en: "Historic fortress overlooking the bay",
+      pt: "Fortaleza histórica com vista para a baía"
+    },
+    duration: {
+      es: "2-3 días",
+      en: "2-3 days",
+      pt: "2-3 dias"
+    },
+    difficulty: {
+      es: "Fácil",
+      en: "Easy",
+      pt: "Fácil"
+    },
+    price: {
+      es: "Desde $165 por persona/día",
+      en: "From $165 per person/day",
+      pt: "A partir de $165 por pessoa/dia"
+    },
+    included: {
+      es: [
+        "Alojamiento en casa particular",
+        "Guía cultural local",
+        "Entradas a sitios históricos",
+        "Espectáculos musicales"
+      ],
+      en: [
+        "Casa particular accommodation",
+        "Local cultural guide",
+        "Historical site entrance fees",
+        "Musical performances"
+      ],
+      pt: [
+        "Acomodação em casa particular",
+        "Guia cultural local",
+        "Entradas para locais históricos",
+        "Apresentações musicais"
+      ]
+    },
+    itinerary: {
+      es: [
+        {
+          day: "Día 1",
+          title: "Historia y fortalezas",
+          description: "Visita al Castillo del Morro (Patrimonio UNESCO), Parque Céspedes, Catedral, y museo de la lucha clandestina. Atardecer desde la fortaleza."
+        },
+        {
+          day: "Día 2",
+          title: "Música y cultura",
+          description: "Recorrido por la Casa de la Trova (cuna del son cubano), visita al Cementerio de Santa Ifigenia donde descansan héroes nacionales, y espectáculo de folklore afrocubano."
+        },
+        {
+          day: "Día 3",
+          title: "Alrededores",
+          description: "Excursión a la Gran Piedra, plantaciones de café históricas, y playas vírgenes de la costa sur."
+        }
+      ],
+      en: [
+        {
+          day: "Day 1",
+          title: "History and Fortresses",
+          description: "Visit to Castillo del Morro (UNESCO Heritage), Céspedes Park, Cathedral, and underground struggle museum. Sunset from the fortress."
+        },
+        {
+          day: "Day 2",
+          title: "Music and Culture",
+          description: "Tour of Casa de la Trova (birthplace of Cuban son), visit to Santa Ifigenia Cemetery where national heroes rest, and Afro-Cuban folklore show."
+        },
+        {
+          day: "Day 3",
+          title: "Surroundings",
+          description: "Excursion to Gran Piedra, historic coffee plantations, and pristine beaches of the south coast."
+        }
+      ],
+      pt: [
+        {
+          day: "Dia 1",
+          title: "História e Fortalezas",
+          description: "Visita ao Castillo del Morro (Patrimônio UNESCO), Parque Céspedes, Catedral e museu da luta clandestina. Pôr do sol da fortaleza."
+        },
+        {
+          day: "Dia 2",
+          title: "Música e Cultura",
+          description: "Tour pela Casa de la Trova (berço do son cubano), visita ao Cemitério de Santa Ifigenia onde descansam heróis nacionais e show de folclore afro-cubano."
+        },
+        {
+          day: "Dia 3",
+          title: "Arredores",
+          description: "Excursão à Gran Piedra, plantações históricas de café e praias virgens da costa sul."
+        }
+      ]
+    }
   }
 ];
+
+// Helper para obtener experiencia en el idioma correcto
+export function getExperience(slug: string, lang: string = 'es'): Experience | undefined {
+  const exp = experiencesData.find(e => e.slug === slug);
+  if (!exp) return undefined;
+  
+  return {
+    slug: exp.slug,
+    title: exp.title[lang] || exp.title.es,
+    description: exp.description[lang] || exp.description.es,
+    highlights: exp.highlights[lang] || exp.highlights.es,
+    imagePlaceholder: exp.imagePlaceholder[lang] || exp.imagePlaceholder.es,
+    duration: exp.duration[lang] || exp.duration.es,
+    difficulty: exp.difficulty[lang] || exp.difficulty.es,
+    price: exp.price[lang] || exp.price.es,
+    included: exp.included[lang] || exp.included.es,
+    itinerary: exp.itinerary[lang] || exp.itinerary.es,
+  };
+}
+
+// Obtener todas las experiencias en un idioma
+export function getExperiences(lang: string = 'es'): Experience[] {
+  return experiencesData.map(exp => getExperience(exp.slug, lang)!).filter(Boolean);
+}
+
+// Mantener compatibilidad con código existente
+export const experiences: Experience[] = getExperiences('es');

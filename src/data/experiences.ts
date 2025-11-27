@@ -608,36 +608,214 @@ const experiencesData: MultiLangExperience[] = [
       ],
       en: [
         {
-          day: "Day 1 - Morning",
-          title: "Journey to Viñales",
-          description: "Early departure from Havana to Viñales Valley (3 hours). Enjoy the changing landscape as we enter the tobacco region."
+          day: "Day 1",
+          title: "Welcome home—be habaneros for a few days!",
+          description: [
+            "Your first day in Cuba begins with the warm embrace of the Caribbean breeze as you land.",
+            "Our smiling driver awaits you at the airport, ready to take you comfortably to your lodging in a private vehicle.",
+            "As you travel through Havana's colorful streets, filled with music drifting through the windows,",
+            "we share the local secrets that turn a trip into an experience: where to sip the best sunrise coffee,",
+            "how to spot an authentic paladar, and which corner will gift you the first chords of son.",
+            "Havana is already beating for you... ready to be seduced? Let the Cuban adventure begin with a mojito in hand.",
+            "Savor every moment!"
+          ]
         },
         {
-          day: "Day 1 - Midday",
-          title: "Tobacco Farm",
-          description: "Visit a family plantation where you'll learn the entire tobacco process, from planting to cigar rolling. Countryside lunch with organic products."
+          day: "Day 2",
+          title: "Havana reveals itself – History, vintage flair, and flavor",
+          description: [
+            "A classic convertible and private guide show you the soul of the city: colonial squares, Hemingway's balconies, and secret tobacco workshops.",
+            "Then choose:",
+            "- Lunch at a Havana Vieja paladar such as La Esquina de Cuba.",
+            "- Free time to explore whichever corners steal your heart.",
+            "Leave the afternoon open to get lost on the Malecón at sunset or simply follow the rhythm of the city.",
+            "Today you're not tourists—you become habaneros for a day."
+          ]
         },
         {
-          day: "Day 1 - Afternoon",
-          title: "Valley Exploration",
-          description: "Horseback riding or hiking among the mogotes, visit to the Indian Cave with underground boat ride, and panoramic valley viewpoint."
+          day: "Day 3",
+          title: "Collective taxi to Viñales, where nature rules like a queen",
+          description: [
+            "Today we change pace: an authentic shared taxi takes you along rural roads,",
+            "past palm landscapes and colorful towns, until reaching the natural jewel of Viñales Valley (UNESCO). During the 2-hour ride,",
+            "you'll experience spontaneous Cuba: improvised stops, chats with locals, and the sweet provincial breeze.",
+            "Upon arrival, mogotes will leave you speechless, neatly lined red-roof houses wave as if welcoming you,",
+            "and the endless green invites you to reconnect and maybe even change your outlook forever.",
+            "The rest of the day is yours to explore—horseback riding is highly recommended, just ask me how.",
+            "Viñales isn't visited... it's felt with a heart full of green."
+          ]
+        },
+        {
+          day: "Days 4 & 5",
+          title: "Free days in Viñales: every encounter expands your horizons",
+          description: [
+            "Two days to explore this World Heritage valley at your own pace: beach lovers eager to see a Cuban key",
+            "can head to Cayo Jutías, a splendid beach north of Viñales.",
+            "Others will enjoy hiking the valley and meeting farmers on their own land,",
+            "or hopping on the hop-on bus to hit every iconic spot like the Indian Cave, Prehistory Mural,",
+            "and Los Jazmines lookout.",
+            "When night falls, the quiet farming town transforms into a party: live music, spontaneous dancing,",
+            "and son fused with reparto flow late into the night.",
+            "By day it's rustic and natural; by night, a fiesta under the stars. Viñales is dual and fascinating."
+          ]
+        },
+        {
+          day: "Day 6",
+          title: "Goodbye Viñales, a quick Havana stop, then springboard to Varadero",
+          description: [
+            "Back to the capital—there's no denying that's where things move the most. We depart after breakfast",
+            "and by late morning Havana is yours again. Perfect chance to wander solo.",
+            "With no fixed routes or schedules, let the city surprise you: lose yourself among antique books in Plaza de Armas,",
+            "sip an impromptu coffee on a colonial balcony, or follow street music into secret corners.",
+            "The Malecón at sunset will be your best reward.",
+            "The most authentic treasures aren't in guidebooks—they're on the corners you explore with curiosity and time."
+          ]
+        },
+        {
+          day: "Day 7",
+          title: "Hop to Varadero and return home with a natural bronze glow",
+          description: [
+            "We head to Varadero by colectivo taxi and arrive in just two hours. Along the way you'll pass under Havana's tunnel",
+            "and cruise along the Vía Blanca with the sea as your constant companion. Grab a piña colada en route",
+            "and marvel at the imposing Bacunayagua Bridge.",
+            "Soon you'll reach Matanzas, the 'Venice of Cuba', and once you pass it, Varadero is just ahead.",
+            "In Cuba, roads taste like adventure and endings like the Caribbean."
+          ]
+        },
+        {
+          day: "Days 8–10",
+          title: "You, the sea, and nothing else – The Caribbean at its purest",
+          description: [
+            "These days are for surrendering to the Caribbean rhythm:",
+            "- Mornings diving into turquoise waters.",
+            "- Afternoons with cocktails beside the infinity pool.",
+            "- Sunsets with your feet in white sand.",
+            "- Nights of romantic dinners under the stars.",
+            "At your all-inclusive resort you'll enjoy:",
+            "- Spa sessions with ocean views (extra fee).",
+            "- Optional water activities.",
+            "- Evening shows infused with Cuban flavor.",
+            "True luxury is having time to savor every wave, laugh, and sunlit instant."
+          ]
+        },
+        {
+          day: "Day 11",
+          title: "Hasta pronto, Caribbean – Heading home with hearts full of Cuba",
+          description: [
+            "The last day begins with sea, sand, and sun before coordinating a private transfer directly to Havana airport:",
+            "- From Varadero (2-hour drive)",
+            "On the road you'll have time to:",
+            "- Revisit the best moments of the trip.",
+            "- Stop for final souvenirs if you wish.",
+            "- Enjoy one last glimpse of the Caribbean Sea.",
+            "It's not goodbye, just a 'see you soon'... Cuba will always save a little bit of sand for you."
+          ]
         }
       ],
       pt: [
         {
-          day: "Dia 1 - Manhã",
-          title: "Viagem a Viñales",
-          description: "Saída cedo de Havana para o Vale de Viñales (3 horas). Desfrute da paisagem em mudança enquanto entramos na região do tabaco."
+          day: "Dia 1",
+          title: "Bem-vindos a casa, sejam habaneros por alguns dias!",
+          description: [
+            "O primeiro dia em Cuba começa com o abraço quente da brisa caribenha ao aterrissar.",
+            "Nosso motorista sorridente espera vocês no aeroporto, pronto para levá-los com conforto ao alojamento em veículo privado.",
+            "Enquanto percorrem as ruas coloridas de Havana, cheias de música entrando pelas janelas,",
+            "compartilhamos segredos locais que transformam a viagem em experiência: onde tomar o melhor café ao amanhecer,",
+            "como reconhecer um paladar autêntico e em qual esquina ouvirão os primeiros acordes de son.",
+            "Havana já pulsa por vocês... prontos para se deixar seduzir? Comecem a aventura com um mojito na mão.",
+            "Aproveitem cada instante!"
+          ]
         },
         {
-          day: "Dia 1 - Meio-dia",
-          title: "Fazenda de Tabaco",
-          description: "Visite uma plantação familiar onde você aprenderá todo o processo do tabaco, desde o plantio até o enrolamento de charutos. Almoço campestre com produtos orgânicos."
+          day: "Dia 2",
+          title: "Havana se revela – História, vintage e sabor",
+          description: [
+            "Um conversível clássico e um guia privado mostram a alma da cidade: praças coloniais, varandas de Hemingway e oficinas secretas de tabaco.",
+            "Depois, escolham:",
+            "- Almoço em um paladar de Havana Velha como La Esquina de Cuba.",
+            "- Explorar livremente os cantinhos que roubarem o coração de vocês.",
+            "Tarde aberta para se perder pelo Malecón ao entardecer ou seguir o ritmo da cidade.",
+            "Hoje vocês não são turistas—são habaneros por um dia."
+          ]
         },
         {
-          day: "Dia 1 - Tarde",
-          title: "Exploração do Vale",
-          description: "Cavalgada ou caminhada entre os mogotes, visita à Caverna do Índio com passeio de barco subterrâneo e mirante panorâmico do vale."
+          day: "Dia 3",
+          title: "Taxi coletivo rumo a Viñales, onde a natureza é rainha",
+          description: [
+            "Hoje mudamos o ritmo: um autêntico táxi compartilhado leva vocês por estradas rurais,",
+            "entre paisagens de palmeiras e povoados coloridos, até a joia natural do Vale de Viñales (UNESCO). Durante as 2 horas de viagem,",
+            "vivem a Cuba espontânea: paradas improvisadas, conversas com moradores e o doce ar do interior.",
+            "Ao chegar, os mogotes impressionam, as casinhas de telhado vermelho parecem acenar em boas-vindas",
+            "e o verde infinito convida a se reconectar e talvez transformar sua visão para sempre.",
+            "O restante do dia é livre para explorar—um passeio a cavalo é super recomendado, é só perguntar como.",
+            "Viñales não se visita... sente-se com o coração cheio de verde."
+          ]
+        },
+        {
+          day: "Dias 4 e 5",
+          title: "Dias livres em Viñales: cada encontro amplia seus horizontes",
+          description: [
+            "Dois dias para explorar esse vale Patrimônio Mundial no próprio ritmo: quem ama praia e quer conhecer um cayo cubano",
+            "pode ir até Cayo Jutías, praia esplêndida ao norte de Viñales.",
+            "Outros vão preferir caminhar pelo vale e visitar campesinos em suas fincas,",
+            "ou pegar o ônibus turístico para conhecer todos os pontos icônicos como Cueva del Indio, Mural da Pré-História",
+            "e o mirante de Los Jazmines.",
+            "Quando o sol se põe, a vila campesina vira festa: música ao vivo, dança espontânea",
+            "e son misturado com reparto até altas horas.",
+            "De dia é natureza pura; de noite, festa sob as estrelas. Viñales é dual e fascinante."
+          ]
+        },
+        {
+          day: "Dia 6",
+          title: "Adeus Viñales, uma parada em Havana e salto para Varadero",
+          description: [
+            "De volta à capital—não dá para negar que é lá onde tudo acontece. Saímos após o café",
+            "e perto das 11h Havana está de novo aos seus pés. Ótima chance para explorá-la sozinho.",
+            "Sem rotas fixas nem horários, deixem que a cidade surpreenda: percam-se entre livros antigos na Plaza de Armas,",
+            "tomem um café improvisado numa varanda colonial ou sigam a música de rua até recantos secretos.",
+            "O Malecón ao entardecer será a melhor recompensa.",
+            "Os tesouros mais autênticos não estão nos guias, e sim nas esquinas exploradas com curiosidade e tempo."
+          ]
+        },
+        {
+          day: "Dia 7",
+          title: "Um pulinho em Varadero para voltar bronzeado naturalmente",
+          description: [
+            "Seguimos para Varadero em táxi coletivo e chegamos em apenas duas horas. No caminho passamos pelo túnel de Havana",
+            "e seguimos pela Via Blanca com o mar como companheiro constante. Aproveitem para tomar uma piña colada",
+            "e observar a imponência da Ponte Bacunayagua.",
+            "Logo aparece Matanzas, a 'Veneza de Cuba', e depois dela Varadero está logo ali.",
+            "Em Cuba, os caminhos têm sabor de aventura e os finais, de Caribe."
+          ]
+        },
+        {
+          day: "Dias 8 a 10",
+          title: "Vocês, o mar e nada mais – O Caribe em estado puro",
+          description: [
+            "Esses dias são para se entregar ao ritmo caribenho:",
+            "- Manhãs de mergulhos em águas turquesa.",
+            "- Tardes com coquetéis ao lado da piscina infinita.",
+            "- Fins de tarde com os pés na areia branca.",
+            "- Noites de jantares românticos sob as estrelas.",
+            "No resort all inclusive, aproveitem:",
+            "- Spa com vista para o mar (custo extra).",
+            "- Atividades aquáticas opcionais.",
+            "- Shows noturnos com sabor cubano.",
+            "O verdadeiro luxo é ter tempo para saborear cada onda, cada riso e cada instante banhado de sol."
+          ]
+        },
+        {
+          day: "Dia 11",
+          title: "Até breve, Caribe – De volta para casa com o coração cheio de Cuba",
+          description: [
+            "O último dia começa com mar, areia e sol antes de coordenar um traslado privado direto ao aeroporto de Havana:",
+            "- Desde Varadero (2 horas de viagem)",
+            "Na estrada haverá tempo para:",
+            "- Relembrar os melhores momentos da viagem.",
+            "- Fazer paradas para os últimos souvenirs (se quiserem).",
+            "- Desfrutar de uma última vista do Mar do Caribe.",
+            "Não é um adeus, é um 'até logo'... Cuba sempre guardará um pedacinho de areia para vocês."
+          ]
         }
       ]
     }

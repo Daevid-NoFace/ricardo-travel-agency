@@ -92,18 +92,19 @@ const experiences = getExperiences(currentLang).slice(0, 5);
 
 <script>
   // Carrusel infinito de experiencias
-  const carousel = document.getElementById('experiences-carousel');
-  const prevBtn = document.getElementById('carousel-prev');
-  const nextBtn = document.getElementById('carousel-next');
-  const indicators = document.querySelectorAll('.carousel-indicator');
-  
-  if (!carousel) throw new Error('Carousel not found');
-  
-  const cards = carousel.children;
-  const totalCards = cards.length / 2; // Dividido por 2 porque duplicamos las cards
-  let currentIndex = 0;
-  let isTransitioning = false;
-  let autoplayInterval: number;
+  function initCarousel() {
+    const carousel = document.getElementById('experiences-carousel');
+    const prevBtn = document.getElementById('carousel-prev');
+    const nextBtn = document.getElementById('carousel-next');
+    const indicators = document.querySelectorAll('.carousel-indicator');
+    
+    if (!carousel) return;
+    
+    const cards = carousel.children;
+    const totalCards = cards.length / 2; // Dividido por 2 porque duplicamos las cards
+    let currentIndex = 0;
+    let isTransitioning = false;
+    let autoplayInterval: number;
   
   // Calcular cuántas cards mostrar según el ancho de pantalla
   const getCardsPerView = () => {
@@ -253,12 +254,39 @@ const experiences = getExperiences(currentLang).slice(0, 5);
     startAutoplay();
   });
   
-  // Recalcular en resize
-  window.addEventListener('resize', () => {
+    // Recalcular en resize
+    window.addEventListener('resize', () => {
+      updateCarousel(false);
+    });
+    
+    // Inicializar
     updateCarousel(false);
-  });
+    startAutoplay();
+  }
   
-  // Inicializar
-  updateCarousel(false);
-  startAutoplay();
+  // Variable global para el intervalo
+  let globalAutoplayInterval: number | undefined;
+  
+  // Limpiar intervalo anterior si existe
+  function cleanupCarousel() {
+    if (globalAutoplayInterval) {
+      clearInterval(globalAutoplayInterval);
+      globalAutoplayInterval = undefined;
+    }
+  }
+  
+  // Wrapper para inicializar con limpieza
+  function initCarouselWithCleanup() {
+    cleanupCarousel();
+    initCarousel();
+  }
+  
+  // Inicializar en carga de página
+  document.addEventListener('DOMContentLoaded', initCarouselWithCleanup);
+  
+  // Reinicializar después de navegación de Astro
+  document.addEventListener('astro:page-load', initCarouselWithCleanup);
+  
+  // Limpiar antes de salir de la página
+  document.addEventListener('astro:before-preparation', cleanupCarousel);
 </script>

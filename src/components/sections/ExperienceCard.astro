@@ -1,5 +1,6 @@
 ---
-// Reusable Experience Card Component
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
 interface Props {
   slug: string;
   title: string;
@@ -9,6 +10,8 @@ interface Props {
 }
 
 const { slug, title, description, highlights, imagePlaceholder } = Astro.props;
+const currentLang = getLangFromUrl(Astro.url);
+const t = useTranslations(currentLang);
 ---
 
 <div class="group bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 flex flex-col h-full">
@@ -48,7 +51,7 @@ const { slug, title, description, highlights, imagePlaceholder } = Astro.props;
       href={`/experiencias/${slug}`}
       class="inline-block w-full text-center px-6 py-3 bg-caribbean-blue text-white rounded-lg font-semibold hover:bg-ocean-blue transition-colors duration-300 mt-auto"
     >
-      Ver detalles
+      {t('experienceCard.viewDetails')}
     </a>
   </div>
 </div>

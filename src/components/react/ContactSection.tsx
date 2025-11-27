@@ -1,5 +1,21 @@
 import { useState, type FormEvent, type ChangeEvent } from 'react';
 import { FaEnvelope, FaWhatsapp, FaClock, FaFacebook, FaInstagram, FaTwitter } from 'react-icons/fa';
+import { ui, defaultLang } from '../i18n/ui';
+
+// Hook para obtener el idioma actual desde la URL
+function useCurrentLang() {
+  if (typeof window === 'undefined') return defaultLang;
+  const [, lang] = window.location.pathname.split('/');
+  return (lang in ui ? lang : defaultLang) as keyof typeof ui;
+}
+
+// Hook para traducciones
+function useTranslations() {
+  const lang = useCurrentLang();
+  return function t(key: keyof (typeof ui)[typeof defaultLang]) {
+    return ui[lang][key] || ui[defaultLang][key];
+  };
+}
 
 interface FormData {
   name: string;
@@ -14,6 +30,8 @@ interface FormErrors {
 }
 
 export default function ContactSection() {
+  const t = useTranslations();
+  
   const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
@@ -33,21 +51,21 @@ export default function ContactSection() {
     const newErrors: FormErrors = {};
 
     if (!formData.name.trim()) {
-      newErrors.name = 'El nombre es obligatorio';
+      newErrors.name = t('contact.nameRequired');
     } else if (formData.name.trim().length < 2) {
-      newErrors.name = 'El nombre debe tener al menos 2 caracteres';
+      newErrors.name = t('contact.nameMinLength');
     }
 
     if (!formData.email.trim()) {
-      newErrors.email = 'El correo es obligatorio';
+      newErrors.email = t('contact.emailRequired');
     } else if (!validateEmail(formData.email)) {
-      newErrors.email = 'Ingresa un correo válido';
+      newErrors.email = t('contact.emailInvalid');
     }
 
     if (!formData.message.trim()) {
-      newErrors.message = 'El mensaje es obligatorio';
+      newErrors.message = t('contact.messageRequired');
     } else if (formData.message.trim().length < 10) {
-      newErrors.message = 'El mensaje debe tener al menos 10 caracteres';
+      newErrors.message = t('contact.messageMinLength');
     }
 
     setErrors(newErrors);
@@ -107,13 +125,13 @@ export default function ContactSection() {
         {/* Section Header */}
         <div className="text-center mb-16 max-w-3xl mx-auto">
           <span className="text-coral font-semibold text-sm uppercase tracking-wider mb-4 block">
-            Conectemos
+            {t('contact.label')}
           </span>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Comienza tu <span className="text-caribbean-blue">aventura cubana</span>
+            {t('contact.title')} <span className="text-caribbean-blue">{t('contact.titleHighlight')}</span>
           </h2>
           <p className="text-lg text-gray-700 leading-relaxed">
-            ¿Listo para explorar Cuba? Ponte en contacto y diseñemos juntos una experiencia auténtica hecha a tu medida.
+            {t('contact.subtitle')}
           </p>
         </div>
 
@@ -121,9 +139,9 @@ export default function ContactSection() {
         <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
           {/* Contact Information */}
           <div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">Ponte en contacto</h3>
+            <h3 className="text-2xl font-bold text-gray-900 mb-6">{t('contact.getInTouch')}</h3>
             <p className="text-gray-700 mb-8 leading-relaxed">
-              ¿Tienes preguntas sobre Cuba o quieres planificar tu viaje? ¡Estoy aquí para ayudarte! Escríbeme por correo, WhatsApp o mediante el formulario y te responderé lo antes posible.
+              {t('contact.description')}
             </p>
 
             {/* Contact Methods */}
@@ -137,9 +155,9 @@ export default function ContactSection() {
                   <FaEnvelope className="text-caribbean-blue text-xl" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-900 mb-1">Correo electrónico</h4>
+                  <h4 className="font-semibold text-gray-900 mb-1">{t('contact.email')}</h4>
                   <p className="text-caribbean-blue hover:underline">info@cubavibes.com</p>
-                  <p className="text-sm text-gray-600 mt-1">Respondemos en menos de 24 horas</p>
+                  <p className="text-sm text-gray-600 mt-1">{t('contact.emailResponse')}</p>
                 </div>
               </a>
 
@@ -154,9 +172,9 @@ export default function ContactSection() {
                   <FaWhatsapp className="text-tropical-green text-xl" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-900 mb-1">WhatsApp</h4>
+                  <h4 className="font-semibold text-gray-900 mb-1">{t('contact.whatsapp')}</h4>
                   <p className="text-tropical-green hover:underline">+1 (234) 567-890</p>
-                  <p className="text-sm text-gray-600 mt-1">Respuestas rápidas los 7 días de la semana</p>
+                  <p className="text-sm text-gray-600 mt-1">{t('contact.whatsappResponse')}</p>
                 </div>
               </a>
 
@@ -166,17 +184,17 @@ export default function ContactSection() {
                   <FaClock className="text-coral text-xl" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-900 mb-1">Horario de atención</h4>
-                  <p className="text-gray-700">Lunes a domingo</p>
-                  <p className="text-gray-700">8:00 AM - 8:00 PM</p>
-                  <p className="text-sm text-gray-600 mt-1">Hora de La Habana (GMT-5)</p>
+                  <h4 className="font-semibold text-gray-900 mb-1">{t('contact.businessHours')}</h4>
+                  <p className="text-gray-700">{t('contact.mondayToSunday')}</p>
+                  <p className="text-gray-700">{t('contact.hours')}</p>
+                  <p className="text-sm text-gray-600 mt-1">{t('contact.timezone')}</p>
                 </div>
               </div>
             </div>
 
             {/* Social Media */}
             <div>
-              <h4 className="font-semibold text-gray-900 mb-4">Síguenos en redes</h4>
+              <h4 className="font-semibold text-gray-900 mb-4">{t('contact.followUs')}</h4>
               <div className="flex gap-4">
                 <a 
                   href="https://facebook.com" 
@@ -212,13 +230,13 @@ export default function ContactSection() {
           {/* Contact Form */}
           <div>
             <div className="bg-white rounded-2xl shadow-xl p-8">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Enviar un mensaje</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">{t('contact.sendMessage')}</h3>
               
               <form onSubmit={handleSubmit} className="space-y-6">
                 {/* Name Field */}
                 <div>
                   <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-2">
-                    Tu nombre *
+                    {t('contact.yourName')} {t('contact.required')}
                   </label>
                   <input
                     type="text"
@@ -231,7 +249,7 @@ export default function ContactSection() {
                         ? 'border-red-500 focus:ring-red-500' 
                         : 'border-gray-300 focus:ring-caribbean-blue focus:border-caribbean-blue'
                     }`}
-                    placeholder="Juan Pérez"
+                    placeholder={t('contact.namePlaceholder')}
                     disabled={isSubmitting}
                   />
                   {errors.name && (
@@ -242,7 +260,7 @@ export default function ContactSection() {
                 {/* Email Field */}
                 <div>
                   <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">
-                    Tu correo electrónico *
+                    {t('contact.yourEmail')} {t('contact.required')}
                   </label>
                   <input
                     type="email"
@@ -255,7 +273,7 @@ export default function ContactSection() {
                         ? 'border-red-500 focus:ring-red-500' 
                         : 'border-gray-300 focus:ring-caribbean-blue focus:border-caribbean-blue'
                     }`}
-                    placeholder="juan@ejemplo.com"
+                    placeholder={t('contact.emailPlaceholder')}
                     disabled={isSubmitting}
                   />
                   {errors.email && (
@@ -266,7 +284,7 @@ export default function ContactSection() {
                 {/* Message Field */}
                 <div>
                   <label htmlFor="message" className="block text-sm font-semibold text-gray-700 mb-2">
-                    Tu mensaje *
+                    {t('contact.yourMessage')} {t('contact.required')}
                   </label>
                   <textarea
                     id="message"
@@ -279,7 +297,7 @@ export default function ContactSection() {
                         ? 'border-red-500 focus:ring-red-500' 
                         : 'border-gray-300 focus:ring-caribbean-blue focus:border-caribbean-blue'
                     }`}
-                    placeholder="Cuéntame sobre la experiencia cubana de tus sueños..."
+                    placeholder={t('contact.messagePlaceholder')}
                     disabled={isSubmitting}
                   />
                   {errors.message && (
@@ -293,14 +311,14 @@ export default function ContactSection() {
                   disabled={isSubmitting}
                   className="w-full px-8 py-4 bg-caribbean-blue text-white rounded-lg font-semibold text-lg hover:bg-ocean-blue transition-all duration-300 transform hover:scale-105 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
                 >
-                  {isSubmitting ? 'Enviando...' : 'Enviar mensaje'}
+                  {isSubmitting ? t('contact.sending') : t('contact.sendButton')}
                 </button>
 
                 {/* Success Message */}
                 {submitStatus === 'success' && (
                   <div className="p-4 bg-tropical-green/10 border border-tropical-green rounded-lg">
                     <p className="text-tropical-green font-semibold">
-                      ✓ ¡Mensaje enviado con éxito! Te responderé muy pronto.
+                      {t('contact.successMessage')}
                     </p>
                   </div>
                 )}
@@ -309,7 +327,7 @@ export default function ContactSection() {
                 {submitStatus === 'error' && (
                   <div className="p-4 bg-red-50 border border-red-500 rounded-lg">
                     <p className="text-red-600 font-semibold">
-                      ✗ Algo salió mal. Intenta de nuevo o contáctame directamente.
+                      {t('contact.errorMessage')}
                     </p>
                   </div>
                 )}

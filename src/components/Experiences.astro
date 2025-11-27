@@ -17,14 +17,32 @@ import { experiences } from '../data/experiences';
     </div>
 
     <!-- Experience Cards Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-      {experiences.map((experience) => (
-        <ExperienceCard {...experience} />
-      ))}
+    <div class="relative max-w-7xl mx-auto">
+      <div id="experiences-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 overflow-hidden transition-all duration-500" style="max-height: 1000px;">
+        {experiences.map((experience) => (
+          <ExperienceCard {...experience} />
+        ))}
+      </div>
+      
+      <!-- Gradiente y botón de expansión -->
+      <div id="expand-overlay" class="absolute bottom-0 left-0 right-0 h-14 bg-gradient-to-t from-white via-white/90 to-transparent pointer-events-none transition-opacity duration-300">
+        <div class="absolute bottom-[-70px] left-1/2 -translate-x-1/2 pointer-events-auto">
+          <button 
+            id="toggle-experiences"
+            class="group flex items-center gap-2 px-8 py-4 bg-caribbean-blue text-white rounded-full font-semibold text-lg hover:bg-ocean-blue transition-all duration-300 transform hover:scale-105 shadow-xl"
+            aria-label="Ver más experiencias"
+          >
+            <span id="toggle-text">Ver más experiencias</span>
+            <svg id="toggle-arrow" class="w-6 h-6 transition-transform duration-300 group-hover:translate-y-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+        </div>
+      </div>
     </div>
 
     <!-- CTA -->
-    <div class="text-center mt-16">
+    <div class="text-center mt-24">
       <p class="text-lg text-gray-700 mb-6">
         ¿Listo para crear tu aventura perfecta en Cuba?
       </p>
@@ -37,3 +55,84 @@ import { experiences } from '../data/experiences';
     </div>
   </div>
 </section>
+
+<script>
+  // Toggle para expandir/colapsar experiencias
+  const grid = document.getElementById('experiences-grid');
+  const overlay = document.getElementById('expand-overlay');
+  const toggleBtn = document.getElementById('toggle-experiences');
+  const toggleText = document.getElementById('toggle-text');
+  const toggleArrow = document.getElementById('toggle-arrow');
+  
+  let isExpanded = false;
+  
+  // Calcular altura inicial para mostrar solo 3 cards
+  const calculateCollapsedHeight = () => {
+    if (!grid) return;
+    const cards = grid.children;
+    if (cards.length === 0) return;
+    
+    // Obtener altura de una card + gap
+    const firstCard = cards[0] as HTMLElement;
+    const cardHeight = firstCard.offsetHeight;
+    const gap = 32; // 8 * 4px (gap-8 de Tailwind)
+    
+    // En móvil (1 columna): 3 cards
+    // En tablet (2 columnas): 2 filas = 4 cards
+    // En desktop (3 columnas): 1 fila = 3 cards
+    const width = window.innerWidth;
+    let rows = 3;
+    
+    if (width >= 1024) {
+      rows = 1; // 3 cards en 1 fila
+    } else if (width >= 768) {
+      rows = 2; // 4 cards en 2 filas
+    }
+    
+    const collapsedHeight = (cardHeight * rows) + (gap * (rows - 1));
+    grid.style.maxHeight = `${collapsedHeight}px`;
+  };
+  
+  // Inicializar altura colapsada
+  calculateCollapsedHeight();
+  
+  // Recalcular en resize
+  window.addEventListener('resize', () => {
+    if (!isExpanded) {
+      calculateCollapsedHeight();
+    }
+  });
+  
+  // Toggle al hacer clic
+  toggleBtn?.addEventListener('click', () => {
+    isExpanded = !isExpanded;
+    
+    if (isExpanded) {
+      // Expandir
+      grid!.style.maxHeight = `${grid!.scrollHeight}px`;
+      overlay!.style.opacity = '0';
+      toggleText!.textContent = 'Ver menos';
+      toggleArrow!.style.transform = 'rotate(180deg)';
+      
+      // Ocultar overlay después de la animación
+      setTimeout(() => {
+        overlay!.style.display = 'none';
+      }, 300);
+    } else {
+      // Colapsar
+      overlay!.style.display = 'block';
+      setTimeout(() => {
+        overlay!.style.opacity = '1';
+      }, 10);
+      calculateCollapsedHeight();
+      toggleText!.textContent = 'Ver más experiencias';
+      toggleArrow!.style.transform = 'rotate(0deg)';
+      
+      // Scroll suave hacia la sección
+      document.getElementById('experiences')?.scrollIntoView({ 
+        behavior: 'smooth', 
+        block: 'start' 
+      });
+    }
+  });
+</script>

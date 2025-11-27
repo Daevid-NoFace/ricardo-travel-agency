@@ -1,4 +1,6 @@
 ---
+import AnimatedCounter from "./AnimatedCounter";
+
 // About section with two-column layout
 ---
 
@@ -13,8 +15,8 @@
             <img src="/pictures/papa.jpg" alt="Foto del guía" class="w-full h-full object-cover">
           </div>
           <!-- Decorative Element -->
-          <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-coral rounded-full opacity-20 -z-10"></div>
-          <div class="absolute -top-6 -left-6 w-24 h-24 bg-sunset-orange rounded-full opacity-20 -z-10"></div>
+          <!-- <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-coral rounded-full opacity-20 -z-10"></div>
+          <div class="absolute -top-6 -left-6 w-24 h-24 bg-sunset-orange rounded-full opacity-20 -z-10"></div> -->
         </div>
       </div>
 
@@ -39,12 +41,16 @@
         <!-- Trust Indicators -->
         <div class="grid grid-cols-2 gap-6 mb-8">
           <div class="bg-sand/30 rounded-lg p-6 text-center transform hover:scale-105 transition-transform">
-            <div class="text-4xl font-bold text-caribbean-blue mb-2">25+</div>
+            <div class="text-4xl font-bold text-caribbean-blue mb-2">
+              <span><AnimatedCounter end={25} duration={2000} client:load/>+</span>
+            </div>
             <div class="text-gray-700 font-medium">Años de experiencia</div>
           </div>
           
           <div class="bg-sand/30 rounded-lg p-6 text-center transform hover:scale-105 transition-transform">
-            <div class="text-4xl font-bold text-coral mb-2">500+</div>
+            <div class="text-4xl font-bold text-coral mb-2">
+              <span><AnimatedCounter end={500} duration={2000} client:load/>+</span>
+            </div>
             <div class="text-gray-700 font-medium">Viajeros felices</div>
           </div>
         </div>

@@ -3,9 +3,60 @@ import type { Experience } from '../../data/experiences';
 
 interface Props {
   experience: Experience;
+  lang?: string;
 }
 
-export default function DownloadPDFButton({ experience }: Props) {
+// Traducciones para el PDF
+const translations = {
+  es: {
+    subtitle: 'Ricardo Vibes - Experiencias Auténticas en Cuba',
+    duration: 'DURACIÓN',
+    difficulty: 'DIFICULTAD',
+    price: 'PRECIO',
+    highlights: 'LO MÁS DESTACADO',
+    included: 'INCLUIDO',
+    itinerary: 'ITINERARIO DETALLADO',
+    footer: 'Ricardo Vibes | WhatsApp: +53 5555 5555 | Email: ricardo@ricardovibes.com',
+    page: 'Página',
+    of: 'de',
+    button: 'Descargar itinerario PDF',
+    generating: 'Generando PDF...',
+    error: 'Hubo un error al generar el PDF. Por favor, intenta de nuevo.'
+  },
+  en: {
+    subtitle: 'Ricardo Vibes - Authentic Cuban Experiences',
+    duration: 'DURATION',
+    difficulty: 'DIFFICULTY',
+    price: 'PRICE',
+    highlights: 'HIGHLIGHTS',
+    included: "WHAT'S INCLUDED",
+    itinerary: 'DETAILED ITINERARY',
+    footer: 'Ricardo Vibes | WhatsApp: +53 5555 5555 | Email: ricardo@ricardovibes.com',
+    page: 'Page',
+    of: 'of',
+    button: 'Download PDF itinerary',
+    generating: 'Generating PDF...',
+    error: 'There was an error generating the PDF. Please try again.'
+  },
+  pt: {
+    subtitle: 'Ricardo Vibes - Experiências Autênticas em Cuba',
+    duration: 'DURAÇÃO',
+    difficulty: 'DIFICULDADE',
+    price: 'PREÇO',
+    highlights: 'DESTAQUES',
+    included: 'INCLUÍDO',
+    itinerary: 'ITINERÁRIO DETALHADO',
+    footer: 'Ricardo Vibes | WhatsApp: +53 5555 5555 | Email: ricardo@ricardovibes.com',
+    page: 'Página',
+    of: 'de',
+    button: 'Baixar itinerário PDF',
+    generating: 'Gerando PDF...',
+    error: 'Houve um erro ao gerar o PDF. Por favor, tente novamente.'
+  }
+};
+
+export default function DownloadPDFButton({ experience, lang = 'es' }: Props) {
+  const t = translations[lang as keyof typeof translations] || translations.es;
   const [isGenerating, setIsGenerating] = useState(false);
 
   const generatePDF = async () => {
@@ -48,7 +99,7 @@ export default function DownloadPDFButton({ experience }: Props) {
       
       doc.setFontSize(10);
       doc.setFont('helvetica', 'normal');
-      doc.text('Ricardo Vibes - Experiencias Auténticas en Cuba', pageWidth / 2, 38, { align: 'center' });
+      doc.text(t.subtitle, pageWidth / 2, 38, { align: 'center' });
 
       yPosition = 60;
 
@@ -60,7 +111,7 @@ export default function DownloadPDFButton({ experience }: Props) {
       doc.roundedRect(margin, yPosition, (contentWidth / 3) - 5, 25, 3, 3, 'F');
       doc.setFontSize(9);
       doc.setTextColor(100, 100, 100);
-      doc.text('DURACIÓN', margin + 5, yPosition + 8);
+      doc.text(t.duration, margin + 5, yPosition + 8);
       doc.setFontSize(11);
       doc.setFont('helvetica', 'bold');
       doc.setTextColor(0, 0, 0);
@@ -72,7 +123,7 @@ export default function DownloadPDFButton({ experience }: Props) {
       doc.roundedRect(margin + (contentWidth / 3), yPosition, (contentWidth / 3) - 5, 25, 3, 3, 'F');
       doc.setFontSize(9);
       doc.setTextColor(100, 100, 100);
-      doc.text('DIFICULTAD', margin + (contentWidth / 3) + 5, yPosition + 8);
+      doc.text(t.difficulty, margin + (contentWidth / 3) + 5, yPosition + 8);
       doc.setFontSize(11);
       doc.setFont('helvetica', 'bold');
       doc.setTextColor(0, 0, 0);
@@ -84,7 +135,7 @@ export default function DownloadPDFButton({ experience }: Props) {
       doc.roundedRect(margin + (2 * contentWidth / 3), yPosition, (contentWidth / 3), 25, 3, 3, 'F');
       doc.setFontSize(9);
       doc.setTextColor(100, 100, 100);
-      doc.text('PRECIO', margin + (2 * contentWidth / 3) + 5, yPosition + 8);
+      doc.text(t.price, margin + (2 * contentWidth / 3) + 5, yPosition + 8);
       doc.setFontSize(11);
       doc.setFont('helvetica', 'bold');
       doc.setTextColor(0, 0, 0);
@@ -105,7 +156,7 @@ export default function DownloadPDFButton({ experience }: Props) {
       doc.setTextColor(255, 255, 255);
       doc.setFontSize(12);
       doc.setFont('helvetica', 'bold');
-      doc.text('LO MÁS DESTACADO', margin + 2, yPosition + 6);
+      doc.text(t.highlights, margin + 2, yPosition + 6);
       yPosition += 15;
 
       doc.setTextColor(0, 0, 0);
@@ -140,7 +191,7 @@ export default function DownloadPDFButton({ experience }: Props) {
       doc.setTextColor(255, 255, 255);
       doc.setFontSize(12);
       doc.setFont('helvetica', 'bold');
-      doc.text('INCLUIDO', margin + 2, yPosition + 6);
+      doc.text(t.included, margin + 2, yPosition + 6);
       yPosition += 15;
 
       doc.setTextColor(0, 0, 0);
@@ -174,7 +225,7 @@ export default function DownloadPDFButton({ experience }: Props) {
       doc.setTextColor(255, 255, 255);
       doc.setFontSize(12);
       doc.setFont('helvetica', 'bold');
-      doc.text('ITINERARIO DETALLADO', margin + 2, yPosition + 6);
+      doc.text(t.itinerary, margin + 2, yPosition + 6);
       yPosition += 15;
 
       experience.itinerary.forEach((item, index) => {
@@ -224,9 +275,9 @@ export default function DownloadPDFButton({ experience }: Props) {
         doc.rect(0, pageHeight - 15, pageWidth, 15, 'F');
         doc.setTextColor(255, 255, 255);
         doc.setFontSize(9);
-        doc.text('Ricardo Vibes | WhatsApp: +53 5555 5555 | Email: ricardo@ricardovibes.com', pageWidth / 2, pageHeight - 7, { align: 'center' });
+        doc.text(t.footer, pageWidth / 2, pageHeight - 7, { align: 'center' });
         doc.setFontSize(8);
-        doc.text(`Página ${i} de ${totalPages}`, pageWidth - margin, pageHeight - 7, { align: 'right' });
+        doc.text(`${t.page} ${i} ${t.of} ${totalPages}`, pageWidth - margin, pageHeight - 7, { align: 'right' });
       }
 
       // Guardar PDF
@@ -235,7 +286,7 @@ export default function DownloadPDFButton({ experience }: Props) {
       
     } catch (error) {
       console.error('Error generando PDF:', error);
-      alert('Hubo un error al generar el PDF. Por favor, intenta de nuevo.');
+      alert(t.error);
     } finally {
       setIsGenerating(false);
     }
@@ -258,14 +309,14 @@ export default function DownloadPDFButton({ experience }: Props) {
               <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
               <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
             </svg>
-            <span>Generando PDF...</span>
+            <span>{t.generating}</span>
           </>
         ) : (
           <>
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
             </svg>
-            <span>Descargar itinerario PDF</span>
+            <span>{t.button}</span>
           </>
         )}
       </div>

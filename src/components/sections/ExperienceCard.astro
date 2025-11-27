@@ -4,7 +4,7 @@ import { getLangFromUrl, useTranslations } from '../i18n/utils';
 interface Props {
   slug: string;
   title: string;
-  description: string;
+  description: string | string[];
   highlights: string[];
   imagePlaceholder: string;
 }
@@ -12,6 +12,9 @@ interface Props {
 const { slug, title, description, highlights, imagePlaceholder } = Astro.props;
 const currentLang = getLangFromUrl(Astro.url);
 const t = useTranslations(currentLang);
+
+// Convert description to string if it's an array
+const descriptionText = Array.isArray(description) ? description.join(' ') : description;
 
 // Construir la URL correcta según el idioma
 import { routes, defaultLang, showDefaultLang } from '../i18n/ui';
@@ -74,9 +77,7 @@ const cardId = `card-${slug}`;
       <div class="absolute top-0 left-0 right-0 h-8 bg-gradient-to-b from-white to-transparent pointer-events-none scroll-indicator-top opacity-0 z-10"></div>
       
       <div class="h-32 overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-caribbean-blue/30 scrollbar-track-gray-100 scroll-container">
-        <p class="text-gray-700 leading-relaxed text-sm">
-          {description}
-        </p>
+        <p class="text-gray-700 leading-relaxed text-sm">{descriptionText}</p>
       </div>
       
       <!-- Indicador de scroll inferior - gradiente fade -->

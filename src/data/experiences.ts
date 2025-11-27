@@ -1,7 +1,7 @@
 export interface Experience {
   slug: string;
   title: string;
-  description: string;
+  description: string | string[];
   highlights: string[];
   imagePlaceholder: string;
   duration: string;
@@ -11,14 +11,14 @@ export interface Experience {
   itinerary: {
     day: string;
     title: string;
-    description: string;
+    description: string | string[];
   }[];
 }
 
 interface MultiLangExperience {
   slug: string;
   title: Record<string, string>;
-  description: Record<string, string>;
+  description: Record<string, string | string[]>;
   highlights: Record<string, string[]>;
   imagePlaceholder: Record<string, string>;
   duration: Record<string, string>;
@@ -28,7 +28,7 @@ interface MultiLangExperience {
   itinerary: Record<string, Array<{
     day: string;
     title: string;
-    description: string;
+    description: string | string[];
   }>>;
 }
 
@@ -41,9 +41,15 @@ const experiencesData: MultiLangExperience[] = [
       pt: "Tour Clássico por Havana, Trinidad e Mar por o Preço Justo"
     },
     description: {
-      es: "Embárcate en una experiencia única por Cuba, comenzando con un recorrido por La Habana en un descapotable clásico, donde el viento caribeño y la arquitectura histórica te acompañan en cada giro. Continúa tu aventura hacia Trinidad, una joya colonial con calles adoquinadas, que te transportará a otra época con su encanto intacto. Allí podrás disfrutar de música en vivo y cócteles en la Plaza Mayor, un entorno mágico donde la vida nocturna cobra un ritmo propio. Luego, desconéctate en playas de arena blanca y aguas cristalinas, perfectas para descansar y dejarte llevar por la tranquilidad del mar. Y en cada paso del camino, sumérgete en la cultura cubana con encuentros locales espontáneos, llenos de sonrisas, historias y autenticidad que hacen de este viaje una experiencia irrepetible.",
-      en: "Embark on a unique Cuban adventure, starting with a tour of Havana in a classic convertible, where the Caribbean breeze and historic architecture accompany you at every turn. Continue your journey to Trinidad, a colonial gem with cobblestone streets that will transport you to another era with its unspoiled charm. There, you can enjoy live music and cocktails in the Plaza Mayor, a magical setting where the nightlife comes alive. Then, unwind on white-sand beaches and crystal-clear waters, perfect for relaxing and letting yourself be carried away by the tranquility of the sea. And at every step of the way, immerse yourself in Cuban culture with spontaneous local encounters, full of smiles, stories, and authenticity that make this trip an unforgettable experience.",
-      pt: "Embarque numa aventura cubana única, começando com um passeio por Havana num descapotável clássico, onde a brisa caribenha e a arquitetura histórica o acompanham a cada esquina. Continue a sua viagem até Trinidad, uma joia colonial com ruas de paralelepípedos que o transportarão para outra época com o seu charme preservado. Aí, poderá desfrutar de música ao vivo e cocktails na Plaza Mayor, um cenário mágico onde a vida noturna ganha vida. De seguida, relaxe em praias de areia branca e águas cristalinas, perfeitas para relaxar e deixar-se levar pela tranquilidade do mar. E a cada passo, mergulhe na cultura cubana com encontros espontâneos com os habitantes locais, repletos de sorrisos, histórias e autenticidade que fazem desta viagem uma experiência inesquecível."
+      es: [
+        "Embárcate en una experiencia única por Cuba, comenzando con un recorrido por La Habana en un descapotable clásico, donde el viento caribeño y la arquitectura histórica te acompañan en cada giro. Continúa tu aventura hacia Trinidad, una joya colonial con calles adoquinadas, que te transportará a otra época con su encanto intacto. Allí podrás disfrutar de música en vivo y cócteles en la Plaza Mayor, un entorno mágico donde la vida nocturna cobra un ritmo propio. Luego, desconéctate en playas de arena blanca y aguas cristalinas, perfectas para descansar y dejarte llevar por la tranquilidad del mar. Y en cada paso del camino, sumérgete en la cultura cubana con encuentros locales espontáneos, llenos de sonrisas, historias y autenticidad que hacen de este viaje una experiencia irrepetible.",
+      ],
+      en: [
+        "Embark on a unique Cuban adventure, starting with a tour of Havana in a classic convertible, where the Caribbean breeze and historic architecture accompany you at every turn. Continue your journey to Trinidad, a colonial gem with cobblestone streets that will transport you to another era with its unspoiled charm. There, you can enjoy live music and cocktails in the Plaza Mayor, a magical setting where the nightlife comes alive. Then, unwind on white-sand beaches and crystal-clear waters, perfect for relaxing and letting yourself be carried away by the tranquility of the sea. And at every step of the way, immerse yourself in Cuban culture with spontaneous local encounters, full of smiles, stories, and authenticity that make this trip an unforgettable experience.",
+      ],
+      pt: [
+        "Embarque numa aventura cubana única, começando com um passeio por Havana num descapotável clássico, onde a brisa caribenha e a arquitetura histórica o acompanham a cada esquina. Continue a sua viagem até Trinidad, uma joia colonial com ruas de paralelepípedos que o transportarão para outra época com o seu charme preservado. Aí, poderá desfrutar de música ao vivo e cocktails na Plaza Mayor, um cenário mágico onde a vida noturna ganha vida. De seguida, relaxe em praias de areia branca e águas cristalinas, perfeitas para relaxar e deixar-se levar pela tranquilidade do mar. E a cada passo, mergulhe na cultura cubana com encontros espontâneos com os habitantes locais, repletos de sorrisos, histórias e autenticidade que fazem desta viagem uma experiência inesquecível."
+      ]
     },
     highlights: {
       es: [
@@ -74,9 +80,9 @@ const experiencesData: MultiLangExperience[] = [
       pt: "@/pictures/habana-trinidad-mar/3-dias-habana.webp, @/pictures/habana-trinidad-mar/3-dias-habana-2.jpg, @/pictures/habana-trinidad-mar/3-dias-habana-3.jpg, @/pictures/habana-trinidad-mar/3-dias-habana-4.webp, @/pictures/habana-trinidad-mar/3-dias-habana-5.jpg, @/pictures/habana-trinidad-mar/3-dias-habana-6.jpg, @/pictures/habana-trinidad-mar/3-dias-habana-7.jpg"
     },
     duration: {
-      es: "1 día completo",
-      en: "1 full day",
-      pt: "1 dia completo"
+      es: "11 días",
+      en: "11 days",
+      pt: "11 dias"
     },
     difficulty: {
       es: "Fácil",
@@ -84,9 +90,9 @@ const experiencesData: MultiLangExperience[] = [
       pt: "Fácil"
     },
     price: {
-      es: "Desde $120 por persona",
-      en: "From $120 per person",
-      pt: "A partir de $120 por pessoa"
+      es: "Desde 990€ por persona",
+      en: "From 990€ per person",
+      pt: "A partir de 990€ por pessoa"
     },
     included: {
       es: [
@@ -111,31 +117,126 @@ const experiencesData: MultiLangExperience[] = [
     itinerary: {
       es: [
         {
-          day: "Mañana",
-          title: "La Habana Vieja",
-          description: "Comenzamos con un recorrido a pie por el centro histórico, visitando la Plaza de Armas, Plaza de la Catedral y Plaza Vieja. Descubre la arquitectura colonial y la historia fascinante de cada rincón."
+          day: "Día 1",
+          title: "¡Bienvenidos a casa, sean habaneros por unos días!",
+          description: [
+            "El primer día en Cuba comienza con el abrazo cálido de la brisa",
+            "caribeña al aterrizar. Nuestro chofer les espera sonriente en el",
+            "aeropuerto, listo para llevarlos cómodamente a su alojamiento en un",
+            "vehículo privado. Mientras recorren estas primeras calles habaneras,",
+            "llenas de colores y música que se cuela por las ventanas, compartiremos",
+            "esos secretos locales que transforman un viaje en una experiencia:",
+            "dónde tomar el mejor café al amanecer, cómo reconocer una paladar",
+            "auténtica y en qué esquina escucharán los primeros acordes de son.",
+            "La Habana ya late para ustedes... ¿Listos para dejarse seducir?",
+            "Comienza la aventura cubana con un mojito en la mano. ¡Saboreen esta",
+            "aventura!"
+          ]
         },
         {
-          day: "Mediodía",
-          title: "Almuerzo tradicional",
-          description: "Disfruta de la auténtica cocina cubana en un paladar local, con platos tradicionales como ropa vieja, moros y cristianos, y tostones."
+          day: "Día 2",
+          title: "La Habana se revela - Historia, Vintage y Sabor",
+          description: [
+            "Un descapotable clásico y guía privado les mostrarán el alma de la ciudad: plazas coloniales, balcones de Hemingway y talleres secretos de tabaco.",
+            "Después, elijan: Almuerzo en Paladar de La Habana Vieja tipo La Esquina de Cuba. ",
+            "Explorar libremente rincones que les roben el corazón.",
+            "Tarde abierta para perderse en el Malecón al atardecer o seguir el ritmo de la ciudad.",
+            "Hoy no son turistas, son habaneros por un día"
+          ]
         },
         {
-          day: "Tarde",
-          title: "Paseo en auto clásico",
-          description: "Sube a un descapotable de los años 50 y recorre el Malecón, Vedado y Miramar. Termina con una vista espectacular del atardecer sobre el mar Caribe."
+          day: "Día 3",
+          title: "Día Libre: A La Habana se la conquista a pie (y a corazón abierto)",
+          description: [
+            "Hoy la ciudad es suya. Sin rutas fijas ni horarios, dejen que La Habana los sorprenda: piérdanse entre libros antiguos en",
+            "Plaza de Armas, saboreen un café improvisado en un balcón colonial, o sigan la música callejera que los lleve a rincones secretos. ",
+            "El Malecón al atardecer será su mejor recompensa. ",
+            "Los tesoros más auténticos no están en las guías, sino en las esquinas que elijan explorar con curiosidad y tiempo."
+          ]
+        },
+        {
+          day: "Día 4",
+          title: "En Taxi Colectivo hacia Trinidad, donde el Tiempo se Durmió bajo el sol caribeño",
+          description: [
+            "Hoy cambiamos de ritmo: un auténtico taxi colectivo los llevará por carreteras rurales, entre paisajes de palmas y ",
+            "pueblos coloridos, hasta la joya colonial de Trinidad (Patrimonio Mundial). En el trayecto (4-5 horas), vivirán esa Cuba ",
+            "espontánea: paradas improvisadas, conversaciones con lugareños y el aire dulce de la provincia. ",
+            "Al llegar, calles adoquinadas, fachadas pastel y plazas silenciosas les darán la bienvenida. El resto del día es para ",
+            "explorar libremente: tal vez subir al Mirador del Campanario o probar una canchánchara (el cóctel local) en algún patio ",
+            "lleno de música. Trinidad no se visita... se siente con los ojos cerrados."
+          ]
+        },
+        {
+          day: "Días 5 y 6",
+          title: "Días Libres en Trinidad: Donde Cada Callejón Guarda una Historia (y un Mojito de Caña)",
+          description: [
+            "Dos días para explorar a su aire esta joya colonial: suban al campanario al atardecer, compren artesanías en la Casa de ",
+            "los Conspiradores o báñense en Playa Ancón (a 15 min). Pero cuando caiga el sol, la Plaza Mayor se transforma: música ",
+            "en vivo, bailes espontáneos y el famoso canchánchara (cóctel local) fluyen hasta altas horas.",
+            "De día, museo al aire libre; de noche, fiesta bajo las estrellas. Trinidad es así: dual y fascinante."
+          ]
+        },
+        {
+          day: "Día 7",
+          title: "Adiós Trinidad, Hola [Varadero/Cayo Santa María] – El Mar Elige el Final de su Historia",
+          description: [
+            "El último trayecto será toda una experiencia cubana: viajarán en taxi colectivo (4-5 horas) a través de: ",
+            "- Pueblos coloniales donde el tiempo se detuvo.",
+            "- Valles de cultivos tropicales y rústicas casas de tabaco.",
+            "- Paradas espontáneas para estirar las piernas y probar frutas frescas.",
+            "Elijan su destino final:",
+            "- Varadero: 20 km de arena blanca y ambiente vibrante (2h al aeropuerto de La Habana).",
+            "- Cayo Santa María: aislamiento y aguas cristalinas (5h al aeropuerto de La Habana). ",
+            "Al llegar, solo quedará disfrutar su resort todo incluido con:",
+            "- Cócteles al atardecer; Masajes frente al mar; Cenas con los pies en la arena. ",
+            "En Cuba, los caminos saben a aventura y los finales a Caribe."
+          ]
+        },
+        {
+          day: "Días 8 al 10",
+          title: "Ustedes, el Mar y Nada Más – El Caribe en su Estado Más Puro",
+          description: [
+            "Estos días son para entregarse al ritmo del Caribe:",
+            "- Mañanas de chapuzones en aguas turquesas.",
+            "- Tardes de cócteles junto a la piscina infinita.",
+            "- Atardeceres con los pies en la arena blanca.",
+            "- Noches de cenas románticas bajo las estrellas.",
+            "En su resort todo incluido, disfrutarán de:",
+            "Spa con vistas al mar.",
+            "Actividades acuáticas (opcionales).",
+            "Shows nocturnos con sabor cubano.",
+            "El verdadero lujo es tener tiempo para saborear cada ola, cada risa, cada instante bajo este sol..."
+          ]
+        },
+        {
+          day: "Día 11",
+          title: "Hasta pronto, Caribe – Rumbo a casa con el corazón lleno de Cuba",
+          description: [
+            "El último día comienza con mar, arena y sol, y en hora a coordinar un traslado privado directo al aeropuerto de La Habana: ",
+            "- Desde Varadero (2 horas de viaje).",
+            "- Desde Cayo Santa María (5 horas de viaje).",
+            "Mientras recorren la carretera, tendrán tiempo para: ",
+            "- Repasar los mejores momentos del viaje.",
+            "- Detenerse a comprar últimos souvenirs (si lo desean).",
+            "- Disfrutar una última visita al mar Caribe.",
+            "No es un adiós, solo un 'hasta pronto'... Cuba siempre guardará un pedacito de arena para ustedes."
+          ]
         }
       ],
       en: [
         {
           day: "Morning",
           title: "Old Havana",
-          description: "We start with a walking tour through the historic center, visiting Plaza de Armas, Cathedral Square, and Old Square. Discover the colonial architecture and fascinating history of every corner."
+          description: [
+            "We start with a walking tour through the historic center, visiting Plaza de Armas, Cathedral Square, and Old Square. Discover the colonial architecture and fascinating history of every corner."
+          ]
         },
         {
           day: "Midday",
           title: "Traditional Lunch",
-          description: "Enjoy authentic Cuban cuisine at a local paladar, with traditional dishes like ropa vieja, moros y cristianos, and tostones."
+          description: [
+            "Enjoy authentic Cuban cuisine at a local paladar, with traditional dishes like ropa vieja, moros y cristianos, and tostones."
+          ]
         },
         {
           day: "Afternoon",

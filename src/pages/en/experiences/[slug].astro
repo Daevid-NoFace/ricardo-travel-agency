@@ -28,11 +28,16 @@ if (!experience) {
 const images = experience.imagePlaceholder.split(',').map(img => img.trim());
 const hasMultipleImages = images.length > 1;
 const heroId = `hero-${slug}`;
+
+// Convert description to string if it's an array
+const descriptionText = Array.isArray(experience.description) 
+  ? experience.description.join(' ') 
+  : experience.description;
 ---
 
 <Layout 
   title={`${experience.title} | Ricardo Vibes - Experiencias en Cuba`}
-  description={experience.description}
+  description={descriptionText}
 >
   <Header />
   

@@ -20,12 +20,11 @@ const t = useTranslations(currentLang);
         <a href="#about" class="text-gray-700 hover:text-caribbean-blue transition-colors font-medium">{t('nav.about')}</a>
         <a href="#experiences" class="text-gray-700 hover:text-caribbean-blue transition-colors font-medium">{t('nav.experiences')}</a>
         <a href="#contact" class="text-gray-700 hover:text-caribbean-blue transition-colors font-medium">{t('nav.contact')}</a>
-        
+        <LanguageToggle client:load currentLang={currentLang} currentPath={currentPath} />
       </div>
 
       <!-- Contact Buttons -->
       <div class="hidden lg:flex items-center space-x-3">
-        <LanguageToggle client:load currentLang={currentLang} currentPath={currentPath} />
         <a 
           href="mailto:info@cubavibes.com" 
           class="px-4 py-2 text-caribbean-blue border-2 border-caribbean-blue rounded-lg hover:bg-caribbean-blue hover:text-white transition-all font-medium"

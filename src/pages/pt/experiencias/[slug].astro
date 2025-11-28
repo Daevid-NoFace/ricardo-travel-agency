@@ -87,7 +87,7 @@ const itineraryWithSegments = experience.itinerary.map((item) => ({
   
   <main class="bg-white">
     <!-- Hero Section with Image Carousel -->
-    <section class="relative h-screen bg-gradient-to-br from-caribbean-blue to-ocean-blue overflow-hidden">
+    <section id="hero-section" class="relative min-h-screen bg-gradient-to-br from-caribbean-blue to-ocean-blue overflow-y-auto md:overflow-hidden">
       <!-- Image Carousel -->
       {images[0].startsWith('@/') || images[0].startsWith('/') ? (
         <div class="absolute inset-0">
@@ -124,7 +124,7 @@ const itineraryWithSegments = experience.itinerary.map((item) => ({
       <div class="absolute inset-0 bg-black/70"></div>
       
       <!-- Title Overlay -->
-      <div class="absolute bottom-0 left-0 right-0 p-8 md:p-12 z-10">
+      <div class="relative md:absolute md:bottom-0 left-0 right-0 p-8 md:p-12 z-40 mt-20 md:mt-0">
         <div class="container mx-auto max-w-6xl">
           <a 
             href="/pt#experiences" 

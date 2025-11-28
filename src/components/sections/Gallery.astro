@@ -1,67 +1,27 @@
 ---
-// Gallery section with grid layout
-const galleryItems = [
-  {
-    title: "Edificios coloniales de colores en La Habana",
-    description: "Fachadas pasteles vibrantes en las calles de La Habana Vieja"
-  },
-  {
-    title: "Autos clásicos en el Malecón",
-    description: "Convertibles de los años 50 recorren el icónico litoral"
-  },
-  {
-    title: "Playas caribeñas prístinas",
-    description: "Aguas turquesas cristalinas junto a arena blanca"
-  },
-  {
-    title: "Campos de tabaco en Viñales",
-    description: "Plantaciones verdes bajo majestuosos mogotes"
-  },
-  {
-    title: "Músicos callejeros cubanos",
-    description: "Son y salsa en vivo llenan el aire en Trinidad"
-  },
-  {
-    title: "Calles empedradas de Trinidad",
-    description: "Encanto colonial preservado en cada rincón"
-  },
-  {
-    title: "Atardecer en el Malecón habanero",
-    description: "La hora dorada frente al mar Caribe"
-  },
-  {
-    title: "Gastronomía cubana tradicional",
-    description: "Sabores auténticos e ingredientes frescos"
-  },
-  {
-    title: "Arquitectura francesa en Cienfuegos",
-    description: "Elegantes edificios neoclásicos junto a la bahía"
-  },
-  {
-    title: "Paraíso de playa en Varadero",
-    description: "20 km de costa inmaculada"
-  },
-  {
-    title: "Baile de salsa cubano",
-    description: "Ritmos apasionados y cultura vibrante"
-  },
-  {
-    title: "Paisaje del Valle de Viñales",
-    description: "Belleza natural Patrimonio de la Humanidad"
-  }
-];
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const currentLang = getLangFromUrl(Astro.url);
+const t = useTranslations(currentLang);
+const rawGalleryItems = t('gallery.items');
+const galleryItems: Array<{ title: string; description: string }> = Array.isArray(rawGalleryItems)
+  ? (rawGalleryItems as Array<{ title: string; description: string }>).map((item) => ({
+      title: item.title,
+      description: item.description
+    }))
+  : [];
 ---
 
 <section id="gallery" class="py-20 bg-white">
   <div class="container mx-auto px-4">
     <!-- Section Header -->
     <div class="text-center mb-16 max-w-3xl mx-auto">
-      <span class="text-coral font-semibold text-sm uppercase tracking-wider mb-4 block">Viaje visual</span>
+      <span class="text-coral font-semibold text-sm uppercase tracking-wider mb-4 block">{t('gallery.label')}</span>
       <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-        Cuba en <span class="text-caribbean-blue">imágenes</span>
+        {t('gallery.title')} <span class="text-caribbean-blue">{t('gallery.titleHighlight')}</span>
       </h2>
       <p class="text-lg text-gray-700 leading-relaxed">
-        Una mirada a los colores vibrantes, la cultura rica y los paisajes impresionantes que hacen a Cuba inolvidable.
+        {t('gallery.subtitle')}
       </p>
     </div>
 
@@ -105,7 +65,7 @@ const galleryItems = [
     <!-- Gallery Note -->
     <div class="text-center mt-12">
       <p class="text-gray-600 italic">
-        Estas son imágenes de ejemplo. Tu galería mostrará fotografías reales de experiencias cubanas auténticas.
+        {t('gallery.note')}
       </p>
     </div>
   </div>

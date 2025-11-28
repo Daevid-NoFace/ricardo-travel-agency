@@ -73,6 +73,27 @@ export const ui = {
 		'experiences.ctaQuestion': '¿Listo para crear tu aventura perfecta en Cuba?',
 		'experiences.ctaButton': 'Hablemos',
 
+		// Gallery
+		'gallery.label': 'Viaje visual',
+		'gallery.title': 'Cuba en',
+		'gallery.titleHighlight': 'imágenes',
+		'gallery.subtitle': 'Una mirada a los colores vibrantes, la cultura rica y los paisajes impresionantes que hacen a Cuba inolvidable.',
+		'gallery.note': 'Estas son imágenes de ejemplo. Tu galería mostrará fotografías reales de experiencias cubanas auténticas.',
+		'gallery.items': [
+			{ title: 'Edificios coloniales de colores en La Habana', description: 'Fachadas pasteles vibrantes en las calles de La Habana Vieja' },
+			{ title: 'Autos clásicos en el Malecón', description: 'Convertibles de los años 50 recorren el icónico litoral' },
+			{ title: 'Playas caribeñas prístinas', description: 'Aguas turquesas cristalinas junto a arena blanca' },
+			{ title: 'Campos de tabaco en Viñales', description: 'Plantaciones verdes bajo majestuosos mogotes' },
+			{ title: 'Músicos callejeros cubanos', description: 'Son y salsa en vivo llenan el aire en Trinidad' },
+			{ title: 'Calles empedradas de Trinidad', description: 'Encanto colonial preservado en cada rincón' },
+			{ title: 'Atardecer en el Malecón habanero', description: 'La hora dorada frente al mar Caribe' },
+			{ title: 'Gastronomía cubana tradicional', description: 'Sabores auténticos e ingredientes frescos' },
+			{ title: 'Arquitectura francesa en Cienfuegos', description: 'Elegantes edificios neoclásicos junto a la bahía' },
+			{ title: 'Paraíso de playa en Varadero', description: '20 km de costa inmaculada' },
+			{ title: 'Baile de salsa cubano', description: 'Ritmos apasionados y cultura vibrante' },
+			{ title: 'Paisaje del Valle de Viñales', description: 'Belleza natural Patrimonio de la Humanidad' },
+		],
+
 		// Common
 		'common.duration': 'Duración',
 		'common.difficulty': 'Dificultad',
@@ -219,6 +240,27 @@ export const ui = {
 		'experiences.ctaQuestion': 'Ready to create your perfect Cuban adventure?',
 		'experiences.ctaButton': 'Let\'s Talk',
 
+		// Gallery
+		'gallery.label': 'Visual Journey',
+		'gallery.title': 'Cuba in',
+		'gallery.titleHighlight': 'images',
+		'gallery.subtitle': 'A glimpse into the vibrant colors, rich culture, and breathtaking landscapes that make Cuba unforgettable.',
+		'gallery.note': 'These are sample images. Your gallery will showcase real photos from authentic Cuban experiences.',
+		'gallery.items': [
+			{ title: 'Colorful colonial buildings in Havana', description: 'Pastel facades lining the streets of Old Havana' },
+			{ title: 'Classic cars along the Malecón', description: '1950s convertibles cruising the iconic waterfront' },
+			{ title: 'Pristine Caribbean beaches', description: 'Crystal-clear turquoise waters and powdery white sand' },
+			{ title: 'Tobacco fields in Viñales', description: 'Lush plantations beneath towering mogotes' },
+			{ title: 'Cuban street musicians', description: 'Live son and salsa fill the air in Trinidad' },
+			{ title: 'Cobblestone streets of Trinidad', description: 'Colonial charm preserved on every corner' },
+			{ title: 'Sunset on the Havana Malecón', description: 'Golden hour along the Caribbean Sea' },
+			{ title: 'Traditional Cuban cuisine', description: 'Authentic flavors and fresh ingredients' },
+			{ title: 'French architecture in Cienfuegos', description: 'Elegant neoclassical buildings by the bay' },
+			{ title: 'Beach paradise in Varadero', description: '20 km of immaculate coastline' },
+			{ title: 'Cuban salsa dancing', description: 'Passionate rhythms and vibrant culture' },
+			{ title: 'Viñales Valley landscape', description: 'UNESCO natural beauty at its finest' },
+		],
+
 		// Common
 		'common.duration': 'Duration',
 		'common.difficulty': 'Difficulty',
@@ -364,6 +406,27 @@ export const ui = {
 		'experiences.showLess': 'Ver menos',
 		'experiences.ctaQuestion': 'Pronto para criar sua aventura perfeita em Cuba?',
 		'experiences.ctaButton': 'Vamos Conversar',
+
+		// Gallery
+		'gallery.label': 'Jornada Visual',
+		'gallery.title': 'Cuba em',
+		'gallery.titleHighlight': 'imagens',
+		'gallery.subtitle': 'Um olhar sobre as cores vibrantes, a cultura rica e as paisagens deslumbrantes que tornam Cuba inesquecível.',
+		'gallery.note': 'Estas são imagens de exemplo. Sua galeria mostrará fotos reais de experiências cubanas autênticas.',
+		'gallery.items': [
+			{ title: 'Prédios coloniais coloridos em Havana', description: 'Fachadas em tons pastéis nas ruas da Havana Velha' },
+			{ title: 'Carros clássicos no Malecón', description: 'Conversíveis dos anos 50 percorrendo o icônico litoral' },
+			{ title: 'Praias caribenhas pristinas', description: 'Águas turquesas cristalinas e areia branca' },
+			{ title: 'Campos de tabaco em Viñales', description: 'Plantações verdejantes sob imponentes mogotes' },
+			{ title: 'Músicos de rua cubanos', description: 'Son e salsa ao vivo preenchem o ar em Trinidad' },
+			{ title: 'Ruas de paralelepípedos de Trinidad', description: 'Charme colonial preservado em cada esquina' },
+			{ title: 'Pôr do sol no Malecón de Havana', description: 'Hora dourada diante do mar do Caribe' },
+			{ title: 'Gastronomia cubana tradicional', description: 'Sabores autênticos e ingredientes frescos' },
+			{ title: 'Arquitetura francesa em Cienfuegos', description: 'Elegantes edifícios neoclássicos à beira da baía' },
+			{ title: 'Paraíso de praia em Varadero', description: '20 km de litoral impecável' },
+			{ title: 'Dança cubana de salsa', description: 'Ritmos apaixonados e cultura vibrante' },
+			{ title: 'Paisagem do Vale de Viñales', description: 'Beleza natural Patrimônio da Humanidade' },
+		],
 
 		// Common
 		'common.duration': 'Duração',

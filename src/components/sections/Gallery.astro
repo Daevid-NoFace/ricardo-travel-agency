@@ -10,6 +10,11 @@ const galleryItems: Array<{ title: string; description: string }> = Array.isArra
       description: item.description
     }))
   : [];
+
+const getImageUrl = (title: string, index: number) => {
+  const keywords = encodeURIComponent(`${title} cuba`.toLowerCase());
+  return `https://source.unsplash.com/random/800x800/?${keywords}&sig=${index}`;
+};
 ---
 
 <section id="gallery" class="py-20 bg-white">
@@ -29,16 +34,15 @@ const galleryItems: Array<{ title: string; description: string }> = Array.isArra
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 max-w-7xl mx-auto">
       {galleryItems.map((item, index) => (
         <div class="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 aspect-square">
-          <!-- Image Placeholder with gradient -->
-          <div class={`absolute inset-0 bg-gradient-to-br ${
-            index % 6 === 0 ? 'from-caribbean-blue to-ocean-blue' :
-            index % 6 === 1 ? 'from-coral to-sunset-orange' :
-            index % 6 === 2 ? 'from-tropical-green to-ocean-blue' :
-            index % 6 === 3 ? 'from-sunset-orange to-coral' :
-            index % 6 === 4 ? 'from-ocean-blue to-tropical-green' :
-            'from-caribbean-blue to-tropical-green'
-          }`}></div>
-          
+          <!-- Image from Unsplash -->
+          <img 
+            src={getImageUrl(item.title, index)} 
+            alt={item.title}
+            class="absolute inset-0 w-full h-full object-cover"
+            loading="lazy"
+            decoding="async"
+          />
+
           <!-- Overlay with hover effect -->
           <div class="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-all duration-300"></div>
           

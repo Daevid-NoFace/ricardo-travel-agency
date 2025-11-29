@@ -24,10 +24,20 @@ export default function GalleryCarousel({ photos, items }: GalleryCarouselProps)
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const [isLightboxVisible, setIsLightboxVisible] = useState(false);
   const [isFading, setIsFading] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Get 8 visible items (2 rows x 4 columns)
-  const visiblePhotos = [...photos, ...photos].slice(currentIndex, currentIndex + 8);
+  // Detect mobile screen size
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  // Get visible items: 4 for mobile (2x2), 8 for desktop (2x4)
+  const itemCount = isMobile ? 4 : 8;
+  const visiblePhotos = [...photos, ...photos].slice(currentIndex, currentIndex + itemCount);
 
   // Auto-advance carousel every 3 seconds with fade effect
   useEffect(() => {
@@ -103,9 +113,9 @@ export default function GalleryCarousel({ photos, items }: GalleryCarouselProps)
 
   return (
     <>
-      {/* Carousel Grid - 2 rows x 4 columns */}
+      {/* Carousel Grid - 2 rows x 2 columns (mobile) / 2 rows x 4 columns (desktop) */}
       <div 
-        className={`grid grid-cols-2 md:grid-cols-4 grid-rows-4 md:grid-rows-2 gap-4 md:gap-6 max-w-7xl mx-auto transition-opacity duration-500 ${isFading ? 'opacity-0' : 'opacity-100'}`}
+        className={`grid grid-cols-2 md:grid-cols-4 grid-rows-2 gap-4 md:gap-6 max-w-7xl mx-auto transition-opacity duration-500 ${isFading ? 'opacity-0' : 'opacity-100'}`}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
@@ -140,10 +150,10 @@ export default function GalleryCarousel({ photos, items }: GalleryCarouselProps)
                 </p>
               </div>
 
-              {/* Zoom icon on hover */}
+              {/* Zoom icon - always visible on mobile, hover on desktop */}
               <button
                 onClick={() => openLightbox(index)}
-                className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 cursor-pointer hover:scale-110 transform"
+                className="absolute top-4 right-4 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300 cursor-pointer hover:scale-110 transform bg-black/50 md:bg-transparent rounded-full p-2 md:p-0"
                 aria-label="Ampliar imagen"
               >
                 <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">

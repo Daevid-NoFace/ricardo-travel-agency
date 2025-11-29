@@ -439,7 +439,7 @@ const experiencesData: MultiLangExperience[] = [
         "Explora La Habana en un descapotable clásico",
         "Descubre Viñales, una joya paisajística Patrimonio Mundial",
         "Disfruta de música en vivo y cócteles en sus preciosos bares",
-        "Relájate en paseos entre mogotes lo mismo a pie que a caballo",
+        "Relájate en paseos entre mogotes lo mismo a pie o a caballo",
         "Sumérgete en la cultura campesina cubana con encuentros locales espontáneos"
       ],
       en: [
@@ -535,7 +535,7 @@ const experiencesData: MultiLangExperience[] = [
             "paisajes de palmas y pueblos coloridos, hasta la joya natural del Valle de Viñales (Patrimonio Mundial). En el trayecto (2 ",
             "horas), vivirán esa Cuba espontánea: paradas improvisadas, conversaciones con lugareños y el aire dulce de la provincia. ",
             "Al llegar, los mogotes serán quienes te sorprenderán, las casitas de techos rojos tan bien organizadas en la calle principal ",
-            "te moverán las manos en ademan de bienvenida y el verdor por doquier serán tu esperanza de reencontrarte contigo ",
+            "te moverán las manos en ademán de bienvenida y el verdor por doquier serán tu esperanza de reencontrarte contigo ",
             "mismo y mudar tu forma de pensar para siempre. El resto del día es para explorar libremente: un paseo a caballo es muy ",
             "recomendado, pregúntame cómo hacerlo y te digo. Viñales no se visita... se siente con el corazón lleno de verde."
           ]
@@ -557,8 +557,8 @@ const experiencesData: MultiLangExperience[] = [
           day: "Día 6",
           title: "Adiós Viñales, una parada, la última en La Habana y un salto a Varadero al siguiente día – El Mar Elige el Final de su Historia",
           description: [
-            "Volvamos a la capital. No se puede negar que allí es donde más se mueve “la cosa” decimos los cubanos. Se sale después ",
-            "del desayuno para La Habana y una vez allí (11am) esta queda a tu merced. Buena oportunidad para patearla tu solo. ",
+            "Volvamos a la capital. No se puede negar que allí es donde más se mueve “la cosa”, como decimos los cubanos. Se sale hacia La Habana después ",
+            "del desayuno, y una vez allí (11am) esta queda a tu merced. Buena oportunidad para caminarla tú solo. ",
             "Sin rutas fijas ni horarios, dejen que La Habana los sorprenda: piérdanse entre libros antiguos en Plaza de Armas, ",
             "saboreen un café improvisado en un balcón colonial, o sigan la música callejera que los lleve a rincones secretos. El ",
             "Malecón al atardecer será su mejor recompensa.",
@@ -572,7 +572,7 @@ const experiencesData: MultiLangExperience[] = [
             "Salimos para Varadero en taxi colectivo y en apenas 2 horas estamos allí. De camino podrán pasar por debajo del ",
             "famoso túnel de La Habana y tomando la llamada Vía Blanca, siempre con el mar de compañero inseparable a la ",
             "izquierda, podrán tomarse una Piña Colada por el camino y echarle un ojo al impresionante Puente de Bacunayagua. ",
-            "Luego vendrá Matanzas, la Venecia de Cuba y pasándola ya casi están en Varadero.",
+            "Luego vendrá Matanzas, la Venecia de Cuba, y pasándola ya casi están en Varadero.",
             "En Cuba, los caminos saben a aventura y los finales a Caribe."
           ]
         },

@@ -1,12 +1,23 @@
-import { useState, type FormEvent, type ChangeEvent } from 'react';
+import { useState, type FormEvent, type ChangeEvent, useEffect } from 'react';
 import { FaEnvelope, FaWhatsapp, FaClock, FaFacebook, FaInstagram, FaTwitter } from 'react-icons/fa';
 import { ui, defaultLang } from '../i18n/ui';
+import emailjs from '@emailjs/browser';
 
-// Hook para obtener el idioma actual desde la URL
+// Hook para obtener el idioma actual desde la URL (SSR compatible)
 function useCurrentLang() {
-  if (typeof window === 'undefined') return defaultLang;
-  const [, lang] = window.location.pathname.split('/');
-  return (lang in ui ? lang : defaultLang) as keyof typeof ui;
+  const [lang, setLang] = useState<keyof typeof ui>(defaultLang);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const [, currentLang] = window.location.pathname.split('/');
+      const newLang = (currentLang in ui ? currentLang : defaultLang) as keyof typeof ui;
+      setLang(newLang);
+    } else {
+      setLang(defaultLang);
+    }
+  }, [defaultLang]);
+
+  return lang;
 }
 
 // Hook para traducciones
@@ -98,12 +109,26 @@ export default function ContactSection() {
     setSubmitStatus('idle');
 
     try {
-      // Simulate form submission - replace with actual API call
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      
-      // In a real implementation, you would send the form data to your backend
-      console.log('Form submitted:', formData);
-      
+      // EmailJS configuration
+      const serviceId = import.meta.env.PUBLIC_EMAILJS_SERVICE_ID;
+      const templateId = import.meta.env.PUBLIC_EMAILJS_TEMPLATE_ID;
+      const publicKey = import.meta.env.PUBLIC_EMAILJS_PUBLIC_KEY;
+
+      // Send email using EmailJS
+      const result = await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          reply_to: formData.email,
+          message: formData.message,
+          to_email: 'cubabrillante@gmail.com',
+        },
+        publicKey
+      );
+
+      console.log('Email sent successfully:', result);
       setSubmitStatus('success');
       setFormData({ name: '', email: '', message: '' });
       
@@ -148,7 +173,7 @@ export default function ContactSection() {
             <div className="space-y-6 mb-8">
               {/* Email */}
               <a 
-                href="mailto:info@cubavibes.com"
+                href="mailto:cubabrillante@gmail.com"
                 className="flex items-start gap-4 p-4 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow group"
               >
                 <div className="w-12 h-12 bg-caribbean-blue/10 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-caribbean-blue/20 transition-colors">
@@ -156,14 +181,14 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <h4 className="font-semibold text-gray-900 mb-1">{t('contact.email')}</h4>
-                  <p className="text-caribbean-blue hover:underline">info@cubavibes.com</p>
+                  <p className="text-caribbean-blue hover:underline">cubabrillante@gmail.com</p>
                   <p className="text-sm text-gray-600 mt-1">{t('contact.emailResponse')}</p>
                 </div>
               </a>
 
               {/* WhatsApp */}
               <a 
-                href="https://wa.me/1234567890?text=%C2%A1Hola!%20Quiero%20planear%20mi%20viaje%20a%20Cuba.%20%C2%BFPodemos%20conversar?"
+                href="https://wa.me/5351598370?text=%C2%A1Hola!%20Quiero%20planear%20mi%20viaje%20a%20Cuba.%20%C2%BFPodemos%20conversar?"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-start gap-4 p-4 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow group"
@@ -173,7 +198,7 @@ export default function ContactSection() {
                 </div>
                 <div>
                   <h4 className="font-semibold text-gray-900 mb-1">{t('contact.whatsapp')}</h4>
-                  <p className="text-tropical-green hover:underline">+1 (234) 567-890</p>
+                  <p className="text-tropical-green hover:underline">+53 5 1598370</p>
                   <p className="text-sm text-gray-600 mt-1">{t('contact.whatsappResponse')}</p>
                 </div>
               </a>

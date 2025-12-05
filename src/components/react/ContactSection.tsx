@@ -24,8 +24,9 @@ function useCurrentLang() {
 // Hook para traducciones
 function useTranslations() {
   const lang = useCurrentLang();
-  return function t(key: keyof (typeof ui)[typeof defaultLang]) {
-    return ui[lang][key] || ui[defaultLang][key];
+  return function t(key: keyof (typeof ui)[typeof defaultLang]): string {
+    const value = ui[lang][key] || ui[defaultLang][key];
+    return typeof value === 'string' ? value : String(value);
   };
 }
 

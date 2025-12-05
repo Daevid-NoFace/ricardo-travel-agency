@@ -3,11 +3,11 @@ import { getLangFromUrl, useTranslations } from './i18n/utils';
 import { getExperiences } from '../data/experiences';
 
 interface Props {
-  slug: string;
-  title: string;
+  slug?: string;
+  title?: string;
 }
 
-const { slug, title } = Astro.props;
+const { slug = '', title = '' } = Astro.props;
 const currentLang = getLangFromUrl(Astro.url);
 const t = useTranslations(currentLang);
 const currentYear = new Date().getFullYear();

@@ -33,7 +33,7 @@ interface MultiLangExperience {
 }
 
 const experiencesData: MultiLangExperience[] = [
-  // Slug 1
+  // Slug 1 habana-trinidad-mar
   {
     slug: "habana-trinidad-mar",
     title: {
@@ -421,7 +421,7 @@ const experiencesData: MultiLangExperience[] = [
     }
   },
 
-  // Slug 2
+  // Slug 2 habana-vinales-mar
   {
     slug: "habana-vinales-mar",
     title: {
@@ -820,6 +820,8 @@ const experiencesData: MultiLangExperience[] = [
       ]
     }
   },
+
+  //Slug 3
   {
     slug: "experiencia-colonial-trinidad",
     title: {
@@ -946,6 +948,8 @@ const experiencesData: MultiLangExperience[] = [
       ]
     }
   },
+
+  // Slug 4
   {
     slug: "paraiso-playa-varadero",
     title: {
@@ -1072,6 +1076,8 @@ const experiencesData: MultiLangExperience[] = [
       ]
     }
   },
+
+  // Slug 5
   {
     slug: "inmersion-cultura-cubana",
     title: {
@@ -1198,6 +1204,8 @@ const experiencesData: MultiLangExperience[] = [
       ]
     }
   },
+
+  // Slug 6
   {
     slug: "cienfuegos-bahia-cochinos",
     title: {
@@ -1309,6 +1317,8 @@ const experiencesData: MultiLangExperience[] = [
       ]
     }
   },
+
+  // Slug 7
   {
     slug: "naturaleza-vida-silvestre",
     title: {
@@ -1435,6 +1445,8 @@ const experiencesData: MultiLangExperience[] = [
       ]
     }
   },
+
+  // Slug 8
   {
     slug: "herencia-santiago-cuba",
     title: {
@@ -1561,6 +1573,7 @@ const experiencesData: MultiLangExperience[] = [
       ]
     }
   }
+  
 ];
 
 // Helper para obtener experiencia en el idioma correcto

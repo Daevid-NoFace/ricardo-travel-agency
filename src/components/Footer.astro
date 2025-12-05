@@ -1,9 +1,22 @@
 ---
 import { getLangFromUrl, useTranslations } from './i18n/utils';
+import { getExperiences } from '../data/experiences';
 
+interface Props {
+  slug: string;
+  title: string;
+}
+
+const { slug, title } = Astro.props;
 const currentLang = getLangFromUrl(Astro.url);
 const t = useTranslations(currentLang);
 const currentYear = new Date().getFullYear();
+
+// Construir la URL correcta según el idioma
+import { routes, defaultLang, showDefaultLang } from './i18n/ui';
+const experiencesPath = routes[currentLang]?.experiencesPath || routes[defaultLang].experiencesPath;
+const langPrefix = (!showDefaultLang && currentLang === defaultLang) ? '' : `/${currentLang}`;
+const experienceUrl = `${langPrefix}/${experiencesPath}/${slug}`;
 ---
 
 <footer class="bg-gray-900 text-white pt-16 pb-8">
@@ -12,7 +25,7 @@ const currentYear = new Date().getFullYear();
       <!-- About Column -->
       <div>
         <h3 class="text-2xl font-bold mb-4">
-          Ricardo<span class="text-coral">Vibes</span>
+          Cuba<span class="text-coral">Brillante</span>
         </h3>
         <p class="text-gray-400 mb-6 leading-relaxed">
           {t('footer.tagline')}
@@ -82,12 +95,12 @@ const currentYear = new Date().getFullYear();
           <li>
             <a href="/#gallery" class="text-gray-400 hover:text-caribbean-blue transition-colors">{t('footer.gallery')}</a>
           </li>
-          <li>
+          <!-- <li>
             <a href="/#testimonials" class="text-gray-400 hover:text-caribbean-blue transition-colors">Opiniones</a>
           </li>
           <li>
             <a href="/#blog" class="text-gray-400 hover:text-caribbean-blue transition-colors">{t('footer.blog')}</a>
-          </li>
+          </li> -->
           <li>
             <a href="/#contact" class="text-gray-400 hover:text-caribbean-blue transition-colors">{t('footer.contact')}</a>
           </li>
@@ -98,7 +111,13 @@ const currentYear = new Date().getFullYear();
       <div>
         <h4 class="text-lg font-semibold mb-4">{t('footer.experiences')}</h4>
         <ul class="space-y-3">
-          <li>
+          {getExperiences(currentLang).slice(0, 2).map((exp) => (
+            <li>
+              <a href={`${langPrefix}/${experiencesPath}/${exp.slug}`} 
+              class="text-gray-400 hover:text-caribbean-blue transition-colors">{exp.title}</a>
+            </li>
+          ))}
+          <!-- <li>
             <a href="/#experiences" class="text-gray-400 hover:text-caribbean-blue transition-colors">Tours por La Habana</a>
           </li>
           <li>
@@ -115,7 +134,7 @@ const currentYear = new Date().getFullYear();
           </li>
           <li>
             <a href="/#experiences" class="text-gray-400 hover:text-caribbean-blue transition-colors">Aventuras en la naturaleza</a>
-          </li>
+          </li> -->
         </ul>
       </div>
 

@@ -170,7 +170,7 @@ export default function ContactSection() {
         {/* Contact Content */}
         <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
           {/* Contact Information */}
-          <div>
+          <div className="p-8">
             <h3 className="text-2xl font-bold text-gray-900 mb-6">{t('contact.getInTouch')}</h3>
             <p className="text-gray-700 mb-8 leading-relaxed">
               {t('contact.description')}
@@ -221,40 +221,6 @@ export default function ContactSection() {
                   <p className="text-gray-700">{t('contact.hours')}</p>
                   <p className="text-sm text-gray-600 mt-1">{t('contact.timezone')}</p>
                 </div>
-              </div>
-            </div>
-
-            {/* Social Media */}
-            <div>
-              <h4 className="font-semibold text-gray-900 mb-4">{t('contact.followUs')}</h4>
-              <div className="flex gap-4">
-                <a 
-                  href="https://facebook.com" 
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-12 h-12 bg-caribbean-blue text-white rounded-lg flex items-center justify-center hover:bg-ocean-blue transition-colors"
-                  aria-label="Facebook"
-                >
-                  <FaFacebook className="text-xl" />
-                </a>
-                <a 
-                  href="https://instagram.com" 
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-12 h-12 bg-coral text-white rounded-lg flex items-center justify-center hover:bg-sunset-orange transition-colors"
-                  aria-label="Instagram"
-                >
-                  <FaInstagram className="text-xl" />
-                </a>
-                <a 
-                  href="https://twitter.com" 
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-12 h-12 bg-ocean-blue text-white rounded-lg flex items-center justify-center hover:bg-caribbean-blue transition-colors"
-                  aria-label="Twitter"
-                >
-                  <FaTwitter className="text-xl" />
-                </a>
               </div>
             </div>
           </div>

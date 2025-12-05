@@ -55,6 +55,10 @@ export default function ContactSection() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
+  
+  // Check if required environment variables are available
+  const recaptchaSiteKey = import.meta.env.PUBLIC_RECAPTCHA_SITE_KEY;
+  const hasRecaptcha = Boolean(recaptchaSiteKey);
 
   const validateEmail = (email: string): boolean => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -120,6 +124,15 @@ export default function ContactSection() {
       const serviceId = import.meta.env.PUBLIC_EMAILJS_SERVICE_ID;
       const templateId = import.meta.env.PUBLIC_EMAILJS_TEMPLATE_ID;
       const publicKey = import.meta.env.PUBLIC_EMAILJS_PUBLIC_KEY;
+
+      // Check if EmailJS is configured
+      if (!serviceId || !templateId || !publicKey) {
+        console.error('EmailJS not configured. Missing environment variables.');
+        console.log('Form data:', formData);
+        setSubmitStatus('error');
+        setIsSubmitting(false);
+        return;
+      }
 
       // Send email using EmailJS
       const result = await emailjs.send(
@@ -305,18 +318,24 @@ export default function ContactSection() {
                 </div>
 
                 {/* reCAPTCHA */}
-                <div className="flex justify-center">
-                  <ReCaptchaWrapper
-                    sitekey={import.meta.env.PUBLIC_RECAPTCHA_SITE_KEY}
-                    onChange={handleRecaptchaChange}
-                    onExpired={() => setRecaptchaToken(null)}
-                  />
-                </div>
+                {hasRecaptcha ? (
+                  <div className="flex justify-center">
+                    <ReCaptchaWrapper
+                      sitekey={recaptchaSiteKey}
+                      onChange={handleRecaptchaChange}
+                      onExpired={() => setRecaptchaToken(null)}
+                    />
+                  </div>
+                ) : (
+                  <div className="p-4 bg-yellow-50 border border-yellow-300 rounded-lg text-sm text-yellow-800">
+                    ⚠️ reCAPTCHA no está configurado. El formulario funcionará sin protección anti-spam.
+                  </div>
+                )}
 
                 {/* Submit Button */}
                 <button
                   type="submit"
-                  disabled={isSubmitting || !recaptchaToken}
+                  disabled={isSubmitting || (hasRecaptcha && !recaptchaToken)}
                   className="w-full px-8 py-4 bg-caribbean-blue text-white rounded-lg font-semibold text-lg hover:bg-ocean-blue transition-all duration-300 transform hover:scale-105 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
                 >
                   {isSubmitting ? t('contact.sending') : t('contact.sendButton')}

@@ -2,6 +2,7 @@ import { useState, type FormEvent, type ChangeEvent, useEffect } from 'react';
 import { FaEnvelope, FaWhatsapp, FaClock, FaFacebook, FaInstagram, FaTwitter } from 'react-icons/fa';
 import { ui, defaultLang } from '../i18n/ui';
 import emailjs from '@emailjs/browser';
+import ReCaptchaWrapper from './ReCaptchaWrapper';
 
 // Hook para obtener el idioma actual desde la URL (SSR compatible)
 function useCurrentLang() {
@@ -52,6 +53,7 @@ export default function ContactSection() {
   const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
 
   const validateEmail = (email: string): boolean => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -98,6 +100,10 @@ export default function ContactSection() {
     }
   };
 
+  const handleRecaptchaChange = (token: string | null) => {
+    setRecaptchaToken(token);
+  };
+
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     
@@ -131,6 +137,7 @@ export default function ContactSection() {
       console.log('Email sent successfully:', result);
       setSubmitStatus('success');
       setFormData({ name: '', email: '', message: '' });
+      setRecaptchaToken(null);
       
       // Reset success message after 5 seconds
       setTimeout(() => {
@@ -330,10 +337,19 @@ export default function ContactSection() {
                   )}
                 </div>
 
+                {/* reCAPTCHA */}
+                <div className="flex justify-center">
+                  <ReCaptchaWrapper
+                    sitekey={import.meta.env.PUBLIC_RECAPTCHA_SITE_KEY}
+                    onChange={handleRecaptchaChange}
+                    onExpired={() => setRecaptchaToken(null)}
+                  />
+                </div>
+
                 {/* Submit Button */}
                 <button
                   type="submit"
-                  disabled={isSubmitting}
+                  disabled={isSubmitting || !recaptchaToken}
                   className="w-full px-8 py-4 bg-caribbean-blue text-white rounded-lg font-semibold text-lg hover:bg-ocean-blue transition-all duration-300 transform hover:scale-105 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
                 >
                   {isSubmitting ? t('contact.sending') : t('contact.sendButton')}
